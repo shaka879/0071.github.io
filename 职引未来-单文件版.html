@@ -1,0 +1,3031 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>职引未来 · 职途 CareerFit · 全国求职智能匹配</title>
+<meta name="description" content="职引未来 · 覆盖全国高校与本科专业目录的求职意向智能匹配平台，支持院校/专业搜索、技能推荐、省市区县三级选择、薪资挡位自动匹配、考公考编推荐与全网实时检索。">
+<meta name="theme-color" content="#3355ff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="职引未来 · 职途 CareerFit">
+<meta property="og:description" content="覆盖全国高校、本科专业、359 个城市与 2592 个区县的求职意向智能匹配平台。">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogIDxkZWZzPg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzM1NWZmIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwNmI2ZDQiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICA8L2RlZnM+DQogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjE2IiBmaWxsPSJ1cmwoI2cpIi8+DQogIDx0ZXh0IHg9IjMyIiB5PSI0NSIgZm9udC1zaXplPSIzNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZmZmZiINCiAgICAgICAgZm9udC1mYW1pbHk9IlBpbmdGYW5nIFNDLCBNaWNyb3NvZnQgWWFIZWksIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiPuiBjDwvdGV4dD4NCjwvc3ZnPg==" type="image/svg+xml">
+<style>
+:root {
+  --bg: #f3f6fc;
+  --bg-soft: #eaf0fb;
+  --surface: #ffffff;
+  --surface-2: #f7f9ff;
+  --text: #101828;
+  --muted: #667085;
+  --line: #e4e9f2;
+  --primary: #3355ff;
+  --primary-2: #06b6d4;
+  --primary-soft: #eef2ff;
+  --success: #12b76a;
+  --warn: #f79009;
+  --danger: #f04438;
+  --shadow: 0 18px 40px -18px rgba(24, 39, 75, .28);
+  --shadow-sm: 0 4px 14px -6px rgba(24, 39, 75, .18);
+  --radius: 18px;
+  --max: 1120px;
+}
+[data-theme="dark"] {
+  --bg: #0a0f1c;
+  --bg-soft: #111827;
+  --surface: #111a2c;
+  --surface-2: #162034;
+  --text: #eef2ff;
+  --muted: #93a1bb;
+  --line: #26334d;
+  --primary: #6c8cff;
+  --primary-2: #22d3ee;
+  --primary-soft: #1b2a4d;
+  --shadow: 0 18px 44px -18px rgba(0, 0, 0, .7);
+  --shadow-sm: 0 4px 16px -8px rgba(0, 0, 0, .6);
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 520px at 8% -8%, rgba(51, 85, 255, .16), transparent 60%),
+    radial-gradient(900px 460px at 96% 4%, rgba(6, 182, 212, .14), transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+button, input, select { font-family: inherit; font-size: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: var(--primary); text-decoration: none; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 40;
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  max-width: var(--max); margin: 0 auto; padding: 12px 20px;
+  display: flex; align-items: center; gap: 22px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .3px; white-space: nowrap; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff; font-size: 15px; font-weight: 900;
+  box-shadow: 0 8px 20px -8px rgba(51, 85, 255, .8);
+}
+.brand small { display: block; font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 1.5px; }
+.stepbar { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+.step-node { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; white-space: nowrap; }
+.step-node i {
+  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  border: 1.5px solid var(--line); font-style: normal; font-size: 12px; font-weight: 700; transition: .25s;
+}
+.step-node.active { color: var(--primary); font-weight: 700; }
+.step-node.active i { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 16%, transparent); }
+.step-node.done { color: var(--success); }
+.step-node.done i { background: var(--success); border-color: var(--success); color: #fff; }
+.step-line { width: 26px; height: 2px; background: var(--line); border-radius: 2px; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 12px; border: 1px solid var(--line);
+  background: var(--surface); display: grid; place-items: center; transition: .2s;
+}
+.icon-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+
+main { max-width: var(--max); margin: 0 auto; padding: 26px 20px 90px; }
+
+.hero { margin: 8px 0 22px; }
+.hero h1 { font-size: clamp(24px, 3.4vw, 34px); line-height: 1.25; margin: 0 0 8px; letter-spacing: -.5px; }
+.hero h1 span { background: linear-gradient(120deg, var(--primary), var(--primary-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p { margin: 0; color: var(--muted); max-width: 760px; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.pill {
+  font-size: 12px; padding: 5px 11px; border-radius: 999px; background: var(--surface);
+  border: 1px solid var(--line); color: var(--muted); display: inline-flex; gap: 6px; align-items: center;
+}
+.pill b { color: var(--text); font-weight: 600; }
+.pill.live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 20%, transparent); animation: pulse 2s infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 24px;
+}
+.panel { display: none; animation: fadeUp .35s ease both; }
+.panel.active { display: block; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.panel-head { display: flex; align-items: flex-start; gap: 14px; padding-bottom: 16px; margin-bottom: 20px; border-bottom: 1px dashed var(--line); }
+.panel-num {
+  flex: none; width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center;
+  background: var(--primary-soft); color: var(--primary); font-weight: 800; font-size: 18px;
+}
+.panel-head h2 { margin: 0; font-size: 19px; }
+.panel-head p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 22px; }
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.field.span2 { grid-column: 1 / -1; }
+.field > label { font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.field > label em { font-style: normal; font-weight: 500; color: var(--muted); font-size: 12px; }
+.hint { font-size: 12px; color: var(--muted); }
+
+.text-input, .select-input {
+  width: 100%; padding: 11px 13px; border-radius: 12px; border: 1px solid var(--line);
+  background: var(--surface-2); outline: none; transition: .18s;
+}
+.text-input:focus, .select-input:focus { border-color: var(--primary); background: var(--surface); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent); }
+.select-input { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 34px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: 1px solid var(--line); background: var(--surface-2); border-radius: 999px;
+  padding: 8px 14px; font-size: 13px; transition: .18s; white-space: nowrap;
+}
+.chip:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+.chip.on { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 6px 16px -8px rgba(51, 85, 255, .9); }
+.chip.small { padding: 5px 10px; font-size: 12px; }
+.chip.ghost { background: transparent; }
+.chip.add { border-style: dashed; color: var(--muted); }
+
+.search-wrap { position: relative; }
+.search-wrap .text-input { padding-left: 34px; }
+.search-wrap::before { content: "⌕"; position: absolute; left: 13px; top: 50%; transform: translateY(-52%); color: var(--muted); font-size: 16px; }
+.search-row { display: grid; grid-template-columns: 180px 1fr; gap: 10px; }
+.search-row.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.option-list {
+  display: flex; flex-wrap: wrap; gap: 8px; max-height: 190px; overflow: auto;
+  padding: 10px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2);
+}
+.option-list:empty { display: none; }
+.option-list .chip { font-size: 12.5px; }
+.option-list .empty { color: var(--muted); font-size: 12.5px; padding: 6px 4px; }
+.result-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.result-head span { font-size: 12px; color: var(--muted); }
+
+.rank-row { display: flex; align-items: center; gap: 8px; }
+.rank-row .text-input { width: 90px; }
+.rank-row span.sep { color: var(--muted); }
+.rank-badge { font-size: 12px; padding: 4px 9px; border-radius: 8px; background: var(--primary-soft); color: var(--primary); font-weight: 600; white-space: nowrap; }
+
+.wheel-wrap { display: flex; gap: 10px; align-items: center; }
+.wheel {
+  position: relative; flex: 1; height: 216px; overflow: hidden; user-select: none; touch-action: none;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2);
+  cursor: grab;
+}
+.wheel:active { cursor: grabbing; }
+.wheel-list { position: absolute; left: 0; right: 0; top: 50%; transition: transform .26s cubic-bezier(.22, .9, .24, 1); will-change: transform; }
+.wheel.dragging .wheel-list { transition: none; }
+.wheel-item {
+  height: 36px; line-height: 36px; text-align: center; font-size: 14px; color: var(--muted);
+  transition: color .2s, opacity .2s, background .2s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 10px;
+  backface-visibility: hidden; cursor: pointer; border-radius: 9px;
+}
+.wheel-item:hover { color: var(--text); background: color-mix(in srgb, var(--primary) 7%, transparent); }
+.wheel-item.active { color: var(--primary); font-weight: 800; background: color-mix(in srgb, var(--primary) 9%, transparent); }
+.wheel-band {
+  position: absolute; left: 8px; right: 8px; top: 50%; height: 36px; margin-top: -18px;
+  border-top: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  border-radius: 8px; pointer-events: none;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--primary) 8%, transparent), transparent 60%);
+}
+.wheel::before, .wheel::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 52px; z-index: 3; pointer-events: none;
+}
+.wheel::before { top: 0; background: linear-gradient(var(--surface-2), transparent); }
+.wheel::after { bottom: 0; background: linear-gradient(transparent, var(--surface-2)); }
+.wheel-col { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
+.wheel-col > label { font-size: 11px; color: var(--muted); text-align: center; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.wheel-mini { display: inline-flex; gap: 4px; margin-left: auto; }
+.wheel-mini button {
+  width: 24px; height: 24px; padding: 0; border-radius: 7px; border: 1px solid var(--line);
+  background: var(--surface-2); color: var(--muted); font-size: 9px; line-height: 1;
+  display: grid; place-items: center; transition: .18s;
+}
+.wheel-mini button:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+.hot-cities { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+.hot-cities .hint { margin-right: 2px; }
+
+.dual-wheels { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.salary-row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; }
+.salary-input { display: flex; align-items: center; gap: 6px; }
+.salary-input .text-input { width: 100%; }
+.salary-input .unit { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.bands { display: flex; gap: 6px; }
+.band {
+  flex: 1; text-align: center; padding: 8px 4px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surface-2); font-size: 11.5px; color: var(--muted); transition: .2s;
+}
+.band.on { background: linear-gradient(135deg, var(--primary), var(--primary-2)); border-color: transparent; color: #fff; font-weight: 700; box-shadow: 0 8px 18px -10px rgba(51, 85, 255, .9); }
+.salary-note { font-size: 12px; color: var(--muted); }
+.salary-note b { color: var(--primary); }
+
+.nav-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
+.btn {
+  border: 1px solid var(--line); background: var(--surface); padding: 11px 20px; border-radius: 12px;
+  font-weight: 600; font-size: 14px; transition: .2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+.btn.primary { background: linear-gradient(135deg, var(--primary), var(--primary-2)); border-color: transparent; color: #fff; box-shadow: 0 12px 24px -12px rgba(51, 85, 255, .9); }
+.btn.primary:hover { color: #fff; filter: brightness(1.05); }
+.btn.ghost { background: transparent; }
+.btn:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.btn.sm { padding: 7px 13px; font-size: 12.5px; border-radius: 9px; }
+
+.selected-box { display: flex; flex-wrap: wrap; gap: 8px; min-height: 34px; align-items: center; }
+.selected-box:empty::after { content: "尚未选择"; color: var(--muted); font-size: 12px; }
+.tag {
+  display: inline-flex; align-items: center; gap: 6px; background: var(--primary-soft); color: var(--primary);
+  border-radius: 8px; padding: 6px 10px; font-size: 12.5px; font-weight: 600;
+}
+.tag button { border: none; background: transparent; color: inherit; font-size: 14px; line-height: 1; opacity: .7; padding: 0; }
+.tag button:hover { opacity: 1; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+.kpi { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.kpi span { font-size: 12px; color: var(--muted); display: block; }
+.kpi b { font-size: 22px; letter-spacing: -.5px; }
+.kpi b small { font-size: 12px; font-weight: 500; color: var(--muted); }
+
+.job-list { display: flex; flex-direction: column; gap: 12px; }
+.job-card {
+  border: 1px solid var(--line); border-radius: 16px; padding: 16px; background: var(--surface);
+  transition: .2s; position: relative; overflow: hidden;
+}
+.job-card:hover { border-color: color-mix(in srgb, var(--primary) 45%, var(--line)); transform: translateY(-2px); box-shadow: var(--shadow); }
+.job-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.job-title { font-size: 16px; font-weight: 800; margin: 0; letter-spacing: -.2px; }
+.job-company { font-size: 13px; font-weight: 600; color: var(--muted); margin-left: 6px; }
+.job-sub { font-size: 12px; color: var(--muted); margin-top: 3px; display: flex; flex-wrap: wrap; gap: 8px; }
+.job-sub .dot::before { content: "·"; margin-right: 8px; color: var(--line); }
+.match-score { flex: none; text-align: right; }
+.match-score b { font-size: 22px; color: var(--primary); letter-spacing: -1px; }
+.match-score span { display: block; font-size: 11px; color: var(--muted); }
+.bar { height: 6px; border-radius: 99px; background: var(--bg-soft); overflow: hidden; margin: 12px 0 10px; }
+.bar > i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--primary), var(--primary-2)); }
+.job-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.mini-tag { font-size: 11.5px; padding: 3px 8px; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); }
+.mini-tag.ok { background: color-mix(in srgb, var(--success) 10%, transparent); color: var(--success); border-color: color-mix(in srgb, var(--success) 30%, transparent); }
+.mini-tag.miss { background: color-mix(in srgb, var(--warn) 10%, transparent); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 30%, transparent); }
+.reason { font-size: 12.5px; color: var(--muted); margin-bottom: 10px; }
+.reason b { color: var(--text); font-weight: 600; }
+.job-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin: 26px 0 12px; }
+.section-title h3 { margin: 0; font-size: 17px; }
+.section-title p { margin: 0; font-size: 12px; color: var(--muted); }
+
+.civil-grid, .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.civil-card, .platform-card {
+  border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: var(--surface-2); transition: .2s;
+}
+.civil-card:hover, .platform-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+.civil-card h4, .platform-card h4 { margin: 0 0 4px; font-size: 14px; }
+.civil-card p, .platform-card p { margin: 0 0 8px; font-size: 12px; color: var(--muted); }
+.civil-card .time { font-size: 11.5px; color: var(--warn); margin-bottom: 6px; }
+.civil-card .fit { font-size: 11.5px; color: var(--muted); margin-bottom: 8px; }
+.platform-card .go { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; }
+
+.notice {
+  border: 1px dashed color-mix(in srgb, var(--primary) 40%, var(--line));
+  background: color-mix(in srgb, var(--primary) 5%, var(--surface));
+  border-radius: 14px; padding: 12px 14px; font-size: 12.5px; color: var(--muted);
+}
+.notice b { color: var(--text); }
+
+.empty-state { text-align: center; color: var(--muted); padding: 30px 16px; font-size: 13px; }
+
+.modal {
+  position: fixed; inset: 0; z-index: 100; display: none; place-items: center; padding: 20px;
+  background: rgba(8, 15, 30, .5); backdrop-filter: blur(4px);
+}
+.modal.open { display: grid; }
+.modal-card { width: 100%; max-width: 460px; background: var(--surface); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+.modal-card h3 { margin: 0 0 6px; font-size: 17px; }
+.modal-card p { margin: 0 0 14px; font-size: 12.5px; color: var(--muted); }
+.modal-card .field { margin-bottom: 12px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); z-index: 200;
+  background: #101828; color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 13px;
+  opacity: 0; pointer-events: none; transition: .25s; box-shadow: var(--shadow);
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+[data-theme="dark"] .toast { background: #eef2ff; color: #101828; }
+
+.footer { max-width: var(--max); margin: 0 auto; padding: 0 20px 40px; color: var(--muted); font-size: 11.5px; text-align: center; }
+
+@media (max-width: 900px) {
+  .stepbar { display: none; }
+  .grid { grid-template-columns: 1fr; }
+  .kpi-row { grid-template-columns: 1fr; }
+  .civil-grid, .platform-grid { grid-template-columns: 1fr; }
+  .salary-row { grid-template-columns: 1fr; }
+  .search-row, .search-row.three { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  main { padding: 18px 12px 70px; }
+  .card { padding: 18px 14px; border-radius: 16px; }
+  .panel-head { gap: 10px; }
+  .panel-num { width: 38px; height: 38px; border-radius: 12px; font-size: 16px; }
+  .brand small { display: none; }
+  .dual-wheels { grid-template-columns: 1fr 1fr; }
+  .job-card { padding: 14px; }
+  .bands { flex-wrap: wrap; }
+  .band { flex: 1 0 22%; }
+  .wheel { height: 180px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">职</div>
+      <div>职途 CareerFit<small>职引未来 · SMART JOB MATCHING</small></div>
+    </div>
+
+    <nav class="stepbar" id="stepbar">
+      <div class="step-node active" data-step="1"><i>1</i><span>基本信息</span></div>
+      <div class="step-line"></div>
+      <div class="step-node" data-step="2"><i>2</i><span>专业技能</span></div>
+      <div class="step-line"></div>
+      <div class="step-node" data-step="3"><i>3</i><span>求职意向</span></div>
+      <div class="step-line"></div>
+      <div class="step-node" data-step="4"><i>4</i><span>匹配结果</span></div>
+    </nav>
+
+    <button class="icon-btn" id="themeBtn" title="切换深色模式" aria-label="切换深色模式">◐</button>
+    <button class="icon-btn" id="dataBtn" title="数据源与更新" aria-label="数据源设置">⛁</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>职引未来，让每一次求职<span>有据可依</span></h1>
+    <p>覆盖 34 个省级行政区的高校库、教育部本科专业目录、当前热门技能库与公开招聘岗位快照。填完三步，自动生成岗位匹配度、薪资挡位建议与考公考编方向。</p>
+    <div class="hero-chips">
+      <span class="pill live"><b>数据快照</b> 2026-11</span>
+      <span class="pill">高校 <b id="statUni">0</b> 所</span>
+      <span class="pill">专业 <b id="statMajor">0</b> 个</span>
+      <span class="pill">岗位样本 <b id="statJob">0</b> 个</span>
+      <span class="pill">支持 <b>全国省 / 市 / 区县</b></span>
+    </div>
+  </section>
+
+  <!-- 步骤 1 -->
+  <section class="panel active card" id="panel-1">
+    <div class="panel-head">
+      <div class="panel-num">01</div>
+      <div>
+        <h2>基本信息</h2>
+        <p>学历、毕业年份、院校与专业均提供标准选项，找不到可手动补充。</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="field">
+        <label>最高学历 <em>按国民教育序列</em></label>
+        <div class="chips" id="eduChips"></div>
+      </div>
+
+      <div class="field">
+        <label>毕业年份 <em>滑动选择</em><span class="wheel-mini"><button type="button" data-wheel="gradYear" data-dir="-1" aria-label="上一年">▲</button><button type="button" data-wheel="gradYear" data-dir="1" aria-label="下一年">▼</button></span></label>
+        <div class="wheel" id="gradYearWheel" aria-label="毕业年份选择"></div>
+        <span class="hint" id="gradYearHint">当前：2026 年 · 应届毕业生</span>
+      </div>
+
+      <div class="field span2">
+        <label>毕业院校 <em>全国 34 个省级行政区覆盖</em></label>
+        <div class="search-row">
+          <select class="select-input" id="uniProvince" aria-label="选择省份"></select>
+          <div class="search-wrap">
+            <input class="text-input" id="uniSearch" type="search" placeholder="搜索全国学校名称，如：华中科技、深圳职业技术">
+          </div>
+        </div>
+        <div class="result-head">
+          <span id="uniCount">请选择省份或直接搜索</span>
+          <span>已选：<b id="uniPicked">未选择</b></span>
+        </div>
+        <div class="option-list" id="uniList"></div>
+        <input class="text-input" id="uniOther" type="text" placeholder="列表中没有你的学校？手动输入学校全称（将作为自定义院校参与匹配）">
+      </div>
+
+      <div class="field span2">
+        <label>所学专业 <em>覆盖本科专业目录 12 门类 + 交叉学科</em></label>
+        <div class="search-row">
+          <select class="select-input" id="majorCategory" aria-label="选择学科门类"></select>
+          <div class="search-wrap">
+            <input class="text-input" id="majorSearch" type="search" placeholder="全库搜索专业，如：人工智能、临床医学、会计学">
+          </div>
+        </div>
+        <div class="search-row">
+          <select class="select-input" id="majorClass" aria-label="选择专业类"></select>
+          <span class="hint" style="display:flex;align-items:center">先选门类 → 再选专业类，右侧可直接搜索全库</span>
+        </div>
+        <div class="result-head">
+          <span id="majorCount">请选择门类</span>
+          <span>已选：<b id="majorPicked">未选择</b></span>
+        </div>
+        <div class="option-list" id="majorList"></div>
+        <input class="text-input" id="majorOther" type="text" placeholder="列表中没有你的专业？手动输入专业全称">
+      </div>
+
+      <div class="field">
+        <label>成绩排名 <em>自己填写</em></label>
+        <div class="rank-row">
+          <input class="text-input" id="rankInput" type="number" min="1" placeholder="名次">
+          <span class="sep">/</span>
+          <input class="text-input" id="rankTotal" type="number" min="1" placeholder="总人数">
+          <span class="rank-badge" id="rankBadge">待填写</span>
+        </div>
+        <span class="hint">如：8 / 120，系统会换算为专业前 6.7% 并写入匹配理由。</span>
+      </div>
+
+      <div class="field">
+        <label>GPA / 平均绩点 <em>可选</em></label>
+        <input class="text-input" id="gpaInput" type="number" step="0.01" min="0" max="5" placeholder="如 3.62（满分 4.0 或 5.0）">
+        <span class="hint">部分国企、央企与外企网申会要求填写 GPA。</span>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <span class="hint">信息仅保存在本机浏览器，不会上传。</span>
+      <button class="btn primary" data-next="2">下一步：专业技能 →</button>
+    </div>
+  </section>
+
+  <!-- 步骤 2 -->
+  <section class="panel card" id="panel-2">
+    <div class="panel-head">
+      <div class="panel-num">02</div>
+      <div>
+        <h2>专业技能</h2>
+        <p>根据你的专业自动调取技能库，并叠加当前招聘市场热门技能，可自由补充。</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="field span2">
+        <label>已选技能 <em id="skillCount">0 项</em></label>
+        <div class="selected-box" id="selectedSkills"></div>
+      </div>
+
+      <div class="field span2">
+        <label>专业推荐技能 <em id="skillBasedOn">基于你选择的专业</em></label>
+        <div class="option-list" id="majorSkills"></div>
+      </div>
+
+      <div class="field span2">
+        <label>当前热门技能 <em>来自公开招聘信息高频技能</em></label>
+        <div class="option-list" id="hotSkills"></div>
+      </div>
+
+      <div class="field span2">
+        <label>通用能力 <em>可多选</em></label>
+        <div class="option-list" id="commonSkills"></div>
+      </div>
+
+      <div class="field span2">
+        <label>其他技能 <em>自定义补充</em></label>
+        <div class="search-row" style="grid-template-columns:1fr 110px">
+          <input class="text-input" id="customSkillInput" type="text" placeholder="输入技能名称后回车，例如：Abaqus 仿真、CAD 制图、日语 N1">
+          <button class="btn" id="addSkillBtn">+ 添加</button>
+        </div>
+        <div class="chips" id="customSkills"></div>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn ghost" data-prev="1">← 上一步</button>
+      <button class="btn primary" data-next="3">下一步：求职意向 →</button>
+    </div>
+  </section>
+
+  <!-- 步骤 3 -->
+  <section class="panel card" id="panel-3">
+    <div class="panel-head">
+      <div class="panel-num">03</div>
+      <div>
+        <h2>求职意向</h2>
+        <p>期望城市用滚轮选择，行业有推荐项，月薪输入后自动落到对应挡位。</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="field span2">
+        <label>期望工作地点 <em>省 → 市 → 区县，支持搜索</em></label>
+        <div class="search-row three">
+          <select class="select-input" id="workProvince" aria-label="期望省份"></select>
+          <select class="select-input" id="workCity" aria-label="期望城市"></select>
+          <select class="select-input" id="workDistrict" aria-label="期望区县"></select>
+        </div>
+        <div class="search-wrap">
+          <input class="text-input" id="workSearch" type="search" placeholder="搜索城市或区县，如：深圳、浦东新区、天河区">
+        </div>
+        <div class="result-head">
+          <span id="workCount">请选择省份 / 城市，或直接搜索</span>
+          <span>已选：<b id="workPicked">未选择</b></span>
+        </div>
+        <div class="option-list" id="workList"></div>
+        <input class="text-input" id="workOther" type="text" placeholder="清单中没有？手动输入工作地点（如：XX市XX区）">
+        <div class="hot-cities" id="hotCities"></div>
+        <span class="hint" id="cityHint">当前选择：--</span>
+      </div>
+
+      <div class="field span2">
+        <label>期望行业 <em>可多选</em></label>
+        <div class="chips" id="industryChips"></div>
+      </div>
+
+      <div class="field span2">
+        <label>为你推荐的行业 <em>根据专业与技能自动生成</em></label>
+        <div class="chips" id="recommendIndustries"></div>
+      </div>
+
+      <div class="field span2">
+        <label>期望月薪 <em>自己输入，系统自动匹配挡位</em></label>
+        <div class="salary-row">
+          <div class="salary-input">
+            <input class="text-input" id="salaryInput" type="number" min="0" step="500" placeholder="如 9000">
+            <span class="unit">元 / 月</span>
+          </div>
+          <div class="bands" id="salaryBands"></div>
+        </div>
+        <span class="salary-note" id="salaryNote">输入月薪后，这里会显示挡位与同城同行业的合理区间参考。</span>
+      </div>
+
+      <div class="field span2">
+        <label>求职类型 <em>可多选，含考公考编</em></label>
+        <div class="chips" id="jobTypeChips"></div>
+      </div>
+
+      <div class="field">
+        <label>到岗时间 <em>可选</em></label>
+        <select class="select-input" id="arrivalSelect">
+          <option value="">不限 / 随时到岗</option>
+          <option>即刻到岗</option>
+          <option>1 周内</option>
+          <option>1 个月内</option>
+          <option>毕业后到岗</option>
+          <option>3 个月内</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>工作性质偏好 <em>可选</em></label>
+        <select class="select-input" id="workModeSelect">
+          <option value="">不限</option>
+          <option>线下坐班</option>
+          <option>线上线下结合</option>
+          <option>远程办公</option>
+          <option>驻外 / 出差</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn ghost" data-prev="2">← 上一步</button>
+      <button class="btn primary" id="matchBtn">生成匹配结果 →</button>
+    </div>
+  </section>
+
+  <!-- 步骤 4 -->
+  <section class="panel card" id="panel-4">
+    <div class="panel-head">
+      <div class="panel-num">04</div>
+      <div>
+        <h2>匹配结果</h2>
+        <p>基于技能、专业、行业、城市、薪资、学历六维加权计算，并给出可执行的检索入口。</p>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi"><span>推荐岗位</span><b id="kpiJobs">0<small> 个</small></b></div>
+      <div class="kpi"><span>平均匹配度</span><b id="kpiAvg">0<small> %</small></b></div>
+      <div class="kpi"><span>薪资挡位建议</span><b id="kpiSalary">--</b></div>
+    </div>
+
+    <div class="notice" id="dataNotice">
+      <b>关于「实时」：</b>浏览器出于安全限制无法直接抓取招聘网站数据，本页提供的是内置数据快照 + 一键跳转全网实时检索。点击右上角 <b>⛁</b> 可配置你自己的后端接口，实现岗位数据自动同步。
+    </div>
+
+    <div class="section-title">
+      <h3>岗位匹配清单</h3>
+      <p id="matchSummary">按综合匹配度排序</p>
+    </div>
+    <div class="job-list" id="jobList"></div>
+
+    <div class="section-title">
+      <h3>考公考编通道</h3>
+      <p>按专业适配度筛选，建议结合当年公告</p>
+    </div>
+    <div class="civil-grid" id="civilList"></div>
+
+    <div class="section-title">
+      <h3>全网实时检索</h3>
+      <p>点击直达对应平台的真实搜索结果</p>
+    </div>
+    <div class="platform-grid" id="platformList"></div>
+
+    <div class="nav-actions">
+      <button class="btn ghost" data-prev="3">← 修改求职意向</button>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" id="exportBtn">导出结果 JSON</button>
+        <button class="btn primary" id="restartBtn">重新匹配</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="footer">
+  职引未来 · 职途 CareerFit · 数据来自公开高校名单、教育部本科专业目录与公开招聘信息整理 · 仅供求职参考
+</div>
+
+<!-- 数据源弹窗 -->
+<div class="modal" id="dataModal">
+  <div class="modal-card">
+    <h3>数据源与更新</h3>
+    <p>可选接入你自建的后端接口（返回 JSON），实现岗位数据自动同步；留空则使用内置快照 + 全网检索。</p>
+    <div class="field">
+      <label>接口地址</label>
+      <input class="text-input" id="apiInput" type="url" placeholder="https://your-domain.com/api/jobs">
+    </div>
+    <div class="field">
+      <label>接口格式说明</label>
+      <span class="hint">返回 <code>{ "updatedAt": "2026-11-09", "jobs": [{ "title", "industry", "skills": [], "salary": [min,max], "edu", "types": [] }] }</code>，同源或已开启 CORS 即可。</span>
+    </div>
+    <div class="field">
+      <label>当前数据版本</label>
+      <span class="hint" id="dataVersion">内置快照：2026-11</span>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" id="closeModalBtn">关闭</button>
+      <button class="btn" id="syncBtn">立即同步</button>
+      <button class="btn primary" id="saveApiBtn">保存配置</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* 全国高校数据库：按省级行政区归类（本科为主，含部分高水平高职/职业本科）
+   数据快照：2026-11 ｜ 可在页面「数据源」中配置后端接口自动更新 */
+window.UNI_DATA = {
+  "北京": ["北京大学","清华大学","中国人民大学","北京航空航天大学","北京理工大学","中国农业大学","北京师范大学","中央民族大学","北京交通大学","北京工业大学","北京科技大学","北京化工大学","北京邮电大学","北京林业大学","北京协和医学院","北京中医药大学","首都医科大学","首都师范大学","北京外国语大学","北京第二外国语学院","北京语言大学","中国传媒大学","中央财经大学","对外经济贸易大学","首都经济贸易大学","中国政法大学","中国人民公安大学","北京警察学院","国际关系学院","外交学院","北京体育大学","中央音乐学院","中国音乐学院","中央美术学院","中央戏剧学院","中国戏曲学院","北京电影学院","北京舞蹈学院","北京印刷学院","北京石油化工学院","北京信息科技大学","北京联合大学","北京工商大学","北京建筑大学","北京农学院","北京物资学院","北京服装学院","中国矿业大学（北京）","中国石油大学（北京）","中国地质大学（北京）","华北电力大学","中国科学院大学","中国社会科学院大学","中华女子学院","中国劳动关系学院","北京电子科技学院","首钢工学院","北京城市学院","北京吉利学院","首都师范大学科德学院","北京工商大学嘉华学院","北京邮电大学世纪学院","北京工业大学耿丹学院","北京第二外国语学院中瑞酒店管理学院","北京汇佳职业学院","北京北大方正软件技术学院","北京科技职业大学","北京电子科技职业学院","北京工业职业技术学院","北京信息职业技术学院","北京农业职业学院","北京财贸职业学院"],
+  "天津": ["南开大学","天津大学","天津科技大学","天津工业大学","中国民航大学","天津理工大学","天津农学院","天津医科大学","天津中医药大学","天津师范大学","天津职业技术师范大学","天津外国语大学","天津财经大学","天津商业大学","天津城建大学","天津体育学院","天津音乐学院","天津美术学院","天津中德应用技术大学","天津仁爱学院","天津外国语大学滨海外事学院","天津商业大学宝德学院","天津医科大学临床医学院","北京科技大学天津学院","天津财经大学珠江学院","天津天狮学院","天津职业大学","天津电子信息职业技术学院","天津轻工职业技术学院","天津交通职业学院","天津医学高等专科学校","天津滨海汽车工程职业学院","天津渤海职业技术学院","天津机电职业技术学院","天津海运职业学院"],
+  "河北": ["河北大学","河北工程大学","河北地质大学","河北工业大学","华北理工大学","河北科技大学","河北建筑工程学院","河北水利电力学院","河北农业大学","河北医科大学","河北北方学院","承德医学院","河北师范大学","保定学院","河北民族师范学院","唐山师范学院","廊坊师范学院","衡水学院","石家庄学院","邯郸学院","邢台学院","沧州师范学院","石家庄铁道大学","燕山大学","河北科技师范学院","河北经贸大学","河北金融学院","北华航天工业学院","防灾科技学院","华北科技学院","河北中医药大学","张家口学院","河北环境工程学院","河北传媒学院","河北美术学院","河北外国语学院","燕京理工学院","河北科技学院","保定理工学院","河北东方学院","沧州交通学院","河北石油职业技术大学","河北工业职业技术大学","河北科技工程职业技术大学","石家庄职业技术学院","唐山工业职业技术学院","秦皇岛职业技术学院","邯郸职业技术学院","河北化工医药职业技术学院","石家庄铁路职业技术学院","河北交通职业技术学院","保定职业技术学院","承德护理职业学院","沧州医学高等专科学校"],
+  "山西": ["山西大学","太原科技大学","中北大学","太原理工大学","山西农业大学","山西医科大学","长治医学院","山西师范大学","太原师范学院","山西大同大学","晋中学院","长治学院","运城学院","忻州师范学院","山西财经大学","山西中医药大学","吕梁学院","太原学院","山西警察学院","山西应用科技学院","山西工商学院","山西传媒学院","山西工程技术学院","晋中信息学院","山西能源学院","山西工学院","山西科技学院","运城职业技术大学","山西工程科技职业大学","山西药科职业学院","山西职业技术学院","山西财贸职业技术学院","山西机电职业技术学院","太原城市职业技术学院","山西林业职业技术学院","山西水利职业技术学院"],
+  "内蒙古": ["内蒙古大学","内蒙古科技大学","内蒙古工业大学","内蒙古农业大学","内蒙古医科大学","内蒙古师范大学","内蒙古民族大学","赤峰学院","内蒙古财经大学","呼伦贝尔学院","集宁师范学院","河套学院","呼和浩特民族学院","内蒙古艺术学院","鄂尔多斯应用技术学院","内蒙古鸿德文理学院","内蒙古大学创业学院","包头职业技术学院","内蒙古建筑职业技术学院","内蒙古机电职业技术学院","内蒙古化工职业学院","内蒙古电子信息职业技术学院","内蒙古商贸职业学院","内蒙古交通职业技术学院","锡林郭勒职业学院","兴安职业技术学院"],
+  "辽宁": ["辽宁大学","大连理工大学","东北大学","大连海事大学","大连大学","沈阳大学","沈阳工业大学","沈阳航空航天大学","沈阳理工大学","辽宁科技大学","辽宁工程技术大学","辽宁石油化工大学","沈阳化工大学","大连交通大学","大连工业大学","辽宁工业大学","沈阳建筑大学","沈阳农业大学","大连海洋大学","中国医科大学","锦州医科大学","大连医科大学","辽宁中医药大学","沈阳药科大学","沈阳医学院","辽宁师范大学","沈阳师范大学","渤海大学","鞍山师范学院","大连外国语大学","东北财经大学","沈阳音乐学院","鲁迅美术学院","沈阳体育学院","辽宁科技学院","沈阳工程学院","辽宁警察学院","大连东软信息学院","沈阳城市学院","大连科技学院","辽宁对外经贸学院","沈阳工学院","大连财经学院","辽宁何氏医学院","大连艺术学院","辽宁传媒学院","沈阳城市建设学院","渤海船舶职业学院","大连职业技术学院","辽宁农业职业技术学院","辽宁机电职业技术学院","沈阳职业技术学院","辽宁轨道交通职业学院","辽宁医药职业学院","辽宁铁道职业技术学院"],
+  "吉林": ["吉林大学","延边大学","长春大学","长春理工大学","东北电力大学","长春工业大学","吉林建筑大学","吉林化工学院","吉林农业大学","长春中医药大学","北华大学","吉林师范大学","长春师范大学","吉林工程技术师范学院","白城师范学院","通化师范学院","吉林财经大学","吉林体育学院","吉林艺术学院","吉林动画学院","长春工程学院","吉林警察学院","长春人文学院","长春光华学院","长春工业大学人文信息学院","长春财经学院","吉林外国语大学","长春科技学院","长春大学旅游学院","吉林建筑科技学院","长春电子科技学院","长春汽车职业技术大学","长春信息技术职业学院","吉林交通职业技术学院","长春职业技术学院","吉林铁道职业技术学院","吉林工业职业技术学院","白城医学高等专科学校"],
+  "黑龙江": ["黑龙江大学","哈尔滨工业大学","哈尔滨工程大学","东北林业大学","东北农业大学","哈尔滨医科大学","黑龙江中医药大学","哈尔滨理工大学","哈尔滨师范大学","哈尔滨商业大学","哈尔滨学院","哈尔滨体育学院","哈尔滨金融学院","齐齐哈尔大学","齐齐哈尔医学院","牡丹江医科大学","牡丹江师范学院","佳木斯大学","大庆师范学院","黑龙江八一农垦大学","东北石油大学","黑龙江工业学院","黑龙江科技大学","黑河学院","绥化学院","黑龙江工程学院","哈尔滨音乐学院","黑龙江东方学院","哈尔滨石油学院","哈尔滨广厦学院","哈尔滨剑桥学院","哈尔滨华德学院","黑龙江财经学院","黑龙江工商学院","黑龙江外国语学院","哈尔滨远东理工学院","哈尔滨信息工程学院","齐齐哈尔工程学院","哈尔滨职业技术大学","黑龙江建筑职业技术学院","黑龙江农业工程职业学院","黑龙江交通职业技术学院","黑龙江护理高等专科学校","大庆医学高等专科学校"],
+  "上海": ["复旦大学","同济大学","上海交通大学","华东理工大学","上海理工大学","上海海事大学","东华大学","上海电力大学","上海应用技术大学","上海健康医学院","上海海洋大学","上海中医药大学","华东师范大学","上海师范大学","上海外国语大学","上海财经大学","上海对外经贸大学","上海海关学院","华东政法大学","上海体育大学","上海音乐学院","上海戏剧学院","上海大学","上海工程技术大学","上海立信会计金融学院","上海电机学院","上海政法学院","上海第二工业大学","上海商学院","上海杉达学院","上海建桥学院","上海师范大学天华学院","上海外国语大学贤达经济人文学院","上海兴伟学院","上海视觉艺术学院","上海立达学院","上海中侨职业技术大学","上海出版印刷高等专科学校","上海旅游高等专科学校","上海电子信息职业技术学院","上海工艺美术职业学院","上海交通职业技术学院","上海城建职业学院","上海民航职业技术学院","上海农林职业技术学院"],
+  "江苏": ["南京大学","东南大学","南京航空航天大学","南京理工大学","河海大学","南京农业大学","中国药科大学","南京师范大学","苏州大学","江南大学","中国矿业大学","南京邮电大学","南京林业大学","南京信息工程大学","南京工业大学","南京医科大学","南京中医药大学","南京财经大学","南京审计大学","南京体育学院","南京艺术学院","南京晓庄学院","金陵科技学院","南京工程学院","江苏第二师范学院","南京特殊教育师范学院","南京警察学院","江苏警官学院","江苏大学","江苏科技大学","江苏师范大学","江苏理工学院","常州大学","常州工学院","苏州科技大学","常熟理工学院","南通大学","淮阴工学院","淮阴师范学院","盐城工学院","盐城师范学院","扬州大学","泰州学院","徐州医科大学","徐州工程学院","江苏海洋大学","宿迁学院","三江学院","南京传媒学院","无锡职业技术大学","江苏农林职业技术学院","南京信息职业技术学院","常州信息职业技术学院","苏州市职业大学","江苏经贸职业技术学院","南京交通职业技术学院","江苏建筑职业技术学院","南通职业大学","扬州工业职业技术学院","江苏海事职业技术学院","无锡商业职业技术学院"],
+  "浙江": ["浙江大学","杭州电子科技大学","浙江工业大学","浙江理工大学","浙江海洋大学","浙江农林大学","温州医科大学","浙江中医药大学","浙江师范大学","杭州师范大学","湖州师范学院","绍兴文理学院","台州学院","温州大学","丽水学院","浙江工商大学","嘉兴南湖学院","中国计量大学","浙江万里学院","浙江科技大学","宁波大学","嘉兴大学","浙江水利水电学院","浙江财经大学","浙江警察学院","衢州学院","宁波工程学院","浙江传媒学院","浙江树人学院","浙江越秀外国语学院","宁波财经学院","浙江广厦建设职业技术大学","浙江药科职业大学","杭州职业技术大学","金华职业技术大学","宁波职业技术学院","温州职业技术学院","嘉兴职业技术学院","浙江金融职业学院","浙江机电职业技术大学","浙江交通职业技术学院","浙江旅游职业学院","浙江警官职业学院","浙江艺术职业学院","浙江经贸职业技术学院","浙江经济职业技术学院","义乌工商职业技术学院"],
+  "安徽": ["安徽大学","中国科学技术大学","合肥工业大学","安徽工业大学","安徽理工大学","安徽工程大学","安徽农业大学","安徽医科大学","安徽中医药大学","安徽师范大学","阜阳师范大学","安庆师范大学","淮北师范大学","黄山学院","皖西学院","滁州学院","宿州学院","巢湖学院","淮南师范学院","铜陵学院","安徽财经大学","安徽建筑大学","安徽科技学院","合肥大学","合肥师范学院","蚌埠学院","池州学院","安徽新华学院","安徽三联学院","安徽外国语学院","安徽文达信息工程学院","安徽信息工程学院","合肥城市学院","合肥经济学院","淮北理工学院","蚌埠工商学院","安徽医科大学临床医学院","阜阳师范大学信息工程学院","安徽职业技术大学","安徽水利水电职业技术学院","安徽机电职业技术学院","安徽商贸职业技术学院","安徽交通职业技术学院","安徽电气工程职业技术学院","安徽医学高等专科学校","合肥职业技术学院","芜湖职业技术大学"],
+  "福建": ["厦门大学","华侨大学","福建理工大学","福州大学","福建农林大学","集美大学","福建医科大学","福建中医药大学","福建师范大学","闽江学院","武夷学院","宁德师范学院","泉州师范学院","闽南师范大学","厦门理工学院","三明学院","龙岩学院","福建商学院","福建警察学院","莆田学院","厦门医学院","厦门华厦学院","福州外语外贸学院","仰恩大学","闽南理工学院","泉州信息工程学院","厦门工学院","阳光学院","福州大学至诚学院","集美大学诚毅学院","福建师范大学协和学院","福建农林大学金山学院","泉州职业技术大学","福建船政交通职业学院","福建信息职业技术学院","福建电力职业技术学院","福建水利电力职业技术学院","福州职业技术学院","厦门城市职业学院","漳州职业技术学院","黎明职业大学"],
+  "江西": ["南昌大学","华东交通大学","东华理工大学","南昌航空大学","江西理工大学","景德镇陶瓷大学","江西农业大学","江西中医药大学","赣南医科大学","江西师范大学","上饶师范学院","宜春学院","赣南师范大学","井冈山大学","江西财经大学","江西科技师范大学","南昌工程学院","九江学院","江西警察学院","新余学院","南昌师范学院","江西应用科技学院","南昌理工学院","南昌工学院","江西服装学院","南昌航空大学科技学院","江西师范大学科学技术学院","华东交通大学理工学院","江西理工大学应用科学学院","江西农业大学南昌商学院","江西中医药大学科技学院","赣南师范大学科技学院","景德镇艺术职业大学","江西软件职业技术大学","九江职业技术学院","江西现代职业技术学院","江西旅游商贸职业学院","江西机电职业技术学院","江西交通职业技术学院","江西财经职业学院","江西外语外贸职业学院","江西应用技术职业学院"],
+  "山东": ["山东大学","中国海洋大学","中国石油大学（华东）","山东科技大学","青岛科技大学","济南大学","青岛理工大学","山东建筑大学","齐鲁工业大学","山东理工大学","山东农业大学","青岛农业大学","山东第二医科大学","山东第一医科大学","滨州医学院","山东中医药大学","济宁医学院","山东师范大学","曲阜师范大学","聊城大学","德州学院","山东航空学院","鲁东大学","临沂大学","泰山学院","济宁学院","菏泽学院","山东财经大学","山东体育学院","山东艺术学院","枣庄学院","山东工艺美术学院","青岛大学","烟台大学","潍坊学院","山东交通学院","山东工商学院","山东女子学院","山东政法学院","齐鲁师范学院","山东青年政治学院","山东管理学院","山东农业工程学院","青岛滨海学院","烟台南山学院","潍坊科技学院","山东英才学院","青岛恒星科技学院","青岛黄海学院","山东现代学院","山东协和学院","山东华宇工学院","青岛工学院","齐鲁理工学院","烟台科技学院","青岛城市学院","山东石油化工学院","山东外事职业大学","山东工程职业技术大学","山东外国语职业技术大学","日照职业技术学院","淄博职业技术大学","山东商业职业技术学院","威海职业学院","山东交通职业学院","山东外贸职业学院","山东医学高等专科学校","山东中医药高等专科学校","青岛职业技术学院"],
+  "河南": ["郑州大学","河南大学","河南科技大学","河南理工大学","河南工业大学","河南农业大学","河南财经政法大学","郑州轻工业大学","河南中医药大学","河南师范大学","河南科技学院","河南牧业经济学院","河南工程学院","郑州航空工业管理学院","华北水利水电大学","中原工学院","郑州工程技术学院","洛阳理工学院","洛阳师范学院","安阳师范学院","南阳师范学院","商丘师范学院","信阳师范大学","周口师范学院","许昌学院","河南城建学院","平顶山学院","黄淮学院","新乡学院","河南财政金融学院","郑州师范学院","河南警察学院","郑州警察学院","新乡医学院","郑州工商学院","黄河科技学院","郑州科技学院","郑州工业应用技术学院","郑州财经学院","商丘学院","郑州升达经贸管理学院","郑州西亚斯学院","中原科技学院","新乡工程学院","郑州商学院","信阳学院","安阳学院","河南开封科技传媒学院","河南科技职业大学","郑州工业安全职业学院","河南职业技术学院","河南农业职业学院","河南工业职业技术学院","郑州铁路职业技术学院","河南经贸职业学院","河南交通职业技术学院","河南应用技术职业学院","漯河医学高等专科学校","南阳医学高等专科学校","商丘医学高等专科学校"],
+  "湖北": ["武汉大学","华中科技大学","中国地质大学（武汉）","武汉理工大学","华中农业大学","华中师范大学","中南财经政法大学","中南民族大学","武汉科技大学","武汉工程大学","武汉纺织大学","武汉轻工大学","湖北工业大学","湖北中医药大学","湖北大学","湖北师范大学","黄冈师范学院","湖北民族大学","汉江师范学院","湖北文理学院","武汉体育学院","湖北美术学院","武汉音乐学院","湖北汽车工业学院","湖北工程学院","湖北理工学院","湖北科技学院","湖北医药学院","江汉大学","湖北经济学院","湖北警官学院","荆楚理工学院","武汉商学院","武汉东湖学院","汉口学院","武昌首义学院","武昌理工学院","武汉生物工程学院","武汉晴川学院","武汉城市学院","武汉文理学院","武汉工程科技学院","武汉传媒学院","武汉设计工程学院","武汉华夏理工学院","湖北商贸学院","武汉纺织大学外经贸学院","湖北工业大学工程技术学院","荆州学院","湖北恩施学院","武昌工学院","武汉职业技术大学","武汉船舶职业技术学院","武汉铁路职业技术学院","武汉软件工程职业学院","武汉城市职业学院","湖北交通职业技术学院","湖北职业技术学院","襄阳职业技术学院","黄冈职业技术学院","武汉电力职业技术学院","湖北水利水电职业技术学院"],
+  "湖南": ["中南大学","湖南大学","湖南师范大学","国防科技大学","湘潭大学","吉首大学","长沙理工大学","湖南农业大学","中南林业科技大学","湖南中医药大学","湖南理工学院","湖南工商大学","南华大学","湖南科技大学","湖南工业大学","湖南文理学院","湖南财政经济学院","湖南警察学院","湖南女子学院","长沙学院","湖南工程学院","湖南城市学院","邵阳学院","怀化学院","湖南人文科技学院","湖南工学院","湖南第一师范学院","湖南医药学院","长沙师范学院","湖南涉外经济学院","湖南应用技术学院","湖南交通工程学院","湖南信息学院","湖南软件职业技术大学","湘潭大学兴湘学院","湖南科技大学潇湘学院","南华大学船山学院","湖南农业大学东方科技学院","长沙理工大学城南学院","湖南师范大学树达学院","吉首大学张家界学院","湖南理工学院南湖学院","衡阳师范学院南岳学院","湖南文理学院芙蓉学院","湖南工程学院应用技术学院","长沙民政职业技术学院","湖南铁道职业技术学院","湖南工业职业技术学院","湖南交通职业技术学院","湖南大众传媒职业技术学院","湖南科技职业学院","湖南工艺美术职业学院","湖南生物机电职业技术学院","长沙商贸旅游职业技术学院","湖南外贸职业学院"],
+  "广东": ["中山大学","华南理工大学","暨南大学","华南农业大学","南方医科大学","广州中医药大学","华南师范大学","广东工业大学","广东外语外贸大学","广州大学","深圳大学","南方科技大学","汕头大学","广东海洋大学","广东医科大学","广东药科大学","广东财经大学","广东技术师范大学","广东金融学院","广东警官学院","广东第二师范学院","广州体育学院","广州美术学院","星海音乐学院","广东石油化工学院","韶关学院","惠州学院","韩山师范学院","岭南师范学院","肇庆学院","嘉应学院","广东白云学院","广州航海学院","深圳职业技术大学","广东轻工职业技术大学","广州番禺职业技术学院","深圳信息职业技术学院","广东交通职业技术学院","广东机电职业技术学院","广东食品药品职业学院","广东科学技术职业学院","广东工贸职业技术学院","广东环境保护工程职业学院","广东建设职业技术学院","广东女子职业技术学院","广东省外语艺术职业学院","广州铁路职业技术学院","广州民航职业技术学院","广东南华工商职业学院","广东岭南职业技术学院","广州城建职业学院","广东科技学院","广东理工学院","广东东软学院","广州城市理工学院","广州软件学院","广州华商学院","广州应用科技学院","广州新华学院","广东培正学院","广东外语外贸大学南国商学院","华南农业大学珠江学院","广州商学院","广州理工学院","广东工商职业技术大学","珠海科技学院","北京理工大学珠海学院","广东以色列理工学院","哈尔滨工业大学（深圳）","北京师范大学-香港浸会大学联合国际学院","香港中文大学（深圳）","深圳北理莫斯科大学","东莞理工学院","广州城市职业学院","广东水利电力职业技术学院"],
+  "广西": ["广西大学","广西科技大学","桂林电子科技大学","桂林理工大学","广西医科大学","右江民族医学院","广西中医药大学","桂林医学院","广西师范大学","南宁师范大学","广西民族师范学院","河池学院","玉林师范学院","广西艺术学院","广西民族大学","百色学院","梧州学院","广西科技师范学院","广西财经学院","南宁学院","北部湾大学","广西警察学院","广西民族大学相思湖学院","广西大学行健文理学院","桂林电子科技大学信息科技学院","桂林理工大学博文管理学院","广西师范大学漓江学院","广西中医药大学赛恩斯新医药学院","南宁师范大学师园学院","广西外国语学院","广西城市职业大学","广西职业师范学院","柳州职业技术大学","广西机电职业技术学院","广西职业技术学院","广西建设职业技术学院","广西交通职业技术学院","广西水利电力职业技术学院","南宁职业技术大学","广西经贸职业技术学院","广西生态工程职业技术学院","桂林旅游学院","广西卫生职业技术学院","广西幼儿师范高等专科学校"],
+  "海南": ["海南大学","海南热带海洋学院","海南师范大学","海南医科大学","海口经济学院","琼台师范学院","三亚学院","海南科技职业大学","海南政法职业学院","海南外国语职业学院","海南经贸职业技术学院","海南职业技术学院","三亚航空旅游职业学院","三亚理工职业学院","海南软件职业技术学院","海南体育职业技术学院"],
+  "重庆": ["重庆大学","西南大学","重庆邮电大学","重庆交通大学","重庆医科大学","重庆师范大学","重庆文理学院","重庆三峡学院","长江师范学院","四川外国语大学","西南政法大学","重庆理工大学","重庆工商大学","重庆科技大学","重庆警察学院","重庆第二师范学院","重庆人文科技学院","重庆对外经贸学院","重庆财经学院","重庆工程学院","重庆移通学院","重庆工商大学派斯学院","重庆城市科技学院","重庆机电职业技术大学","重庆建筑科技职业学院","重庆电子科技职业大学","重庆工业职业技术学院","重庆工程职业技术学院","重庆城市管理职业学院","重庆医药高等专科学校","重庆三峡医药高等专科学校","重庆航天职业技术学院","重庆工商职业学院","重庆旅游职业学院","重庆安全技术职业学院","重庆交通职业学院"],
+  "四川": ["四川大学","电子科技大学","西南交通大学","西南石油大学","成都理工大学","西南科技大学","成都信息工程大学","四川轻化工大学","西华大学","四川农业大学","西昌学院","四川师范大学","西华师范大学","绵阳师范学院","内江师范学院","宜宾学院","四川文理学院","阿坝师范学院","乐山师范学院","成都师范学院","成都体育学院","四川音乐学院","西南民族大学","成都大学","攀枝花学院","四川旅游学院","四川警察学院","成都工业学院","四川民族学院","西南财经大学","川北医学院","成都医学院","西南医科大学","成都中医药大学","四川电影电视学院","四川传媒学院","成都东软学院","成都文理学院","四川工商学院","四川文化艺术学院","成都银杏酒店管理学院","成都锦城学院","四川大学锦江学院","电子科技大学成都学院","西南交通大学希望学院","成都理工大学工程技术学院","四川工业科技学院","绵阳城市学院","吉利学院","四川外国语大学成都学院","西南财经大学天府学院","成都航空职业技术大学","四川交通职业技术学院","四川建筑职业技术学院","四川工程职业技术大学","四川电力职业技术学院","成都职业技术学院","四川邮电职业技术学院","四川水利职业技术学院","四川化工职业技术学院","四川中医药高等专科学校","成都纺织高等专科学校","四川护理职业学院","四川卫生康复职业学院"],
+  "贵州": ["贵州大学","贵州医科大学","遵义医科大学","贵州中医药大学","贵州师范大学","遵义师范学院","铜仁学院","黔南民族师范学院","贵州财经大学","贵州民族大学","六盘水师范学院","兴义民族师范学院","贵阳学院","安顺学院","凯里学院","贵州工程应用技术学院","贵州师范学院","贵州理工学院","贵州商学院","贵州警察学院","贵阳康养职业大学","贵州黔南科技学院","贵阳信息科技学院","贵州中医药大学时珍学院","贵州医科大学神奇民族医药学院","贵州民族大学人文科技学院","遵义医科大学医学与科技学院","贵州师范大学求是学院","贵州应用技术职业学院","贵州交通职业技术学院","贵州轻工职业技术学院","贵州电子信息职业技术学院","贵州工业职业技术学院","贵州电力职业技术学院","贵州职业技术学院","铜仁职业技术学院","遵义职业技术学院","黔南民族职业技术学院","贵州护理职业技术学院"],
+  "云南": ["云南大学","昆明理工大学","云南农业大学","西南林业大学","昆明医科大学","大理大学","云南中医药大学","云南师范大学","昭通学院","曲靖师范学院","普洱学院","保山学院","红河学院","云南财经大学","云南艺术学院","云南民族大学","玉溪师范学院","楚雄师范学院","昆明学院","文山学院","云南警官学院","云南工商学院","云南经济管理学院","滇池学院","昆明城市学院","昆明文理学院","昆明理工大学津桥学院","云南师范大学商学院","昆明医科大学海源学院","云南艺术学院文华学院","丽江文化旅游学院","云南机电职业技术学院","云南交通职业技术学院","昆明冶金高等专科学校","云南农业职业技术学院","云南林业职业技术学院","云南能源职业技术学院","云南国土资源职业学院","云南文化艺术职业学院","云南旅游职业学院","昆明工业职业技术学院"],
+  "西藏": ["西藏大学","西藏民族大学","西藏农牧学院","西藏藏医药大学","西藏警官高等专科学校","拉萨师范高等专科学校","西藏职业技术学院"],
+  "陕西": ["西安交通大学","西北工业大学","西北农林科技大学","西安电子科技大学","长安大学","陕西师范大学","西北大学","西安理工大学","西安工业大学","西安建筑科技大学","西安科技大学","西安石油大学","陕西科技大学","西安工程大学","西安邮电大学","陕西中医药大学","西安医学院","陕西理工大学","西安财经大学","西安外国语大学","西北政法大学","西安体育学院","西安音乐学院","西安美术学院","西安文理学院","宝鸡文理学院","咸阳师范学院","渭南师范学院","延安大学","陕西学前师范学院","榆林学院","安康学院","商洛学院","西安航空学院","西安培华学院","西安欧亚学院","西安翻译学院","西安外事学院","西安学院","西安思源学院","西安交通工程学院","西安明德理工学院","西安信息职业大学","西安汽车职业大学","陕西国际商贸学院","陕西服装工程学院","西安财经大学行知学院","西安建筑科技大学华清学院","西安理工大学高科学院","陕西科技大学镐京学院","西北大学现代学院","延安大学西安创新学院","西安交通大学城市学院","长安大学兴华学院","西安科技大学高新学院","陕西铁路工程职业技术学院","西安铁路职业技术学院","陕西工业职业技术学院","杨凌职业技术学院","陕西国防工业职业技术学院","陕西交通职业技术学院","陕西职业技术学院","西安航空职业技术学院","陕西能源职业技术学院","陕西财经职业技术学院","陕西警官职业学院"],
+  "甘肃": ["兰州大学","兰州理工大学","兰州交通大学","甘肃农业大学","甘肃中医药大学","西北师范大学","兰州城市学院","陇东学院","天水师范学院","河西学院","甘肃政法大学","兰州财经大学","甘肃民族师范学院","兰州文理学院","甘肃医学院","甘肃警察学院","兰州工业学院","西北师范大学知行学院","兰州财经大学陇桥学院","兰州交通大学博文学院","兰州理工大学技术工程学院","甘肃机电职业技术学院","兰州石化职业技术大学","兰州资源环境职业技术大学","甘肃交通职业技术学院","甘肃建筑职业技术学院","甘肃林业职业技术大学","兰州职业技术学院","甘肃工业职业技术学院","甘肃畜牧工程职业技术学院","甘肃卫生职业学院"],
+  "青海": ["青海大学","青海师范大学","青海民族大学","青海警官职业学院","青海卫生职业技术学院","青海建筑职业技术学院","青海交通职业技术学院","青海畜牧兽医职业技术学院","青海柴达木职业技术学院","西宁城市职业技术学院"],
+  "宁夏": ["宁夏大学","宁夏医科大学","宁夏师范大学","北方民族大学","宁夏理工学院","宁夏大学新华学院","银川能源学院","银川科技学院","宁夏职业技术大学","宁夏工商职业技术学院","宁夏财经职业技术学院","宁夏建设职业技术学院","宁夏警官职业学院","宁夏葡萄酒与防沙治沙职业技术学院"],
+  "新疆": ["新疆大学","塔里木大学","新疆农业大学","石河子大学","新疆医科大学","新疆师范大学","新疆财经大学","伊犁师范大学","喀什大学","昌吉学院","新疆艺术学院","新疆工程学院","新疆警察学院","新疆理工学院","新疆科技学院","新疆第二医学院","新疆农业职业技术大学","新疆轻工职业技术学院","新疆交通职业技术学院","新疆农业职业技术学院","乌鲁木齐职业大学","新疆维吾尔医学专科学校","新疆师范高等专科学校","巴音郭楞职业技术学院","阿克苏职业技术学院","克拉玛依职业技术学院","昌吉职业技术学院","新疆职业大学","新疆铁道职业技术学院","新疆能源职业技术学院"],
+  "香港": ["香港大学","香港中文大学","香港科技大学","香港理工大学","香港城市大学","香港浸会大学","岭南大学","香港教育大学","香港都会大学","香港树仁大学","香港恒生大学","香港珠海学院","香港演艺学院"],
+  "澳门": ["澳门大学","澳门科技大学","澳门理工大学","澳门城市大学","澳门旅游学院","圣若瑟大学","澳门镜湖护理学院"],
+  "台湾": ["台湾大学","台湾清华大学","台湾阳明交通大学","台湾成功大学","台湾政治大学","台湾师范大学","台湾中山大学","台湾中央大学","台湾中正大学","台湾中兴大学","台湾科技大学","台北科技大学","台湾辅仁大学","台湾淡江大学","台湾逢甲大学","台湾东吴大学","台湾东海大学","台湾元智大学","台湾长庚大学","台湾中国医药大学","台湾高雄医学大学","台湾海洋大学","台湾世新大学","台湾实践大学","台湾铭传大学","台湾义守大学"]
+};
+</script>
+<script>
+/* 本科专业目录：12 个学科门类 + 交叉学科，按专业类归类
+   依据教育部《普通高等学校本科专业目录》整理，覆盖常见及新增专业，支持全库搜索 */
+window.MAJOR_DATA = {
+  "哲学": {
+    "哲学类": ["哲学", "逻辑学", "宗教学", "伦理学"]
+  },
+  "经济学": {
+    "经济学类": ["经济学", "经济统计学", "国民经济管理", "资源与环境经济学", "商务经济学", "能源经济", "劳动经济学", "经济工程", "数字经济"],
+    "财政学类": ["财政学", "税收学"],
+    "金融学类": ["金融学", "金融工程", "保险学", "投资学", "金融数学", "信用管理", "经济与金融", "精算学", "互联网金融", "金融科技"],
+    "经济与贸易类": ["国际经济与贸易", "贸易经济", "国际经济发展合作"]
+  },
+  "法学": {
+    "法学类": ["法学", "知识产权", "监狱学", "信用风险管理与法律防控", "国际经贸规则", "司法警察学", "社区矫正", "国际法", "司法鉴定学", "纪检监察"],
+    "政治学类": ["政治学与行政学", "国际政治", "外交学", "国际事务与国际关系", "政治学、经济学与哲学"],
+    "社会学类": ["社会学", "社会工作", "人类学", "女性学", "家政学", "老年学"],
+    "民族学类": ["民族学"],
+    "马克思主义理论类": ["科学社会主义", "中国共产党历史", "思想政治教育", "马克思主义理论"],
+    "公安学类": ["治安学", "侦查学", "边防管理", "禁毒学", "警犬技术", "经济犯罪侦查", "边防指挥", "消防指挥", "警务指挥与战术", "技术侦查学", "海警执法", "公安情报学", "犯罪学", "公安管理学", "涉外警务", "国内安全保卫", "警务战术指挥", "消防政治工作"]
+  },
+  "教育学": {
+    "教育学类": ["教育学", "科学教育", "人文教育", "教育技术学", "艺术教育", "学前教育", "小学教育", "特殊教育", "华文教育", "教育康复学", "卫生教育", "认知科学与技术", "融合教育", "劳动教育", "家庭教育"],
+    "体育学类": ["体育教育", "运动训练", "社会体育指导与管理", "武术与民族传统体育", "运动人体科学", "运动康复", "休闲体育", "体能训练", "冰雪运动", "电子竞技运动与管理", "智能体育工程", "体育旅游", "运动能力开发"]
+  },
+  "文学": {
+    "中国语言文学类": ["汉语言文学", "汉语言", "汉语国际教育", "中国少数民族语言文学", "古典文献学", "应用语言学", "秘书学", "中国语言与文化", "数字人文", "手语翻译"],
+    "外国语言文学类": ["英语", "俄语", "德语", "法语", "西班牙语", "阿拉伯语", "日语", "波斯语", "朝鲜语", "菲律宾语", "梵语巴利语", "印度尼西亚语", "印地语", "柬埔寨语", "老挝语", "缅甸语", "马来语", "蒙古语", "僧伽罗语", "泰语", "乌尔都语", "希伯来语", "越南语", "豪萨语", "斯瓦希里语", "阿尔巴尼亚语", "保加利亚语", "波兰语", "捷克语", "斯洛伐克语", "罗马尼亚语", "葡萄牙语", "瑞典语", "塞尔维亚语", "土耳其语", "希腊语", "匈牙利语", "意大利语", "泰米尔语", "普什图语", "世界语", "孟加拉语", "尼泊尔语", "克罗地亚语", "荷兰语", "芬兰语", "乌克兰语", "挪威语", "丹麦语", "冰岛语", "爱尔兰语", "拉脱维亚语", "立陶宛语", "斯洛文尼亚语", "爱沙尼亚语", "马耳他语", "哈萨克语", "乌兹别克语", "祖鲁语", "拉丁语", "翻译", "商务英语", "阿姆哈拉语", "吉尔吉斯语", "索马里语", "土库曼语", "加泰罗尼亚语", "约鲁巴语", "亚美尼亚语", "马达加斯加语", "格鲁吉亚语", "阿塞拜疆语", "阿非利卡语", "马其顿语", "塔吉克语", "茨瓦纳语", "恩德贝莱语", "科摩罗语", "克里奥尔语", "绍纳语", "提格雷尼亚语", "白俄罗斯语", "毛利语", "汤加语", "萨摩亚语", "库尔德语", "比斯拉马语", "达里语", "德顿语", "迪维希语", "斐济语", "库克群岛毛利语", "隆迪语", "卢森堡语", "卢旺达语", "纽埃语", "皮金语", "切瓦语", "塞苏陀语", "桑戈语"],
+    "新闻传播学类": ["新闻学", "广播电视学", "广告学", "传播学", "编辑出版学", "数字出版", "时尚传播", "国际新闻与传播", "会展", "网络与新媒体"]
+  },
+  "历史学": {
+    "历史学类": ["历史学", "世界史", "考古学", "文物与博物馆学", "文物保护技术", "外国语言与外国历史", "文化遗产", "古文字学", "科学史"]
+  },
+  "理学": {
+    "数学类": ["数学与应用数学", "信息与计算科学", "数理基础科学", "数据计算及应用"],
+    "物理学类": ["物理学", "应用物理学", "核物理", "声学", "系统科学与工程", "量子信息科学"],
+    "化学类": ["化学", "应用化学", "化学生物学", "分子科学与工程", "能源化学", "化学测量学与技术"],
+    "天文学类": ["天文学"],
+    "地理科学类": ["地理科学", "自然地理与资源环境", "人文地理与城乡规划", "地理信息科学"],
+    "大气科学类": ["大气科学", "应用气象学", "气象技术与工程"],
+    "海洋科学类": ["海洋科学", "海洋技术", "海洋资源与环境", "军事海洋学"],
+    "地球物理学类": ["地球物理学", "空间科学与技术", "行星科学"],
+    "地质学类": ["地质学", "地球化学", "地球信息科学与技术", "古生物学"],
+    "生物科学类": ["生物科学", "生物技术", "生物信息学", "生态学", "整合科学", "神经科学"],
+    "心理学类": ["心理学", "应用心理学"],
+    "统计学类": ["统计学", "应用统计学", "数据科学", "生物统计学", "系统科学"]
+  },
+  "工学": {
+    "力学类": ["理论与应用力学", "工程力学"],
+    "机械类": ["机械工程", "机械设计制造及其自动化", "材料成型及控制工程", "机械电子工程", "工业设计", "过程装备与控制工程", "车辆工程", "汽车服务工程", "机械工艺技术", "微机电系统工程", "机电技术教育", "汽车维修工程教育", "智能制造工程", "智能车辆工程", "仿生科学与工程", "新能源汽车工程", "增材制造工程", "智能交互设计", "应急装备技术与工程"],
+    "仪器类": ["测控技术与仪器", "精密仪器", "智能感知工程"],
+    "材料类": ["材料科学与工程", "材料物理", "材料化学", "冶金工程", "金属材料工程", "无机非金属材料工程", "高分子材料与工程", "复合材料与工程", "粉体材料科学与工程", "宝石及材料工艺学", "焊接技术与工程", "功能材料", "纳米材料与技术", "新能源材料与器件", "材料设计科学与工程", "复合材料成型工程", "智能材料与结构"],
+    "能源动力类": ["能源与动力工程", "能源与环境系统工程", "新能源科学与工程", "储能科学与工程", "能源服务工程", "氢能科学与工程", "可持续能源"],
+    "电气类": ["电气工程及其自动化", "智能电网信息工程", "光源与照明", "电气工程与智能控制", "电机电器智能化", "电缆工程", "能源互联网工程"],
+    "电子信息类": ["电子信息工程", "电子科学与技术", "通信工程", "微电子科学与工程", "光电信息科学与工程", "信息工程", "广播电视工程", "水声工程", "电子封装技术", "集成电路设计与集成系统", "医学信息工程", "电磁场与无线技术", "电波传播与天线", "电子信息科学与技术", "电信工程及管理", "应用电子技术教育", "人工智能", "海洋信息工程", "柔性电子学", "智能测控工程"],
+    "自动化类": ["自动化", "轨道交通信号与控制", "机器人工程", "邮政工程", "核电技术与控制工程", "智能装备与系统", "工业智能", "智能无人系统技术"],
+    "计算机类": ["计算机科学与技术", "软件工程", "网络工程", "信息安全", "物联网工程", "数字媒体技术", "智能科学与技术", "空间信息与数字技术", "电子与计算机工程", "数据科学与大数据技术", "网络空间安全", "新媒体技术", "电影制作", "保密技术", "服务科学与工程", "虚拟现实技术", "区块链工程", "密码科学与技术"],
+    "土木类": ["土木工程", "建筑环境与能源应用工程", "给排水科学与工程", "建筑电气与智能化", "城市地下空间工程", "道路桥梁与渡河工程", "铁道工程", "智能建造", "土木、水利与海洋工程", "土木、水利与交通工程", "城市水系统工程", "智能建造与智慧交通"],
+    "水利类": ["水利水电工程", "水文与水资源工程", "港口航道与海岸工程", "水务工程", "水利科学与工程", "智慧水利"],
+    "测绘类": ["测绘工程", "遥感科学与技术", "导航工程", "地理国情监测", "地理空间信息工程"],
+    "化工与制药类": ["化学工程与工艺", "制药工程", "资源循环科学与工程", "能源化学工程", "化学工程与工业生物工程", "化工安全工程", "涂料工程", "精细化工"],
+    "地质类": ["地质工程", "勘查技术与工程", "资源勘查工程", "地下水科学与工程", "旅游地学与规划工程", "智能地球探测", "资源环境大数据工程"],
+    "矿业类": ["采矿工程", "石油工程", "矿物加工工程", "油气储运工程", "矿物资源工程", "海洋油气工程", "智能采矿工程", "碳储科学与工程"],
+    "纺织类": ["纺织工程", "服装设计与工程", "非织造材料与工程", "服装设计与工艺教育", "丝绸设计与工程"],
+    "轻工类": ["轻化工程", "包装工程", "印刷工程", "香料香精技术与工程", "化妆品技术与工程", "生物质能源与材料"],
+    "交通运输类": ["交通运输", "交通工程", "航海技术", "轮机工程", "飞行技术", "交通设备与控制工程", "救助与打捞工程", "船舶电子电气工程", "轨道交通电气与控制", "邮轮工程与管理", "智慧交通", "智能运输工程"],
+    "海洋工程类": ["船舶与海洋工程", "海洋工程与技术", "海洋资源开发技术", "海洋机器人", "智慧海洋技术"],
+    "航空航天类": ["航空航天工程", "飞行器设计与工程", "飞行器制造工程", "飞行器动力工程", "飞行器环境与生命保障工程", "飞行器质量与可靠性", "飞行器适航技术", "飞行器控制与信息工程", "无人驾驶航空器系统工程", "智能飞行器技术", "空天智能电推进技术"],
+    "兵器类": ["武器系统与工程", "武器发射工程", "探测制导与控制技术", "弹药工程与爆炸技术", "特种能源技术与工程", "装甲车辆工程", "信息对抗技术"],
+    "核工程类": ["核工程与核技术", "辐射防护与核安全", "工程物理", "核化工与核燃料工程"],
+    "农业工程类": ["农业工程", "农业机械化及其自动化", "农业电气化", "农业建筑环境与能源工程", "农业水利工程", "土地整治工程", "农业智能装备工程"],
+    "林业工程类": ["森林工程", "木材科学与工程", "林产化工", "家具设计与工程", "木结构建筑与材料"],
+    "环境科学与工程类": ["环境科学与工程", "环境工程", "环境科学", "环境生态工程", "环保设备工程", "资源环境科学", "水质科学与技术"],
+    "生物医学工程类": ["生物医学工程", "假肢矫形工程", "临床工程技术", "康复工程"],
+    "食品科学与工程类": ["食品科学与工程", "食品质量与安全", "粮食工程", "乳品工程", "酿酒工程", "葡萄与葡萄酒工程", "食品营养与检验教育", "烹饪与营养教育", "食品安全与检测", "食品营养与健康", "食药同源", "白酒酿造工程"],
+    "建筑类": ["建筑学", "城乡规划", "风景园林", "历史建筑保护工程", "人居环境科学与技术", "城市设计", "智慧建筑与建造"],
+    "安全科学与工程类": ["安全工程", "应急技术与管理", "职业卫生工程"],
+    "生物工程类": ["生物工程", "生物制药", "合成生物学"],
+    "公安技术类": ["刑事科学技术", "消防工程", "交通管理工程", "安全防范工程", "公安视听技术", "网络安全与执法", "核生化消防", "海警舰艇指挥与技术", "数据警务技术", "食品药品环境犯罪侦查技术"]
+  },
+  "农学": {
+    "植物生产类": ["农学", "园艺", "植物保护", "植物科学与技术", "种子科学与工程", "设施农业科学与工程", "茶学", "烟草", "应用生物科学", "农艺教育", "园艺教育", "智慧农业", "菌物科学与工程", "农药化肥", "生物农药科学与工程"],
+    "自然保护与环境生态类": ["农业资源与环境", "野生动物与自然保护区管理", "水土保持与荒漠化防治", "生物质科学与工程"],
+    "动物生产类": ["动物科学", "蚕学", "蜂学", "经济动物学", "马业科学", "饲料工程", "智慧牧业科学与工程"],
+    "动物医学类": ["动物医学", "动物药学", "动植物检疫", "实验动物学", "中兽医学", "兽医公共卫生"],
+    "林学类": ["林学", "园林", "森林保护", "经济林", "智慧林业"],
+    "水产类": ["水产养殖学", "海洋渔业科学与技术", "水族科学与技术", "水生动物医学"],
+    "草学类": ["草业科学", "草坪科学与工程"]
+  },
+  "医学": {
+    "基础医学类": ["基础医学"],
+    "临床医学类": ["临床医学", "麻醉学", "医学影像学", "眼视光医学", "精神医学", "放射医学", "儿科学"],
+    "口腔医学类": ["口腔医学"],
+    "公共卫生与预防医学类": ["预防医学", "食品卫生与营养学", "妇幼保健医学", "卫生监督", "全球健康学"],
+    "中医学类": ["中医学", "针灸推拿学", "藏医学", "蒙医学", "维医学", "壮医学", "哈医学", "傣医学", "回医学", "中医康复学", "中医养生学", "中医儿科学", "中医骨伤科学"],
+    "中西医结合类": ["中西医临床医学"],
+    "药学类": ["药学", "药物制剂", "临床药学", "药事管理", "药物分析", "药物化学", "海洋药学", "化妆品科学与技术"],
+    "中药学类": ["中药学", "中药资源与开发", "藏药学", "蒙药学", "中药制药", "中草药栽培与鉴定"],
+    "法医学类": ["法医学"],
+    "医学技术类": ["医学检验技术", "医学实验技术", "医学影像技术", "眼视光学", "康复治疗学", "口腔医学技术", "卫生检验与检疫", "听力与言语康复学", "康复物理治疗", "康复作业治疗", "智能医学工程", "生物医药数据科学", "智能影像工程", "医工学"],
+    "护理学类": ["护理学", "助产学"]
+  },
+  "管理学": {
+    "管理科学与工程类": ["管理科学", "信息管理与信息系统", "工程管理", "房地产开发与管理", "工程造价", "保密管理", "邮政管理", "大数据管理与应用", "工程审计", "计算金融", "应急管理"],
+    "工商管理类": ["工商管理", "市场营销", "会计学", "财务管理", "国际商务", "人力资源管理", "审计学", "资产评估", "物业管理", "文化产业管理", "劳动关系", "体育经济与管理", "财务会计教育", "市场营销教育", "零售业管理", "创业管理", "海关稽查"],
+    "农业经济管理类": ["农林经济管理", "农村区域发展"],
+    "公共管理类": ["公共事业管理", "行政管理", "劳动与社会保障", "土地资源管理", "城市管理", "海关管理", "交通管理", "海事管理", "公共关系学", "健康服务与管理", "海警后勤管理", "医疗产品管理", "医疗保险", "养老服务管理"],
+    "图书情报与档案管理类": ["图书馆学", "档案学", "信息资源管理"],
+    "物流管理与工程类": ["物流管理", "物流工程", "供应链管理"],
+    "工业工程类": ["工业工程", "标准化工程", "质量管理工程"],
+    "电子商务类": ["电子商务", "电子商务及法律", "跨境电子商务"],
+    "旅游管理类": ["旅游管理", "酒店管理", "会展经济与管理", "旅游管理与服务教育"]
+  },
+  "艺术学": {
+    "艺术学理论类": ["艺术史论", "艺术管理", "非物质文化遗产保护"],
+    "音乐与舞蹈学类": ["音乐表演", "音乐学", "作曲与作曲技术理论", "舞蹈表演", "舞蹈学", "舞蹈编导", "舞蹈教育", "流行音乐", "音乐治疗", "流行舞蹈", "音乐剧"],
+    "戏剧与影视学类": ["表演", "戏剧学", "电影学", "戏剧影视文学", "广播电视编导", "戏剧影视导演", "戏剧影视美术设计", "录音艺术", "播音与主持艺术", "动画", "影视摄影与制作", "影视技术", "戏剧教育", "曲艺"],
+    "美术学类": ["美术学", "绘画", "雕塑", "摄影", "书法学", "中国画", "实验艺术", "跨媒体艺术", "文物保护与修复", "漫画", "纤维艺术", "科技艺术", "美术教育"],
+    "设计学类": ["艺术设计学", "视觉传达设计", "环境设计", "产品设计", "服装与服饰设计", "公共艺术", "工艺美术", "数字媒体艺术", "艺术与科技", "陶瓷艺术设计", "新媒体艺术", "包装设计", "珠宝首饰设计与工艺", "游戏艺术设计", "智能交互设计"]
+  },
+  "交叉学科": {
+    "交叉学科类": ["集成电路科学与工程", "国家安全学", "纳米科学与工程", "区域国别学", "生物育种科学", "未来机器人", "电动载运工程", "智慧海洋技术", "碳储科学与工程", "生物质能源与材料", "空天智能电推进技术", "智能地球探测", "资源环境大数据工程", "生物统计学", "食品营养与健康", "智能医学工程", "生物医药数据科学", "智能影像工程", "康复工程", "应急技术与管理", "职业卫生工程", "合成生物学", "智慧牧业科学与工程", "饲料工程", "兽医公共卫生", "经济林", "智慧交通", "智能运输工程", "海洋机器人", "智慧建筑与建造", "城市水系统工程", "智能交互设计", "应急装备技术与工程", "增材制造工程", "新能源汽车工程", "智能车辆工程", "仿生科学与工程", "微机电系统工程", "电波传播与天线", "柔性电子学", "智能测控工程", "工业智能", "智能无人系统技术", "区块链工程", "密码科学与技术", "虚拟现实技术", "数字媒体技术", "数据科学与大数据技术", "保密技术", "服务科学与工程", "电影制作", "新媒体技术", "人工智能", "海洋信息工程", "能源互联网工程", "电机电器智能化", "电缆工程", "储能科学与工程", "能源服务工程", "可持续能源", "氢能科学与工程", "智慧水利", "智能建造", "智能建造与智慧交通", "城市地下空间工程", "化工安全工程", "涂料工程", "精细化工", "智能采矿工程", "智慧交通", "智能运输工程", "海洋机器人", "无人驾驶航空器系统工程", "智能飞行器技术", "空天智能电推进技术", "农业智能装备工程", "土地整治工程", "家具设计与工程", "木结构建筑与材料", "人居环境科学与技术", "城市设计", "智慧建筑与建造", "应急技术与管理", "职业卫生工程", "合成生物学", "生物育种科学", "智慧农业", "菌物科学与工程", "农药化肥", "生物农药科学与工程", "智慧林业", "草坪科学与工程", "食品药品环境犯罪侦查技术", "数据警务技术", "海警舰艇指挥与技术", "核生化消防", "智能医学工程", "智能影像工程", "医工学", "生物医药数据科学", "康复工程", "养老服务管理", "医疗保险", "医疗产品管理", "跨境电子商务", "海关稽查", "创业管理", "数字人文", "非物质文化遗产保护", "科技艺术", "纤维艺术", "游戏艺术设计", "珠宝首饰设计与工艺", "冰雪艺术"]
+  }
+};
+
+window.MAJOR_FLAT = (function () {
+  var list = [];
+  Object.keys(window.MAJOR_DATA).forEach(function (cat) {
+    Object.keys(window.MAJOR_DATA[cat]).forEach(function (cls) {
+      window.MAJOR_DATA[cat][cls].forEach(function (m) {
+        if (!list.some(function (x) { return x.name === m; })) {
+          list.push({ name: m, category: cat, "class": cls });
+        }
+      });
+    });
+  });
+  return list;
+})();
+</script>
+<script>
+/* 城市数据库：省级行政区 → 主要城市（用于求职意向省市联动滚轮与岗位匹配） */
+window.CITY_DATA = {
+  "北京": ["北京市"],
+  "天津": ["天津市"],
+  "河北": ["石家庄", "唐山", "秦皇岛", "邯郸", "邢台", "保定", "张家口", "承德", "沧州", "廊坊", "衡水", "雄安新区"],
+  "山西": ["太原", "大同", "阳泉", "长治", "晋城", "朔州", "晋中", "运城", "忻州", "临汾", "吕梁"],
+  "内蒙古": ["呼和浩特", "包头", "乌海", "赤峰", "通辽", "鄂尔多斯", "呼伦贝尔", "巴彦淖尔", "乌兰察布", "兴安盟", "锡林郭勒", "阿拉善"],
+  "辽宁": ["沈阳", "大连", "鞍山", "抚顺", "本溪", "丹东", "锦州", "营口", "阜新", "辽阳", "盘锦", "铁岭", "朝阳", "葫芦岛"],
+  "吉林": ["长春", "吉林", "四平", "辽源", "通化", "白山", "松原", "白城", "延边"],
+  "黑龙江": ["哈尔滨", "齐齐哈尔", "鸡西", "鹤岗", "双鸭山", "大庆", "伊春", "佳木斯", "七台河", "牡丹江", "黑河", "绥化", "大兴安岭"],
+  "上海": ["上海市"],
+  "江苏": ["南京", "无锡", "徐州", "常州", "苏州", "南通", "连云港", "淮安", "盐城", "扬州", "镇江", "泰州", "宿迁"],
+  "浙江": ["杭州", "宁波", "温州", "嘉兴", "湖州", "绍兴", "金华", "衢州", "舟山", "台州", "丽水"],
+  "安徽": ["合肥", "芜湖", "蚌埠", "淮南", "马鞍山", "淮北", "铜陵", "安庆", "黄山", "滁州", "阜阳", "宿州", "六安", "亳州", "池州", "宣城"],
+  "福建": ["福州", "厦门", "莆田", "三明", "泉州", "漳州", "南平", "龙岩", "宁德"],
+  "江西": ["南昌", "景德镇", "萍乡", "九江", "新余", "鹰潭", "赣州", "吉安", "宜春", "抚州", "上饶"],
+  "山东": ["济南", "青岛", "淄博", "枣庄", "东营", "烟台", "潍坊", "济宁", "泰安", "威海", "日照", "临沂", "德州", "聊城", "滨州", "菏泽"],
+  "河南": ["郑州", "开封", "洛阳", "平顶山", "安阳", "鹤壁", "新乡", "焦作", "濮阳", "许昌", "漯河", "三门峡", "南阳", "商丘", "信阳", "周口", "驻马店", "济源"],
+  "湖北": ["武汉", "黄石", "十堰", "宜昌", "襄阳", "鄂州", "荆门", "孝感", "荆州", "黄冈", "咸宁", "随州", "恩施", "仙桃", "潜江", "天门"],
+  "湖南": ["长沙", "株洲", "湘潭", "衡阳", "邵阳", "岳阳", "常德", "张家界", "益阳", "郴州", "永州", "怀化", "娄底", "湘西"],
+  "广东": ["广州", "深圳", "珠海", "汕头", "佛山", "韶关", "湛江", "肇庆", "江门", "茂名", "惠州", "梅州", "汕尾", "河源", "阳江", "清远", "东莞", "中山", "潮州", "揭阳", "云浮"],
+  "广西": ["南宁", "柳州", "桂林", "梧州", "北海", "防城港", "钦州", "贵港", "玉林", "百色", "贺州", "河池", "来宾", "崇左"],
+  "海南": ["海口", "三亚", "三沙", "儋州", "琼海", "文昌", "万宁", "东方", "五指山"],
+  "重庆": ["重庆市"],
+  "四川": ["成都", "自贡", "攀枝花", "泸州", "德阳", "绵阳", "广元", "遂宁", "内江", "乐山", "南充", "眉山", "宜宾", "广安", "达州", "雅安", "巴中", "资阳", "阿坝", "甘孜", "凉山"],
+  "贵州": ["贵阳", "六盘水", "遵义", "安顺", "毕节", "铜仁", "黔西南", "黔东南", "黔南"],
+  "云南": ["昆明", "曲靖", "玉溪", "保山", "昭通", "丽江", "普洱", "临沧", "楚雄", "红河", "文山", "西双版纳", "大理", "德宏", "怒江", "迪庆"],
+  "西藏": ["拉萨", "日喀则", "昌都", "林芝", "山南", "那曲", "阿里"],
+  "陕西": ["西安", "铜川", "宝鸡", "咸阳", "渭南", "延安", "汉中", "榆林", "安康", "商洛"],
+  "甘肃": ["兰州", "嘉峪关", "金昌", "白银", "天水", "武威", "张掖", "平凉", "酒泉", "庆阳", "定西", "陇南", "临夏", "甘南"],
+  "青海": ["西宁", "海东", "海北", "黄南", "海南州", "果洛", "玉树", "海西"],
+  "宁夏": ["银川", "石嘴山", "吴忠", "固原", "中卫"],
+  "新疆": ["乌鲁木齐", "克拉玛依", "吐鲁番", "哈密", "昌吉", "博尔塔拉", "巴音郭楞", "阿克苏", "克孜勒苏", "喀什", "和田", "伊犁", "塔城", "阿勒泰", "石河子"],
+  "香港": ["香港"],
+  "澳门": ["澳门"],
+  "台湾": ["台北", "新北", "桃园", "台中", "台南", "高雄", "新竹", "基隆", "嘉义"]
+};
+
+window.CITY_TIER = (function () {
+  var tier1 = ["北京", "北京市", "上海", "上海市", "广州", "广州市", "深圳", "深圳市"];
+  var newTier1 = ["成都市", "天津市", "重庆市", "成都", "杭州", "重庆", "西安", "苏州", "武汉", "南京", "天津", "郑州", "长沙", "东莞", "佛山", "宁波", "青岛", "沈阳", "合肥", "昆明", "无锡", "厦门", "福州", "济南", "大连", "哈尔滨", "长春", "温州", "石家庄", "泉州", "南宁", "贵阳", "南昌", "金华", "常州", "南通", "嘉兴", "徐州", "太原", "保定", "珠海", "中山", "惠州", "烟台", "兰州", "海口", "乌鲁木齐", "绍兴", "台州", "潍坊", "临沂", "洛阳"];
+  var map = {};
+  tier1.forEach(function (c) { map[c] = 1; });
+  newTier1.forEach(function (c) { map[c] = 2; });
+  return function (city) {
+    if (map[city] === 1) return { level: 1, label: "一线城市", factor: 1.35 };
+    if (map[city] === 2) return { level: 2, label: "新一线/二线城市", factor: 1.15 };
+    return { level: 3, label: "三线及以下城市", factor: 0.95 };
+  };
+})();
+</script>
+<script>
+/* 区县数据库（北方 + 华东）：省 → 市 → 主要区县
+   用于期望工作地点的省/市/区县三级联动与全库搜索 */
+window.DISTRICT_DATA = window.DISTRICT_DATA || {};
+
+window.DISTRICT_DATA["北京"] = {
+  "北京市": ["东城区", "西城区", "朝阳区", "海淀区", "丰台区", "石景山区", "门头沟区", "房山区", "通州区", "顺义区", "昌平区", "大兴区", "怀柔区", "平谷区", "密云区", "延庆区"]
+};
+window.DISTRICT_DATA["天津"] = {
+  "天津市": ["和平区", "河东区", "河西区", "南开区", "河北区", "红桥区", "东丽区", "西青区", "津南区", "北辰区", "武清区", "宝坻区", "滨海新区", "宁河区", "静海区", "蓟州区"]
+};
+window.DISTRICT_DATA["上海"] = {
+  "上海市": ["黄浦区", "徐汇区", "长宁区", "静安区", "普陀区", "虹口区", "杨浦区", "闵行区", "宝山区", "嘉定区", "浦东新区", "金山区", "松江区", "青浦区", "奉贤区", "崇明区"]
+};
+
+window.DISTRICT_DATA["河北"] = {
+  "石家庄": ["长安区", "桥西区", "新华区", "裕华区", "藁城区", "鹿泉区", "栾城区", "正定县"],
+  "唐山": ["路南区", "路北区", "古冶区", "开平区", "丰南区", "丰润区", "曹妃甸区", "遵化市"],
+  "秦皇岛": ["海港区", "山海关区", "北戴河区", "抚宁区", "昌黎县", "卢龙县"],
+  "邯郸": ["邯山区", "丛台区", "复兴区", "峰峰矿区", "肥乡区", "永年区", "武安市"],
+  "邢台": ["襄都区", "信都区", "任泽区", "南和区", "宁晋县", "清河县", "沙河市"],
+  "保定": ["竞秀区", "莲池区", "满城区", "清苑区", "徐水区", "涿州市", "定州市", "高碑店市"],
+  "张家口": ["桥东区", "桥西区", "宣化区", "下花园区", "万全区", "崇礼区", "张北县"],
+  "承德": ["双桥区", "双滦区", "鹰手营子矿区", "承德县", "兴隆县", "平泉市"],
+  "沧州": ["新华区", "运河区", "沧县", "青县", "泊头市", "任丘市", "黄骅市"],
+  "廊坊": ["广阳区", "安次区", "固安县", "香河县", "大厂县", "霸州市", "三河市"],
+  "衡水": ["桃城区", "冀州区", "枣强县", "武邑县", "深州市"],
+  "雄安新区": ["容城县", "安新县", "雄县"]
+};
+
+window.DISTRICT_DATA["山西"] = {
+  "太原": ["小店区", "迎泽区", "杏花岭区", "尖草坪区", "万柏林区", "晋源区", "清徐县", "阳曲县"],
+  "大同": ["平城区", "云冈区", "新荣区", "云州区", "阳高县", "天镇县", "浑源县"],
+  "阳泉": ["城区", "矿区", "郊区", "平定县", "盂县"],
+  "长治": ["潞州区", "上党区", "屯留区", "潞城区", "襄垣县", "长子县", "壶关县"],
+  "晋城": ["城区", "沁水县", "阳城县", "陵川县", "泽州县", "高平市"],
+  "朔州": ["朔城区", "平鲁区", "山阴县", "应县", "右玉县"],
+  "晋中": ["榆次区", "太谷区", "祁县", "平遥县", "灵石县", "介休市"],
+  "运城": ["盐湖区", "临猗县", "万荣县", "闻喜县", "稷山县", "河津市", "永济市"],
+  "忻州": ["忻府区", "定襄县", "五台县", "代县", "繁峙县", "原平市"],
+  "临汾": ["尧都区", "曲沃县", "翼城县", "洪洞县", "襄汾县", "侯马市", "霍州市"],
+  "吕梁": ["离石区", "文水县", "交城县", "兴县", "临县", "孝义市", "汾阳市"]
+};
+
+window.DISTRICT_DATA["内蒙古"] = {
+  "呼和浩特": ["新城区", "回民区", "玉泉区", "赛罕区", "土默特左旗", "托克托县", "武川县"],
+  "包头": ["东河区", "昆都仑区", "青山区", "石拐区", "九原区", "土默特右旗", "固阳县"],
+  "乌海": ["海勃湾区", "海南区", "乌达区"],
+  "赤峰": ["红山区", "元宝山区", "松山区", "阿鲁科尔沁旗", "巴林左旗", "翁牛特旗", "宁城县"],
+  "通辽": ["科尔沁区", "科尔沁左翼中旗", "科尔沁左翼后旗", "开鲁县", "奈曼旗", "霍林郭勒市"],
+  "鄂尔多斯": ["东胜区", "康巴什区", "达拉特旗", "准格尔旗", "伊金霍洛旗", "乌审旗"],
+  "呼伦贝尔": ["海拉尔区", "扎赉诺尔区", "阿荣旗", "鄂温克族自治旗", "满洲里市", "牙克石市"],
+  "巴彦淖尔": ["临河区", "五原县", "磴口县", "乌拉特前旗", "杭锦后旗"],
+  "乌兰察布": ["集宁区", "卓资县", "化德县", "商都县", "兴和县", "丰镇市"],
+  "兴安盟": ["乌兰浩特市", "阿尔山市", "科尔沁右翼前旗", "科尔沁右翼中旗", "扎赉特旗", "突泉县"],
+  "锡林郭勒": ["锡林浩特市", "二连浩特市", "阿巴嘎旗", "苏尼特左旗", "苏尼特右旗", "东乌珠穆沁旗", "西乌珠穆沁旗", "太仆寺旗", "镶黄旗", "正镶白旗", "正蓝旗", "多伦县"],
+  "阿拉善": ["阿拉善左旗", "阿拉善右旗", "额济纳旗"]
+};
+
+window.DISTRICT_DATA["辽宁"] = {
+  "沈阳": ["和平区", "沈河区", "大东区", "皇姑区", "铁西区", "苏家屯区", "浑南区", "沈北新区"],
+  "大连": ["中山区", "西岗区", "沙河口区", "甘井子区", "旅顺口区", "金州区", "普兰店区", "瓦房店市"],
+  "鞍山": ["铁东区", "铁西区", "立山区", "千山区", "台安县", "海城市"],
+  "抚顺": ["新抚区", "东洲区", "望花区", "顺城区", "抚顺县", "清原县"],
+  "本溪": ["平山区", "溪湖区", "明山区", "南芬区", "本溪县", "桓仁县"],
+  "丹东": ["元宝区", "振兴区", "振安区", "宽甸县", "东港市", "凤城市"],
+  "锦州": ["古塔区", "凌河区", "太和区", "黑山县", "义县", "凌海市", "北镇市"],
+  "营口": ["站前区", "西市区", "鲅鱼圈区", "老边区", "盖州市", "大石桥市"],
+  "阜新": ["海州区", "新邱区", "太平区", "清河门区", "细河区", "彰武县"],
+  "辽阳": ["白塔区", "文圣区", "宏伟区", "弓长岭区", "太子河区", "灯塔市"],
+  "盘锦": ["兴隆台区", "双台子区", "大洼区", "盘山县"],
+  "铁岭": ["银州区", "清河区", "铁岭县", "西丰县", "开原市"],
+  "朝阳": ["双塔区", "龙城区", "朝阳县", "建平县", "凌源市", "北票市"],
+  "葫芦岛": ["连山区", "龙港区", "南票区", "绥中县", "建昌县", "兴城市"]
+};
+
+window.DISTRICT_DATA["吉林"] = {
+  "长春": ["南关区", "宽城区", "朝阳区", "二道区", "绿园区", "双阳区", "九台区", "榆树市"],
+  "吉林": ["昌邑区", "龙潭区", "船营区", "丰满区", "永吉县", "蛟河市", "桦甸市"],
+  "四平": ["铁西区", "铁东区", "梨树县", "伊通县", "双辽市"],
+  "辽源": ["龙山区", "西安区", "东丰县", "东辽县"],
+  "通化": ["东昌区", "二道江区", "通化县", "辉南县", "柳河县", "梅河口市"],
+  "白山": ["浑江区", "江源区", "抚松县", "靖宇县", "长白县", "临江市"],
+  "松原": ["宁江区", "前郭尔罗斯县", "长岭县", "乾安县", "扶余市"],
+  "白城": ["洮北区", "镇赉县", "通榆县", "洮南市", "大安市"],
+  "延边": ["延吉市", "图们市", "敦化市", "珲春市", "龙井市", "和龙市"]
+};
+
+window.DISTRICT_DATA["黑龙江"] = {
+  "哈尔滨": ["道里区", "南岗区", "道外区", "平房区", "松北区", "香坊区", "呼兰区", "阿城区", "双城区"],
+  "齐齐哈尔": ["龙沙区", "建华区", "铁锋区", "昂昂溪区", "富拉尔基区", "碾子山区", "讷河市"],
+  "鸡西": ["鸡冠区", "恒山区", "滴道区", "梨树区", "城子河区", "密山市"],
+  "鹤岗": ["向阳区", "工农区", "南山区", "兴安区", "东山区", "萝北县"],
+  "双鸭山": ["尖山区", "岭东区", "四方台区", "宝山区", "集贤县", "饶河县"],
+  "大庆": ["萨尔图区", "龙凤区", "让胡路区", "红岗区", "大同区", "肇州县", "肇源县"],
+  "伊春": ["伊美区", "乌翠区", "友好区", "金林区", "铁力市", "嘉荫县"],
+  "佳木斯": ["向阳区", "前进区", "东风区", "郊区", "桦南县", "汤原县", "抚远市"],
+  "七台河": ["新兴区", "桃山区", "茄子河区", "勃利县"],
+  "牡丹江": ["东安区", "阳明区", "爱民区", "西安区", "林口县", "绥芬河市", "海林市"],
+  "黑河": ["爱辉区", "逊克县", "孙吴县", "北安市", "五大连池市"],
+  "绥化": ["北林区", "望奎县", "兰西县", "青冈县", "庆安县", "肇东市", "安达市"],
+  "大兴安岭": ["加格达奇区", "漠河市", "塔河县", "呼玛县"]
+};
+
+window.DISTRICT_DATA["江苏"] = {
+  "南京": ["玄武区", "秦淮区", "建邺区", "鼓楼区", "浦口区", "栖霞区", "雨花台区", "江宁区", "六合区"],
+  "无锡": ["梁溪区", "锡山区", "惠山区", "滨湖区", "新吴区", "江阴市", "宜兴市"],
+  "徐州": ["云龙区", "鼓楼区", "贾汪区", "泉山区", "铜山区", "丰县", "沛县", "新沂市", "邳州市"],
+  "常州": ["天宁区", "钟楼区", "新北区", "武进区", "金坛区", "溧阳市"],
+  "苏州": ["姑苏区", "虎丘区", "吴中区", "相城区", "吴江区", "常熟市", "张家港市", "昆山市", "太仓市"],
+  "南通": ["崇川区", "通州区", "海门区", "如东县", "启东市", "如皋市", "海安市"],
+  "连云港": ["连云区", "海州区", "赣榆区", "东海县", "灌云县", "灌南县"],
+  "淮安": ["淮安区", "淮阴区", "清江浦区", "洪泽区", "涟水县", "盱眙县", "金湖县"],
+  "盐城": ["亭湖区", "盐都区", "大丰区", "响水县", "滨海县", "阜宁县", "射阳县", "东台市"],
+  "扬州": ["广陵区", "邗江区", "江都区", "宝应县", "仪征市", "高邮市"],
+  "镇江": ["京口区", "润州区", "丹徒区", "丹阳市", "扬中市", "句容市"],
+  "泰州": ["海陵区", "高港区", "姜堰区", "兴化市", "靖江市", "泰兴市"],
+  "宿迁": ["宿城区", "宿豫区", "沭阳县", "泗阳县", "泗洪县"]
+};
+
+window.DISTRICT_DATA["浙江"] = {
+  "杭州": ["上城区", "拱墅区", "西湖区", "滨江区", "萧山区", "余杭区", "临平区", "钱塘区", "富阳区", "临安区"],
+  "宁波": ["海曙区", "江北区", "北仑区", "镇海区", "鄞州区", "奉化区", "余姚市", "慈溪市"],
+  "温州": ["鹿城区", "龙湾区", "瓯海区", "洞头区", "永嘉县", "平阳县", "瑞安市", "乐清市"],
+  "嘉兴": ["南湖区", "秀洲区", "嘉善县", "海盐县", "海宁市", "平湖市", "桐乡市"],
+  "湖州": ["吴兴区", "南浔区", "德清县", "长兴县", "安吉县"],
+  "绍兴": ["越城区", "柯桥区", "上虞区", "诸暨市", "嵊州市"],
+  "金华": ["婺城区", "金东区", "武义县", "浦江县", "磐安县", "义乌市", "东阳市", "永康市"],
+  "衢州": ["柯城区", "衢江区", "常山县", "开化县", "龙游县", "江山市"],
+  "舟山": ["定海区", "普陀区", "岱山县", "嵊泗县"],
+  "台州": ["椒江区", "黄岩区", "路桥区", "三门县", "天台县", "仙居县", "温岭市", "临海市"],
+  "丽水": ["莲都区", "青田县", "缙云县", "遂昌县", "松阳县", "云和县", "庆元县", "景宁县"]
+};
+
+window.DISTRICT_DATA["安徽"] = {
+  "合肥": ["瑶海区", "庐阳区", "蜀山区", "包河区", "长丰县", "肥东县", "肥西县", "庐江县", "巢湖市"],
+  "芜湖": ["镜湖区", "弋江区", "鸠江区", "湾沚区", "繁昌区", "南陵县", "无为市"],
+  "蚌埠": ["龙子湖区", "蚌山区", "禹会区", "淮上区", "怀远县", "五河县", "固镇县"],
+  "淮南": ["大通区", "田家庵区", "谢家集区", "八公山区", "潘集区", "凤台县", "寿县"],
+  "马鞍山": ["花山区", "雨山区", "博望区", "当涂县", "含山县", "和县"],
+  "淮北": ["杜集区", "相山区", "烈山区", "濉溪县"],
+  "铜陵": ["铜官区", "义安区", "郊区", "枞阳县"],
+  "安庆": ["迎江区", "大观区", "宜秀区", "怀宁县", "潜山市", "桐城市"],
+  "黄山": ["屯溪区", "黄山区", "徽州区", "歙县", "休宁县", "黟县", "祁门县"],
+  "滁州": ["琅琊区", "南谯区", "来安县", "全椒县", "定远县", "凤阳县", "天长市", "明光市"],
+  "阜阳": ["颍州区", "颍东区", "颍泉区", "临泉县", "太和县", "阜南县", "颍上县", "界首市"],
+  "宿州": ["埇桥区", "砀山县", "萧县", "灵璧县", "泗县"],
+  "六安": ["金安区", "裕安区", "叶集区", "霍邱县", "舒城县", "金寨县", "霍山县"],
+  "亳州": ["谯城区", "涡阳县", "蒙城县", "利辛县"],
+  "池州": ["贵池区", "东至县", "石台县", "青阳县"],
+  "宣城": ["宣州区", "郎溪县", "泾县", "绩溪县", "旌德县", "宁国市", "广德市"]
+};
+
+window.DISTRICT_DATA["福建"] = {
+  "福州": ["鼓楼区", "台江区", "仓山区", "马尾区", "晋安区", "长乐区", "闽侯县", "连江县", "福清市"],
+  "厦门": ["思明区", "海沧区", "湖里区", "集美区", "同安区", "翔安区"],
+  "莆田": ["城厢区", "涵江区", "荔城区", "秀屿区", "仙游县"],
+  "三明": ["三元区", "沙县区", "明溪县", "清流县", "宁化县", "尤溪县", "永安市"],
+  "泉州": ["鲤城区", "丰泽区", "洛江区", "泉港区", "惠安县", "安溪县", "晋江市", "石狮市", "南安市"],
+  "漳州": ["芗城区", "龙文区", "龙海区", "长泰区", "云霄县", "漳浦县", "诏安县", "东山县"],
+  "南平": ["延平区", "建阳区", "顺昌县", "浦城县", "光泽县", "武夷山市", "建瓯市"],
+  "龙岩": ["新罗区", "永定区", "长汀县", "上杭县", "武平县", "连城县", "漳平市"],
+  "宁德": ["蕉城区", "霞浦县", "古田县", "屏南县", "寿宁县", "福安市", "福鼎市"]
+};
+
+window.DISTRICT_DATA["江西"] = {
+  "南昌": ["东湖区", "西湖区", "青云谱区", "青山湖区", "新建区", "红谷滩区", "南昌县", "进贤县"],
+  "景德镇": ["昌江区", "珠山区", "浮梁县", "乐平市"],
+  "萍乡": ["安源区", "湘东区", "莲花县", "上栗县", "芦溪县"],
+  "九江": ["濂溪区", "浔阳区", "柴桑区", "武宁县", "修水县", "永修县", "共青城市", "庐山市"],
+  "新余": ["渝水区", "分宜县"],
+  "鹰潭": ["月湖区", "余江区", "贵溪市"],
+  "赣州": ["章贡区", "南康区", "赣县区", "信丰县", "大余县", "上犹县", "崇义县", "瑞金市"],
+  "吉安": ["吉州区", "青原区", "吉安县", "吉水县", "新干县", "永丰县", "井冈山市"],
+  "宜春": ["袁州区", "奉新县", "万载县", "上高县", "宜丰县", "丰城市", "樟树市", "高安市"],
+  "抚州": ["临川区", "东乡区", "南城县", "黎川县", "南丰县", "崇仁县", "乐安县"],
+  "上饶": ["信州区", "广丰区", "广信区", "玉山县", "铅山县", "弋阳县", "婺源县", "德兴市"]
+};
+
+window.DISTRICT_DATA["山东"] = {
+  "济南": ["历下区", "市中区", "槐荫区", "天桥区", "历城区", "长清区", "章丘区", "济阳区", "莱芜区"],
+  "青岛": ["市南区", "市北区", "黄岛区", "崂山区", "李沧区", "城阳区", "即墨区", "胶州市", "平度市"],
+  "淄博": ["淄川区", "张店区", "博山区", "临淄区", "周村区", "桓台县", "高青县", "沂源县"],
+  "枣庄": ["市中区", "薛城区", "峄城区", "台儿庄区", "山亭区", "滕州市"],
+  "东营": ["东营区", "河口区", "垦利区", "利津县", "广饶县"],
+  "烟台": ["芝罘区", "福山区", "牟平区", "莱山区", "蓬莱区", "龙口市", "莱阳市", "招远市"],
+  "潍坊": ["潍城区", "寒亭区", "坊子区", "奎文区", "临朐县", "昌乐县", "青州市", "诸城市", "寿光市"],
+  "济宁": ["任城区", "兖州区", "微山县", "鱼台县", "金乡县", "嘉祥县", "曲阜市", "邹城市"],
+  "泰安": ["泰山区", "岱岳区", "宁阳县", "东平县", "新泰市", "肥城市"],
+  "威海": ["环翠区", "文登区", "荣成市", "乳山市"],
+  "日照": ["东港区", "岚山区", "五莲县", "莒县"],
+  "临沂": ["兰山区", "罗庄区", "河东区", "沂南县", "郯城县", "沂水县", "兰陵县", "费县"],
+  "德州": ["德城区", "陵城区", "宁津县", "庆云县", "临邑县", "齐河县", "乐陵市", "禹城市"],
+  "聊城": ["东昌府区", "茌平区", "阳谷县", "莘县", "东阿县", "冠县", "临清市"],
+  "滨州": ["滨城区", "沾化区", "惠民县", "阳信县", "无棣县", "博兴县", "邹平市"],
+  "菏泽": ["牡丹区", "定陶区", "曹县", "单县", "成武县", "巨野县", "郓城县", "鄄城县"]
+};
+</script>
+<script>
+/* 区县数据库（华中 + 华南 + 西南 + 西北 + 港澳台）：省 → 市 → 主要区县 */
+window.DISTRICT_DATA = window.DISTRICT_DATA || {};
+
+window.DISTRICT_DATA["河南"] = {
+  "郑州": ["中原区", "二七区", "管城区", "金水区", "上街区", "惠济区", "中牟县", "新郑市", "登封市"],
+  "开封": ["龙亭区", "顺河区", "鼓楼区", "禹王台区", "祥符区", "杞县", "通许县", "尉氏县"],
+  "洛阳": ["涧西区", "西工区", "老城区", "瀍河区", "洛龙区", "偃师区", "孟津区", "新安县", "伊川县"],
+  "平顶山": ["新华区", "卫东区", "石龙区", "湛河区", "宝丰县", "叶县", "鲁山县", "汝州市"],
+  "安阳": ["文峰区", "北关区", "殷都区", "龙安区", "安阳县", "汤阴县", "滑县", "林州市"],
+  "鹤壁": ["鹤山区", "山城区", "淇滨区", "浚县", "淇县"],
+  "新乡": ["红旗区", "卫滨区", "凤泉区", "牧野区", "新乡县", "获嘉县", "原阳县", "长垣市"],
+  "焦作": ["解放区", "中站区", "马村区", "山阳区", "修武县", "博爱县", "武陟县", "沁阳市"],
+  "濮阳": ["华龙区", "清丰县", "南乐县", "范县", "台前县", "濮阳县"],
+  "许昌": ["魏都区", "建安区", "鄢陵县", "襄城县", "禹州市", "长葛市"],
+  "漯河": ["源汇区", "郾城区", "召陵区", "舞阳县", "临颍县"],
+  "三门峡": ["湖滨区", "陕州区", "渑池县", "卢氏县", "义马市", "灵宝市"],
+  "南阳": ["宛城区", "卧龙区", "南召县", "方城县", "西峡县", "镇平县", "内乡县", "淅川县", "邓州市"],
+  "商丘": ["梁园区", "睢阳区", "民权县", "睢县", "宁陵县", "柘城县", "虞城县", "夏邑县", "永城市"],
+  "信阳": ["浉河区", "平桥区", "罗山县", "光山县", "新县", "商城县", "固始县", "潢川县"],
+  "周口": ["川汇区", "淮阳区", "扶沟县", "西华县", "商水县", "沈丘县", "郸城县", "太康县", "项城市"],
+  "驻马店": ["驿城区", "西平县", "上蔡县", "平舆县", "正阳县", "确山县", "泌阳县", "汝南县", "遂平县"],
+  "济源": ["济源市"]
+};
+
+window.DISTRICT_DATA["湖北"] = {
+  "武汉": ["江岸区", "江汉区", "硚口区", "汉阳区", "武昌区", "青山区", "洪山区", "东西湖区", "汉南区", "蔡甸区", "江夏区", "黄陂区", "新洲区"],
+  "黄石": ["黄石港区", "西塞山区", "下陆区", "铁山区", "阳新县", "大冶市"],
+  "十堰": ["茅箭区", "张湾区", "郧阳区", "郧西县", "竹山县", "竹溪县", "房县", "丹江口市"],
+  "宜昌": ["西陵区", "伍家岗区", "点军区", "猇亭区", "夷陵区", "远安县", "兴山县", "秭归县", "宜都市", "当阳市", "枝江市"],
+  "襄阳": ["襄城区", "樊城区", "襄州区", "南漳县", "谷城县", "保康县", "老河口市", "枣阳市", "宜城市"],
+  "鄂州": ["梁子湖区", "华容区", "鄂城区"],
+  "荆门": ["东宝区", "掇刀区", "沙洋县", "钟祥市", "京山市"],
+  "孝感": ["孝南区", "孝昌县", "大悟县", "云梦县", "应城市", "安陆市", "汉川市"],
+  "荆州": ["沙市区", "荆州区", "公安县", "监利市", "江陵县", "石首市", "洪湖市", "松滋市"],
+  "黄冈": ["黄州区", "团风县", "红安县", "罗田县", "英山县", "浠水县", "蕲春县", "黄梅县", "麻城市", "武穴市"],
+  "咸宁": ["咸安区", "嘉鱼县", "通城县", "崇阳县", "通山县", "赤壁市"],
+  "随州": ["曾都区", "随县", "广水市"],
+  "恩施": ["恩施市", "利川市", "建始县", "巴东县", "宣恩县", "咸丰县", "来凤县", "鹤峰县"],
+  "仙桃": ["仙桃市"],
+  "潜江": ["潜江市"],
+  "天门": ["天门市"]
+};
+
+window.DISTRICT_DATA["湖南"] = {
+  "长沙": ["芙蓉区", "天心区", "岳麓区", "开福区", "雨花区", "望城区", "长沙县", "浏阳市", "宁乡市"],
+  "株洲": ["荷塘区", "芦淞区", "石峰区", "天元区", "渌口区", "攸县", "茶陵县", "炎陵县", "醴陵市"],
+  "湘潭": ["雨湖区", "岳塘区", "湘潭县", "湘乡市", "韶山市"],
+  "衡阳": ["珠晖区", "雁峰区", "石鼓区", "蒸湘区", "南岳区", "衡阳县", "衡南县", "衡山县", "衡东县", "耒阳市", "常宁市"],
+  "邵阳": ["双清区", "大祥区", "北塔区", "新邵县", "邵阳县", "隆回县", "洞口县", "绥宁县", "新宁县", "武冈市"],
+  "岳阳": ["岳阳楼区", "云溪区", "君山区", "岳阳县", "华容县", "湘阴县", "平江县", "汨罗市", "临湘市"],
+  "常德": ["武陵区", "鼎城区", "安乡县", "汉寿县", "澧县", "临澧县", "桃源县", "石门县", "津市市"],
+  "张家界": ["永定区", "武陵源区", "慈利县", "桑植县"],
+  "益阳": ["资阳区", "赫山区", "南县", "桃江县", "安化县", "沅江市"],
+  "郴州": ["北湖区", "苏仙区", "桂阳县", "宜章县", "永兴县", "嘉禾县", "临武县", "汝城县", "桂东县", "安仁县", "资兴市"],
+  "永州": ["零陵区", "冷水滩区", "祁阳市", "东安县", "双牌县", "道县", "江永县", "宁远县", "蓝山县", "新田县", "江华县"],
+  "怀化": ["鹤城区", "中方县", "沅陵县", "辰溪县", "溆浦县", "会同县", "麻阳县", "新晃县", "芷江县", "靖州县", "通道县", "洪江市"],
+  "娄底": ["娄星区", "双峰县", "新化县", "冷水江市", "涟源市"],
+  "湘西": ["吉首市", "泸溪县", "凤凰县", "花垣县", "保靖县", "古丈县", "永顺县", "龙山县"]
+};
+
+window.DISTRICT_DATA["广东"] = {
+  "广州": ["荔湾区", "越秀区", "海珠区", "天河区", "白云区", "黄埔区", "番禺区", "花都区", "南沙区", "从化区", "增城区"],
+  "深圳": ["罗湖区", "福田区", "南山区", "宝安区", "龙岗区", "盐田区", "龙华区", "坪山区", "光明区"],
+  "珠海": ["香洲区", "斗门区", "金湾区"],
+  "汕头": ["龙湖区", "金平区", "濠江区", "潮阳区", "潮南区", "澄海区", "南澳县"],
+  "佛山": ["禅城区", "南海区", "顺德区", "三水区", "高明区"],
+  "韶关": ["武江区", "浈江区", "曲江区", "始兴县", "仁化县", "翁源县", "乳源县", "新丰县", "乐昌市", "南雄市"],
+  "湛江": ["赤坎区", "霞山区", "坡头区", "麻章区", "遂溪县", "徐闻县", "廉江市", "雷州市", "吴川市"],
+  "肇庆": ["端州区", "鼎湖区", "高要区", "广宁县", "怀集县", "封开县", "德庆县", "四会市"],
+  "江门": ["蓬江区", "江海区", "新会区", "台山市", "开平市", "鹤山市", "恩平市"],
+  "茂名": ["茂南区", "电白区", "高州市", "化州市", "信宜市"],
+  "惠州": ["惠城区", "惠阳区", "博罗县", "惠东县", "龙门县"],
+  "梅州": ["梅江区", "梅县区", "大埔县", "丰顺县", "五华县", "平远县", "蕉岭县", "兴宁市"],
+  "汕尾": ["城区", "海丰县", "陆河县", "陆丰市"],
+  "河源": ["源城区", "紫金县", "龙川县", "连平县", "和平县", "东源县"],
+  "阳江": ["江城区", "阳东区", "阳西县", "阳春市"],
+  "清远": ["清城区", "清新区", "佛冈县", "阳山县", "连山县", "连南县", "英德市", "连州市"],
+  "东莞": ["莞城街道", "南城街道", "东城街道", "万江街道", "松山湖", "虎门镇", "长安镇", "厚街镇"],
+  "中山": ["石岐街道", "东区街道", "西区街道", "南区街道", "火炬开发区", "小榄镇", "古镇镇", "三乡镇"],
+  "潮州": ["湘桥区", "潮安区", "饶平县"],
+  "揭阳": ["榕城区", "揭东区", "揭西县", "惠来县", "普宁市"],
+  "云浮": ["云城区", "云安区", "新兴县", "郁南县", "罗定市"]
+};
+
+window.DISTRICT_DATA["广西"] = {
+  "南宁": ["兴宁区", "青秀区", "江南区", "西乡塘区", "良庆区", "邕宁区", "武鸣区", "隆安县", "马山县", "上林县", "宾阳县", "横州市"],
+  "柳州": ["城中区", "鱼峰区", "柳南区", "柳北区", "柳江区", "柳城县", "鹿寨县", "融安县", "融水县", "三江县"],
+  "桂林": ["秀峰区", "叠彩区", "象山区", "七星区", "雁山区", "临桂区", "阳朔县", "灵川县", "全州县", "兴安县", "永福县", "荔浦市"],
+  "梧州": ["万秀区", "长洲区", "龙圩区", "苍梧县", "藤县", "蒙山县", "岑溪市"],
+  "北海": ["海城区", "银海区", "铁山港区", "合浦县"],
+  "防城港": ["港口区", "防城区", "上思县", "东兴市"],
+  "钦州": ["钦南区", "钦北区", "灵山县", "浦北县"],
+  "贵港": ["港北区", "港南区", "覃塘区", "平南县", "桂平市"],
+  "玉林": ["玉州区", "福绵区", "容县", "陆川县", "博白县", "兴业县", "北流市"],
+  "百色": ["右江区", "田阳区", "田东县", "德保县", "那坡县", "凌云县", "乐业县", "田林县", "西林县", "隆林县", "靖西市", "平果市"],
+  "贺州": ["八步区", "平桂区", "昭平县", "钟山县", "富川县"],
+  "河池": ["金城江区", "宜州区", "南丹县", "天峨县", "凤山县", "东兰县", "罗城县", "环江县", "巴马县", "都安县", "大化县"],
+  "来宾": ["兴宾区", "忻城县", "象州县", "武宣县", "金秀县", "合山市"],
+  "崇左": ["江州区", "扶绥县", "宁明县", "龙州县", "大新县", "天等县", "凭祥市"]
+};
+
+window.DISTRICT_DATA["海南"] = {
+  "海口": ["秀英区", "龙华区", "琼山区", "美兰区"],
+  "三亚": ["海棠区", "吉阳区", "天涯区", "崖州区"],
+  "三沙": ["西沙区", "南沙区"],
+  "儋州": ["那大镇", "洋浦经济开发区", "白马井镇"],
+  "琼海": ["嘉积镇", "博鳌镇"],
+  "文昌": ["文城镇", "龙楼镇"],
+  "万宁": ["万城镇", "兴隆区"],
+  "东方": ["八所镇", "感城镇"],
+  "五指山": ["通什镇"]
+};
+
+window.DISTRICT_DATA["重庆"] = {
+  "重庆市": ["渝中区", "大渡口区", "江北区", "沙坪坝区", "九龙坡区", "南岸区", "北碚区", "渝北区", "巴南区", "万州区", "涪陵区", "黔江区", "长寿区", "江津区", "合川区", "永川区", "南川区", "綦江区", "大足区", "璧山区", "铜梁区", "潼南区", "荣昌区", "开州区", "梁平区", "武隆区", "城口县", "丰都县", "垫江县", "忠县", "云阳县", "奉节县", "巫山县", "巫溪县", "石柱县", "秀山县", "酉阳县", "彭水县"]
+};
+
+window.DISTRICT_DATA["四川"] = {
+  "成都": ["锦江区", "青羊区", "金牛区", "武侯区", "成华区", "龙泉驿区", "青白江区", "新都区", "温江区", "双流区", "郫都区", "新津区", "都江堰市", "彭州市", "邛崃市", "崇州市", "简阳市"],
+  "自贡": ["自流井区", "贡井区", "大安区", "沿滩区", "荣县", "富顺县"],
+  "攀枝花": ["东区", "西区", "仁和区", "米易县", "盐边县"],
+  "泸州": ["江阳区", "纳溪区", "龙马潭区", "泸县", "合江县", "叙永县", "古蔺县"],
+  "德阳": ["旌阳区", "罗江区", "中江县", "广汉市", "什邡市", "绵竹市"],
+  "绵阳": ["涪城区", "游仙区", "安州区", "三台县", "盐亭县", "梓潼县", "江油市"],
+  "广元": ["利州区", "昭化区", "朝天区", "旺苍县", "青川县", "剑阁县", "苍溪县"],
+  "遂宁": ["船山区", "安居区", "蓬溪县", "射洪市", "大英县"],
+  "内江": ["市中区", "东兴区", "威远县", "资中县", "隆昌市"],
+  "乐山": ["市中区", "沙湾区", "五通桥区", "金口河区", "犍为县", "井研县", "夹江县", "沐川县", "峨边县", "马边县", "峨眉山市"],
+  "南充": ["顺庆区", "高坪区", "嘉陵区", "南部县", "营山县", "蓬安县", "仪陇县", "西充县", "阆中市"],
+  "眉山": ["东坡区", "彭山区", "仁寿县", "洪雅县", "丹棱县", "青神县"],
+  "宜宾": ["翠屏区", "南溪区", "叙州区", "江安县", "长宁县", "高县", "珙县", "筠连县", "兴文县", "屏山县"],
+  "广安": ["广安区", "前锋区", "岳池县", "武胜县", "邻水县", "华蓥市"],
+  "达州": ["通川区", "达川区", "宣汉县", "开江县", "大竹县", "渠县", "万源市"],
+  "雅安": ["雨城区", "名山区", "荥经县", "汉源县", "石棉县", "天全县", "芦山县", "宝兴县"],
+  "巴中": ["巴州区", "恩阳区", "通江县", "南江县", "平昌县"],
+  "资阳": ["雁江区", "安岳县", "乐至县"],
+  "阿坝": ["马尔康市", "汶川县", "理县", "茂县", "松潘县", "九寨沟县", "金川县", "小金县", "黑水县", "壤塘县", "阿坝县", "若尔盖县", "红原县"],
+  "甘孜": ["康定市", "泸定县", "丹巴县", "九龙县", "雅江县", "道孚县", "炉霍县", "甘孜县", "新龙县", "德格县", "白玉县", "石渠县", "色达县", "理塘县", "巴塘县", "乡城县", "稻城县", "得荣县"],
+  "凉山": ["西昌市", "会理市", "盐源县", "德昌县", "会东县", "宁南县", "普格县", "布拖县", "金阳县", "昭觉县", "喜德县", "冕宁县", "越西县", "甘洛县", "美姑县", "雷波县", "木里县"]
+};
+
+window.DISTRICT_DATA["贵州"] = {
+  "贵阳": ["南明区", "云岩区", "花溪区", "乌当区", "白云区", "观山湖区", "开阳县", "息烽县", "修文县", "清镇市"],
+  "六盘水": ["钟山区", "六枝特区", "水城区", "盘州市"],
+  "遵义": ["红花岗区", "汇川区", "播州区", "桐梓县", "绥阳县", "正安县", "道真县", "务川县", "凤冈县", "湄潭县", "余庆县", "习水县", "赤水市", "仁怀市"],
+  "安顺": ["西秀区", "平坝区", "普定县", "镇宁县", "关岭县", "紫云县"],
+  "毕节": ["七星关区", "大方县", "金沙县", "织金县", "纳雍县", "威宁县", "赫章县", "黔西市"],
+  "铜仁": ["碧江区", "万山区", "江口县", "玉屏县", "石阡县", "思南县", "印江县", "德江县", "沿河县", "松桃县"],
+  "黔西南": ["兴义市", "兴仁市", "普安县", "晴隆县", "贞丰县", "望谟县", "册亨县", "安龙县"],
+  "黔东南": ["凯里市", "黄平县", "施秉县", "三穗县", "镇远县", "岑巩县", "天柱县", "锦屏县", "剑河县", "台江县", "黎平县", "榕江县", "从江县", "雷山县", "麻江县", "丹寨县"],
+  "黔南": ["都匀市", "福泉市", "荔波县", "贵定县", "瓮安县", "独山县", "平塘县", "罗甸县", "长顺县", "龙里县", "惠水县", "三都县"]
+};
+
+window.DISTRICT_DATA["云南"] = {
+  "昆明": ["五华区", "盘龙区", "官渡区", "西山区", "东川区", "呈贡区", "晋宁区", "富民县", "宜良县", "石林县", "嵩明县", "禄劝县", "寻甸县", "安宁市"],
+  "曲靖": ["麒麟区", "沾益区", "马龙区", "陆良县", "师宗县", "罗平县", "富源县", "会泽县", "宣威市"],
+  "玉溪": ["红塔区", "江川区", "澄江市", "通海县", "华宁县", "易门县", "峨山县", "新平县", "元江县"],
+  "保山": ["隆阳区", "施甸县", "龙陵县", "昌宁县", "腾冲市"],
+  "昭通": ["昭阳区", "鲁甸县", "巧家县", "盐津县", "大关县", "永善县", "绥江县", "镇雄县", "彝良县", "威信县", "水富市"],
+  "丽江": ["古城区", "玉龙县", "永胜县", "华坪县", "宁蒗县"],
+  "普洱": ["思茅区", "宁洱县", "墨江县", "景东县", "景谷县", "镇沅县", "江城县", "孟连县", "澜沧县", "西盟县"],
+  "临沧": ["临翔区", "凤庆县", "云县", "永德县", "镇康县", "双江县", "耿马县", "沧源县"],
+  "楚雄": ["楚雄市", "禄丰市", "双柏县", "牟定县", "南华县", "姚安县", "大姚县", "永仁县", "元谋县", "武定县"],
+  "红河": ["蒙自市", "个旧市", "开远市", "弥勒市", "屏边县", "建水县", "石屏县", "泸西县", "元阳县", "红河县", "金平县", "绿春县", "河口县"],
+  "文山": ["文山市", "砚山县", "西畴县", "麻栗坡县", "马关县", "丘北县", "广南县", "富宁县"],
+  "西双版纳": ["景洪市", "勐海县", "勐腊县"],
+  "大理": ["大理市", "漾濞县", "祥云县", "宾川县", "弥渡县", "南涧县", "巍山县", "永平县", "云龙县", "洱源县", "剑川县", "鹤庆县"],
+  "德宏": ["芒市", "瑞丽市", "梁河县", "盈江县", "陇川县"],
+  "怒江": ["泸水市", "福贡县", "贡山县", "兰坪县"],
+  "迪庆": ["香格里拉市", "德钦县", "维西县"]
+};
+
+window.DISTRICT_DATA["西藏"] = {
+  "拉萨": ["城关区", "堆龙德庆区", "达孜区", "林周县", "当雄县", "尼木县", "曲水县", "墨竹工卡县"],
+  "日喀则": ["桑珠孜区", "南木林县", "江孜县", "定日县", "萨迦县", "拉孜县", "昂仁县", "谢通门县", "白朗县", "仁布县", "康马县", "定结县", "仲巴县", "亚东县", "吉隆县", "聂拉木县", "萨嘎县", "岗巴县"],
+  "昌都": ["卡若区", "江达县", "贡觉县", "类乌齐县", "丁青县", "察雅县", "八宿县", "左贡县", "芒康县", "洛隆县", "边坝县"],
+  "林芝": ["巴宜区", "工布江达县", "米林市", "墨脱县", "波密县", "察隅县", "朗县"],
+  "山南": ["乃东区", "扎囊县", "贡嘎县", "桑日县", "琼结县", "曲松县", "措美县", "洛扎县", "加查县", "隆子县", "错那市", "浪卡子县"],
+  "那曲": ["色尼区", "比如县", "嘉黎县", "聂荣县", "安多县", "申扎县", "索县", "班戈县", "巴青县", "尼玛县", "双湖县"],
+  "阿里": ["普兰县", "札达县", "噶尔县", "日土县", "革吉县", "改则县", "措勤县"]
+};
+
+window.DISTRICT_DATA["陕西"] = {
+  "西安": ["新城区", "碑林区", "莲湖区", "灞桥区", "未央区", "雁塔区", "阎良区", "临潼区", "长安区", "高陵区", "鄠邑区", "蓝田县", "周至县"],
+  "铜川": ["王益区", "印台区", "耀州区", "宜君县"],
+  "宝鸡": ["渭滨区", "金台区", "陈仓区", "凤翔区", "岐山县", "扶风县", "眉县", "陇县", "千阳县", "麟游县", "凤县", "太白县"],
+  "咸阳": ["秦都区", "渭城区", "杨陵区", "兴平市", "彬州市", "三原县", "泾阳县", "乾县", "礼泉县", "永寿县", "长武县", "旬邑县", "淳化县", "武功县"],
+  "渭南": ["临渭区", "华州区", "韩城市", "华阴市", "潼关县", "大荔县", "蒲城县", "澄城县", "白水县", "合阳县", "富平县"],
+  "延安": ["宝塔区", "安塞区", "子长市", "延长县", "延川县", "志丹县", "吴起县", "甘泉县", "富县", "洛川县", "宜川县", "黄龙县", "黄陵县"],
+  "汉中": ["汉台区", "南郑区", "城固县", "洋县", "西乡县", "勉县", "宁强县", "略阳县", "镇巴县", "留坝县", "佛坪县"],
+  "榆林": ["榆阳区", "横山区", "神木市", "府谷县", "靖边县", "定边县", "绥德县", "米脂县", "佳县", "吴堡县", "清涧县", "子洲县"],
+  "安康": ["汉滨区", "汉阴县", "石泉县", "宁陕县", "紫阳县", "岚皋县", "平利县", "镇坪县", "白河县", "旬阳市"],
+  "商洛": ["商州区", "洛南县", "丹凤县", "商南县", "山阳县", "镇安县", "柞水县"]
+};
+
+window.DISTRICT_DATA["甘肃"] = {
+  "兰州": ["城关区", "七里河区", "西固区", "安宁区", "红古区", "永登县", "皋兰县", "榆中县"],
+  "嘉峪关": ["雄关街道", "钢城街道", "新城镇", "峪泉镇", "文殊镇"],
+  "金昌": ["金川区", "永昌县"],
+  "白银": ["白银区", "平川区", "靖远县", "会宁县", "景泰县"],
+  "天水": ["秦州区", "麦积区", "清水县", "秦安县", "甘谷县", "武山县", "张家川县"],
+  "武威": ["凉州区", "民勤县", "古浪县", "天祝县"],
+  "张掖": ["甘州区", "肃南县", "民乐县", "临泽县", "高台县", "山丹县"],
+  "平凉": ["崆峒区", "泾川县", "灵台县", "崇信县", "庄浪县", "静宁县", "华亭市"],
+  "酒泉": ["肃州区", "玉门市", "敦煌市", "金塔县", "瓜州县", "肃北县", "阿克塞县"],
+  "庆阳": ["西峰区", "庆城县", "环县", "华池县", "合水县", "正宁县", "宁县", "镇原县"],
+  "定西": ["安定区", "通渭县", "陇西县", "渭源县", "临洮县", "漳县", "岷县"],
+  "陇南": ["武都区", "成县", "文县", "宕昌县", "康县", "西和县", "礼县", "徽县", "两当县"],
+  "临夏": ["临夏市", "临夏县", "康乐县", "永靖县", "广河县", "和政县", "东乡县", "积石山县"],
+  "甘南": ["合作市", "临潭县", "卓尼县", "舟曲县", "迭部县", "玛曲县", "碌曲县", "夏河县"]
+};
+
+window.DISTRICT_DATA["青海"] = {
+  "西宁": ["城东区", "城中区", "城西区", "城北区", "湟中区", "大通县", "湟源县"],
+  "海东": ["乐都区", "平安区", "民和县", "互助县", "化隆县", "循化县"],
+  "海北": ["门源县", "祁连县", "海晏县", "刚察县"],
+  "黄南": ["同仁市", "尖扎县", "泽库县", "河南县"],
+  "海南州": ["共和县", "同德县", "贵德县", "兴海县", "贵南县"],
+  "果洛": ["玛沁县", "班玛县", "甘德县", "达日县", "久治县", "玛多县"],
+  "玉树": ["玉树市", "杂多县", "称多县", "治多县", "囊谦县", "曲麻莱县"],
+  "海西": ["格尔木市", "德令哈市", "茫崖市", "乌兰县", "都兰县", "天峻县"]
+};
+
+window.DISTRICT_DATA["宁夏"] = {
+  "银川": ["兴庆区", "西夏区", "金凤区", "永宁县", "贺兰县", "灵武市"],
+  "石嘴山": ["大武口区", "惠农区", "平罗县"],
+  "吴忠": ["利通区", "红寺堡区", "盐池县", "同心县", "青铜峡市"],
+  "固原": ["原州区", "西吉县", "隆德县", "泾源县", "彭阳县"],
+  "中卫": ["沙坡头区", "中宁县", "海原县"]
+};
+
+window.DISTRICT_DATA["新疆"] = {
+  "乌鲁木齐": ["天山区", "沙依巴克区", "新市区", "水磨沟区", "头屯河区", "达坂城区", "米东区", "乌鲁木齐县"],
+  "克拉玛依": ["独山子区", "克拉玛依区", "白碱滩区", "乌尔禾区"],
+  "吐鲁番": ["高昌区", "鄯善县", "托克逊县"],
+  "哈密": ["伊州区", "巴里坤县", "伊吾县"],
+  "昌吉": ["昌吉市", "阜康市", "呼图壁县", "玛纳斯县", "奇台县", "吉木萨尔县", "木垒县"],
+  "博尔塔拉": ["博乐市", "阿拉山口市", "精河县", "温泉县"],
+  "巴音郭楞": ["库尔勒市", "轮台县", "尉犁县", "若羌县", "且末县", "焉耆县", "和静县", "和硕县", "博湖县"],
+  "阿克苏": ["阿克苏市", "库车市", "温宿县", "沙雅县", "新和县", "拜城县", "乌什县", "阿瓦提县", "柯坪县"],
+  "克孜勒苏": ["阿图什市", "阿克陶县", "阿合奇县", "乌恰县"],
+  "喀什": ["喀什市", "疏附县", "疏勒县", "英吉沙县", "泽普县", "莎车县", "叶城县", "麦盖提县", "岳普湖县", "伽师县", "巴楚县", "塔什库尔干县"],
+  "和田": ["和田市", "和田县", "墨玉县", "皮山县", "洛浦县", "策勒县", "于田县", "民丰县"],
+  "伊犁": ["伊宁市", "奎屯市", "霍尔果斯市", "伊宁县", "察布查尔县", "霍城县", "巩留县", "新源县", "昭苏县", "特克斯县", "尼勒克县"],
+  "塔城": ["塔城市", "乌苏市", "沙湾市", "额敏县", "托里县", "裕民县", "和布克赛尔县"],
+  "阿勒泰": ["阿勒泰市", "布尔津县", "富蕴县", "福海县", "哈巴河县", "青河县", "吉木乃县"],
+  "石河子": ["石河子市"]
+};
+
+window.DISTRICT_DATA["香港"] = {
+  "香港": ["中西区", "湾仔区", "东区", "南区", "油尖旺区", "深水埗区", "九龙城区", "黄大仙区", "观塘区", "荃湾区", "屯门区", "元朗区", "北区", "大埔区", "沙田区", "西贡区", "离岛区"]
+};
+window.DISTRICT_DATA["澳门"] = {
+  "澳门": ["花地玛堂区", "花王堂区", "望德堂区", "大堂区", "风顺堂区", "嘉模堂区", "路氹填海区", "圣方济各堂区"]
+};
+window.DISTRICT_DATA["台湾"] = {
+  "台北": ["中正区", "大同区", "中山区", "松山区", "大安区", "万华区", "信义区", "士林区", "北投区", "内湖区", "南港区", "文山区"],
+  "新北": ["板桥区", "三重区", "中和区", "永和区", "新庄区", "新店区", "土城区", "淡水区", "汐止区", "瑞芳区"],
+  "桃园": ["桃园区", "中坜区", "平镇区", "八德区", "杨梅区", "芦竹区", "大溪区", "龟山区"],
+  "台中": ["中区", "东区", "南区", "西区", "北区", "西屯区", "南屯区", "北屯区", "丰原区", "大里区"],
+  "台南": ["中西区", "东区", "南区", "北区", "安平区", "安南区", "永康区", "新营区", "仁德区"],
+  "高雄": ["新兴区", "前金区", "苓雅区", "盐埕区", "鼓山区", "旗津区", "前镇区", "三民区", "左营区", "楠梓区", "凤山区"],
+  "新竹": ["东区", "北区", "香山区", "竹北市", "竹东镇"],
+  "基隆": ["仁爱区", "信义区", "中正区", "中山区", "安乐区", "暖暖区", "七堵区"],
+  "嘉义": ["东区", "西区", "太保市", "朴子市", "民雄乡"]
+};
+</script>
+<script>
+/* 技能库：通用技能 + 当前热门技能 + 按专业类/关键词推荐 */
+window.SKILL_DATA = {
+  common: ["Office 办公软件", "Excel 数据处理", "PPT 汇报", "公文/报告写作", "英语 CET-4/6", "普通话", "沟通表达", "团队协作", "项目管理", "时间管理", "跨部门协作", "数据分析基础", "演讲与展示"],
+  hot: ["AI 大模型应用开发", "Prompt 工程", "RAG 检索增强", "AI Agent 开发", "Python", "SQL", "数据分析", "机器学习", "深度学习", "PyTorch", "Java", "Spring Boot", "Go", "TypeScript", "Vue.js", "React", "Node.js", "鸿蒙 HarmonyOS 开发", "Docker", "Kubernetes", "云原生", "DevOps", "网络安全", "嵌入式 C/C++", "芯片验证", "数字孪生", "AIGC 内容创作", "短视频运营", "直播电商", "跨境电商", "新媒体运营", "BI 可视化", "自动化测试", "低代码开发", "ESG/双碳", "数字营销", "用户增长", "供应链数字化"],
+  byClass: {
+    "计算机类": ["Java", "Python", "C/C++", "数据结构与算法", "操作系统", "计算机网络", "数据库 MySQL", "Redis", "Linux", "Git", "Spring Boot", "微服务", "Vue.js", "React", "Node.js", "TypeScript", "Docker", "Kubernetes", "云计算（阿里云/AWS）", "自动化测试", "网络安全基础", "AI 大模型应用开发", "RAG 检索增强", "鸿蒙 HarmonyOS 开发"],
+    "软件工程": ["Java", "Python", "C/C++", "数据结构与算法", "软件工程方法论", "设计模式", "数据库 MySQL", "Redis", "Git", "Spring Boot", "微服务", "Vue.js", "React", "TypeScript", "Docker", "Kubernetes", "CI/CD", "自动化测试", "性能优化", "AI 大模型应用开发"],
+    "电子信息类": ["C/C++", "单片机/STM32", "嵌入式 Linux", "FPGA", "Verilog", "电路原理", "模拟电路", "数字电路", "PCB 设计", "信号与系统", "通信原理", "Python", "MATLAB", "射频测试", "芯片验证", "集成电路设计"],
+    "自动化类": ["C/C++", "PLC", "工业控制", "机器人操作系统 ROS", "电机拖动", "自动控制原理", "传感器技术", "嵌入式系统", "机器视觉", "Python", "MATLAB/Simulink", "工业互联网"],
+    "机械类": ["AutoCAD", "SolidWorks", "CATIA", "UG NX", "机械设计", "机械原理", "工程制图", "有限元分析 ANSYS", "数控编程", "智能制造", "机器人技术", "GD&T 公差分析", "新能源汽车结构"],
+    "材料类": ["材料表征（SEM/XRD）", "材料力学", "热处理工艺", "焊接工艺", "高分子材料", "复合材料", "失效分析", "Origin 数据处理", "电池材料", "半导体材料", "实验室安全规范"],
+    "电气类": ["电路分析", "电机学", "电力系统分析", "继电保护", "PLC", "AutoCAD Electrical", "MATLAB/Simulink", "高电压技术", "新能源并网", "储能系统", "智能电网"],
+    "能源动力类": ["工程热力学", "流体力学", "传热学", "锅炉/汽轮机", "新能源发电", "储能技术", "氢能技术", "节能评估", "CFD 仿真", "能源管理系统"],
+    "土木类": ["AutoCAD", "Revit/BIM", "PKPM", "结构力学", "土力学", "施工组织设计", "工程测量", "广联达算量", "项目管理", "装配式建筑", "智能建造"],
+    "建筑类": ["AutoCAD", "SketchUp", "Rhino", "Revit/BIM", "Lumion", "Photoshop", "建筑方案设计", "施工图设计", "城乡规划原理", "绿色建筑", "参数化设计"],
+    "化工与制药类": ["化工原理", "化学反应工程", "化工设计 Aspen", "制药工艺", "GMP 规范", "药物合成", "分析化学", "HSE 安全管理", "实验室操作规范", "精细化工"],
+    "环境科学与工程类": ["环境监测", "水处理工艺", "大气污染控制", "固废处理", "环境影响评价", "碳排放核算", "ESG 报告", "环境法规", "GIS 应用", "采样与检测"],
+    "生物科学类": ["分子生物学实验", "细胞培养", "PCR/qPCR", "Western Blot", "生物信息学", "基因测序分析", "Python/R 数据分析", "实验设计", "GMP/GLP", "文献检索"],
+    "生物工程类": ["发酵工程", "细胞培养", "生物分离工程", "基因工程", "生物制药工艺", "GMP", "生物反应器", "质量控制 QC", "生物信息学", "实验室管理"],
+    "食品科学与工程类": ["食品化学", "食品微生物", "食品工艺学", "HACCP", "食品检测", "营养学", "感官评价", "食品安全法规", "研发实验设计", "质量管理"],
+    "临床医学类": ["临床诊疗思维", "病历书写", "体格检查", "急救技能", "医学影像判读", "循证医学", "医患沟通", "科研论文写作", "执业医师考试", "手术基本操作"],
+    "医学技术类": ["临床检验", "医学影像技术", "康复评定", "康复治疗技术", "心电监护", "医学统计", "实验室质控", "医疗器械操作", "医患沟通"],
+    "护理学类": ["基础护理操作", "临床护理", "急救护理", "护理评估", "健康教育", "护理文书", "院感防控", "护患沟通", "护理管理"],
+    "药学类": ["药理学", "药剂学", "药物分析", "药品注册法规", "GMP", "临床药学", "药物警戒", "药品质量管理", "医药代表合规", "实验室分析"],
+    "经济学类": ["宏观经济学", "微观经济学", "计量经济学", "Stata/EViews", "数据分析 Excel", "Python 数据分析", "SPSS", "行业研究", "报告写作", "经济建模"],
+    "金融学类": ["财务报表分析", "公司金融", "投资学", "金融建模 Excel", "Wind/Choice", "Python 量化", "风险管理", "CFA/FRM 知识", "银行从业", "证券从业"],
+    "财政学类": ["财政学", "税收筹划", "税法", "会计基础", "预算管理", "审计基础", "Excel 财务建模", "政策研究", "公文写作"],
+    "经济与贸易类": ["国际贸易实务", "外贸函电", "跨境电商运营", "报关报检", "国际结算", "英语商务沟通", "市场调研", "供应链基础", "数据分析"],
+    "工商管理类": ["市场营销", "战略管理", "人力资源管理", "财务报表分析", "项目管理", "Excel 数据建模", "PPT 商务汇报", "用户调研", "品牌策划", "运营数据分析"],
+    "管理科学与工程类": ["运筹学", "数据分析 SQL", "Python", "项目管理", "供应链优化", "信息系统分析", "业务流程建模", "Excel 建模", "精益管理"],
+    "公共管理类": ["公共政策分析", "公文写作", "行政管理", "社会调查方法", "SPSS 数据分析", "申论写作", "行测", "基层治理", "应急管理"],
+    "物流管理与工程类": ["仓储管理", "运输规划", "供应链管理", "WMS/TMS", "数据分析", "成本控制", "精益物流", "国际贸易术语", "ERP 系统"],
+    "电子商务类": ["电商运营", "店铺推广", "数据分析", "短视频运营", "直播运营", "SEO/SEM", "用户增长", "跨境电商", "供应链管理", "Excel"],
+    "旅游管理类": ["旅游产品策划", "酒店运营", "客户服务", "OTA 平台运营", "活动策划", "英语口语", "新媒体营销", "成本核算", "危机处理"],
+    "法学类": ["法律检索", "合同审查", "法律文书写作", "民商法", "刑法", "诉讼法", "公司法", "法考知识", "谈判沟通", "合规管理"],
+    "政治学类": ["政治学理论", "国际关系分析", "公文写作", "政策研究", "英语", "社会调查", "申论", "时事分析"],
+    "社会学类": ["社会调查方法", "SPSS/Stata", "访谈技巧", "社会政策分析", "项目策划", "社区工作", "报告写作", "公益项目管理"],
+    "公安学类": ["刑事侦查", "治安管理", "警务技能", "法律法规", "笔录制作", "应急处突", "群众工作", "体能训练"],
+    "教育学类": ["教学设计", "课堂管理", "教育心理学", "课程开发", "班主任工作", "板书/课件制作", "普通话", "教师资格证", "教育科研方法"],
+    "体育学类": ["运动训练", "运动解剖", "运动生理", "体育教学", "裁判规则", "体能训练", "运动损伤防护", "体育赛事组织"],
+    "中国语言文学类": ["文案写作", "公文写作", "编辑校对", "文学评论", "新媒体文案", "内容策划", "采访写作", "古代汉语", "教师资格证"],
+    "外国语言文学类": ["英语专八", "CATTI 翻译", "口译", "笔译", "跨文化沟通", "商务英语", "外贸函电", "本地化", "第二外语"],
+    "新闻传播学类": ["新闻采写", "短视频制作", "摄影摄像", "剪辑 Premiere", "新媒体运营", "舆情分析", "内容策划", "数据新闻", "直播运营", "AIGC 内容创作"],
+    "历史学类": ["史料检索", "历史研究", "文物鉴定基础", "博物馆策展", "文案写作", "文化遗产保护", "教师资格证"],
+    "数学类": ["数学建模", "Python", "MATLAB", "统计分析", "机器学习", "算法设计", "R 语言", "数据可视化"],
+    "物理学类": ["数学物理方法", "Python", "MATLAB", "实验物理", "半导体物理", "光学设计", "信号处理", "科研论文写作"],
+    "化学类": ["有机合成", "分析化学", "色谱/质谱分析", "实验室安全", "科研论文写作", "Origin", "化学工程基础", "QC 检测"],
+    "地理科学类": ["ArcGIS", "遥感 RS", "GIS 空间分析", "测绘", "城乡规划", "Python 空间数据处理", "环境评价"],
+    "大气科学类": ["气象数据分析", "WRF 模式", "Python", "卫星遥感", "天气预报", "气候统计", "GrADS"],
+    "海洋科学类": ["海洋调查", "海洋数据分析", "Python", "物理海洋学", "海洋生态", "遥感应用"],
+    "地质学类": ["地质填图", "岩矿鉴定", "ArcGIS", "地质勘探", "地球物理勘探", "野外作业安全", "MapGIS"],
+    "心理学类": ["心理测评", "SPSS 数据分析", "心理咨询基础", "实验设计", "问卷设计", "用户研究", "访谈技巧"],
+    "统计学类": ["Python", "R 语言", "SQL", "统计建模", "机器学习", "数据可视化", "SAS", "抽样调查"],
+    "农业工程类": ["农业机械", "AutoCAD", "农业物联网", "灌溉排水", "无人机植保", "农业项目管理", "数据分析"],
+    "植物生产类": ["作物栽培", "植物保护", "土壤肥料", "育种技术", "田间试验设计", "农业技术推广", "无人机植保", "农产品质量安全"],
+    "动物医学类": ["动物诊疗", "兽药使用", "疫病防控", "临床检查", "宠物护理", "兽医法规", "实验室检测"],
+    "动物生产类": ["动物营养", "饲养管理", "育种繁殖", "养殖场管理", "疫病防控", "饲料配方", "数据分析"],
+    "林学类": ["森林资源调查", "林业遥感", "ArcGIS", "森林培育", "生态修复", "林业项目管理", "园林设计"],
+    "水产类": ["水产养殖技术", "水质检测", "病害防治", "饲料营养", "增殖放流", "水产加工"],
+    "艺术学理论类": ["艺术史", "策展", "艺术管理", "文案写作", "文化项目管理", "版权管理"],
+    "音乐与舞蹈学类": ["声乐/器乐表演", "乐理", "视唱练耳", "舞台表演", "音乐教学", "编曲制作", "舞蹈编排"],
+    "戏剧与影视学类": ["剧本创作", "影视拍摄", "剪辑", "表演", "播音主持", "导演", "影视后期", "短视频制作"],
+    "美术学类": ["素描/色彩", "国画/油画", "书法", "艺术创作", "美术教学", "策展", "摄影后期"],
+    "设计学类": ["Photoshop", "Illustrator", "Figma", "UI/UX 设计", "视觉设计", "三维设计 C4D", "交互设计", "品牌设计", "AIGC 设计工具"],
+    "公安技术类": ["刑事技术", "痕迹检验", "网络安全执法", "消防工程", "数据警务", "现场勘查", "法律法规"]
+  },
+  rules: [
+    { keys: ["计算机", "软件", "大数据", "人工智能", "智能科学", "网络工程", "信息安全", "物联网", "网络空间", "区块链", "密码"], "class": "计算机类" },
+    { keys: ["电子信息", "通信", "微电子", "集成电路", "光电", "电子科学"], "class": "电子信息类" },
+    { keys: ["自动化", "机器人", "轨道交通信号"], "class": "自动化类" },
+    { keys: ["机械", "车辆", "智能制造", "工业设计", "过程装备"], "class": "机械类" },
+    { keys: ["材料", "冶金", "焊接", "高分子"], "class": "材料类" },
+    { keys: ["电气", "智能电网", "电机"], "class": "电气类" },
+    { keys: ["能源", "动力", "储能", "新能源", "氢能"], "class": "能源动力类" },
+    { keys: ["土木", "建筑环境", "给排水", "道路桥梁", "智能建造"], "class": "土木类" },
+    { keys: ["建筑学", "城乡规划", "风景园林", "城市设计"], "class": "建筑类" },
+    { keys: ["化学工程", "化工", "制药工程", "精细化工", "涂料"], "class": "化工与制药类" },
+    { keys: ["环境工程", "环境科学", "生态", "资源环境"], "class": "环境科学与工程类" },
+    { keys: ["生物科学", "生物技术", "生物信息", "生态学", "神经科学"], "class": "生物科学类" },
+    { keys: ["生物工程", "生物制药", "合成生物"], "class": "生物工程类" },
+    { keys: ["食品", "粮食", "酿酒", "营养"], "class": "食品科学与工程类" },
+    { keys: ["临床医学", "麻醉", "医学影像学", "儿科学", "精神医学", "放射医学"], "class": "临床医学类" },
+    { keys: ["医学检验", "医学影像技术", "康复治疗", "口腔医学技术", "智能医学"], "class": "医学技术类" },
+    { keys: ["护理", "助产"], "class": "护理学类" },
+    { keys: ["药学", "药物制剂", "临床药学", "药事管理"], "class": "药学类" },
+    { keys: ["经济学", "经济统计", "数字经济", "国民经济"], "class": "经济学类" },
+    { keys: ["金融", "保险", "投资", "精算", "信用管理"], "class": "金融学类" },
+    { keys: ["财政", "税收"], "class": "财政学类" },
+    { keys: ["国际经济与贸易", "贸易经济", "国际经济发展"], "class": "经济与贸易类" },
+    { keys: ["工商管理", "市场营销", "会计", "财务管理", "人力资源", "审计", "资产评估"], "class": "工商管理类" },
+    { keys: ["管理科学", "信息管理与信息系统", "工程管理", "工程造价", "大数据管理"], "class": "管理科学与工程类" },
+    { keys: ["公共事业", "行政管理", "劳动与社会保障", "土地资源管理", "海关管理"], "class": "公共管理类" },
+    { keys: ["物流", "供应链"], "class": "物流管理与工程类" },
+    { keys: ["电子商务", "跨境电子商务"], "class": "电子商务类" },
+    { keys: ["旅游", "酒店", "会展"], "class": "旅游管理类" },
+    { keys: ["法学", "知识产权", "监狱学", "国际经贸规则", "纪检监察"], "class": "法学类" },
+    { keys: ["政治学", "国际政治", "外交学", "国际事务"], "class": "政治学类" },
+    { keys: ["社会学", "社会工作", "人类学", "家政学", "老年学"], "class": "社会学类" },
+    { keys: ["治安", "侦查", "禁毒", "公安", "警务", "海警"], "class": "公安学类" },
+    { keys: ["教育学", "学前教育", "小学教育", "特殊教育", "教育技术"], "class": "教育学类" },
+    { keys: ["体育教育", "运动训练", "社会体育", "武术", "运动康复", "休闲体育"], "class": "体育学类" },
+    { keys: ["汉语言", "汉语国际", "秘书学", "中国语言"], "class": "中国语言文学类" },
+    { keys: ["英语", "日语", "法语", "德语", "俄语", "翻译", "商务英语", "朝鲜语", "西班牙语", "阿拉伯语"], "class": "外国语言文学类" },
+    { keys: ["新闻学", "广播电视学", "广告学", "传播学", "网络与新媒体", "编辑出版", "数字出版"], "class": "新闻传播学类" },
+    { keys: ["历史学", "考古", "文物", "文化遗产", "古文字"], "class": "历史学类" },
+    { keys: ["数学", "信息与计算科学", "数理基础", "数据计算"], "class": "数学类" },
+    { keys: ["物理学", "核物理", "声学", "量子信息"], "class": "物理学类" },
+    { keys: ["化学", "应用化学", "化学生物"], "class": "化学类" },
+    { keys: ["地理科学", "自然地理", "人文地理", "地理信息"], "class": "地理科学类" },
+    { keys: ["大气科学", "应用气象", "气象技术"], "class": "大气科学类" },
+    { keys: ["海洋科学", "海洋技术", "海洋资源"], "class": "海洋科学类" },
+    { keys: ["地质学", "地球化学", "古生物"], "class": "地质学类" },
+    { keys: ["心理学", "应用心理"], "class": "心理学类" },
+    { keys: ["统计学", "应用统计", "数据科学", "生物统计"], "class": "统计学类" },
+    { keys: ["农业工程", "农业机械化", "农业电气化", "农业水利"], "class": "农业工程类" },
+    { keys: ["农学", "园艺", "植物保护", "种子科学", "设施农业", "茶学", "烟草", "智慧农业"], "class": "植物生产类" },
+    { keys: ["动物医学", "动物药学", "动植物检疫", "中兽医"], "class": "动物医学类" },
+    { keys: ["动物科学", "蚕学", "蜂学", "饲料工程", "智慧牧业"], "class": "动物生产类" },
+    { keys: ["林学", "园林", "森林保护", "智慧林业"], "class": "林学类" },
+    { keys: ["水产养殖", "海洋渔业", "水族科学"], "class": "水产类" },
+    { keys: ["艺术史论", "艺术管理", "非物质文化遗产"], "class": "艺术学理论类" },
+    { keys: ["音乐", "舞蹈", "作曲"], "class": "音乐与舞蹈学类" },
+    { keys: ["表演", "戏剧", "电影", "广播电视编导", "播音", "动画", "影视"], "class": "戏剧与影视学类" },
+    { keys: ["美术", "绘画", "雕塑", "书法", "摄影", "中国画"], "class": "美术学类" },
+    { keys: ["视觉传达", "环境设计", "产品设计", "服装与服饰", "数字媒体艺术", "艺术与科技", "公共艺术", "工艺美术"], "class": "设计学类" },
+    { keys: ["刑事科学", "消防工程", "交通管理工程", "安全防范", "数据警务"], "class": "公安技术类" }
+  ]
+};
+</script>
+<script>
+/* 行业 / 岗位 / 薪资挡位 / 求职类型 / 考公考编 / 实时检索平台
+   薪资单位：K/月（以一线城市本科应届/初级岗位为基准，匹配时按城市系数与学历系数换算） */
+window.CAREER_DATA = {
+  jobTypes: [
+    { value: "校招秋招", label: "校园招聘 · 秋招", desc: "面向应届生，9-11 月集中招聘" },
+    { value: "校招春招", label: "校园招聘 · 春招", desc: "面向应届生，次年 3-4 月补录" },
+    { value: "社招", label: "社会招聘", desc: "要求工作经验，全年滚动" },
+    { value: "实习", label: "实习", desc: "在校生实习，可转正" },
+    { value: "全职", label: "全职", desc: "正式全职岗位" },
+    { value: "兼职", label: "兼职 / 灵活用工", desc: "时间灵活，按小时或项目结算" },
+    { value: "管培生", label: "管理培训生", desc: "企业储备干部培养" },
+    { value: "国企央企", label: "国企 / 央企", desc: "稳定性强，校招为主" },
+    { value: "事业单位", label: "事业单位", desc: "编制内，含综合/教育/医疗类" },
+    { value: "公务员", label: "公务员", desc: "国考、省考、选调生" },
+    { value: "军队文职", label: "军队文职", desc: "军队编制岗位，待遇较好" },
+    { value: "三支一扶", label: "三支一扶 / 基层项目", desc: "支教、支农、支医、帮扶乡村振兴" },
+    { value: "科研助理", label: "科研助理 / 博士后", desc: "高校院所科研岗位" },
+    { value: "远程办公", label: "远程 / 弹性办公", desc: "不受地域限制的岗位" }
+  ],
+  salaryBands: [
+    { min: 0, max: 3000, label: "3K 以下", desc: "实习/兼职或基础服务业" },
+    { min: 3000, max: 5000, label: "3K - 5K", desc: "三线城市基础岗或实习转正" },
+    { min: 5000, max: 8000, label: "5K - 8K", desc: "二三线城市普通岗位主流区间" },
+    { min: 8000, max: 12000, label: "8K - 12K", desc: "新一线城市本科应届主流区间" },
+    { min: 12000, max: 20000, label: "12K - 20K", desc: "一线城市技术岗/有经验岗位" },
+    { min: 20000, max: 35000, label: "20K - 35K", desc: "一线大厂、金融、算法等中高级岗" },
+    { min: 35000, max: 50000, label: "35K - 50K", desc: "资深专家/管理岗" },
+    { min: 50000, max: 999999, label: "50K 以上", desc: "高端管理、稀缺技术专家" }
+  ],
+  industries: [
+    {
+      name: "互联网 / 软件", icon: "💻", hot: true,
+      majors: ["计算机", "软件", "网络", "信息", "数据", "人工智能", "智能科学", "物联网", "电子", "通信", "数学", "统计"],
+      jobs: [
+        { title: "Java 后端开发工程师", skills: ["Java", "Spring Boot", "MySQL", "Redis", "Linux", "微服务"], salary: [10, 25], edu: "本科", types: ["校招秋招", "校招春招", "社招", "全职"] },
+        { title: "前端开发工程师", skills: ["JavaScript", "TypeScript", "Vue.js", "React", "CSS", "Node.js"], salary: [9, 22], edu: "本科", types: ["校招秋招", "校招春招", "社招", "全职"] },
+        { title: "算法工程师（推荐/NLP/CV）", skills: ["Python", "机器学习", "深度学习", "PyTorch", "数据结构与算法", "数学建模"], salary: [18, 45], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "AI 大模型应用开发工程师", skills: ["Python", "AI 大模型应用开发", "Prompt 工程", "RAG 检索增强", "AI Agent 开发", "Linux"], salary: [20, 50], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "数据分析师", skills: ["SQL", "Python", "Excel 数据处理", "BI 可视化", "统计分析", "业务分析"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "测试开发工程师", skills: ["Python", "自动化测试", "接口测试", "Linux", "Git", "CI/CD"], salary: [9, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "运维 / SRE 工程师", skills: ["Linux", "Docker", "Kubernetes", "云原生", "Shell", "监控告警"], salary: [10, 25], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "网络安全工程师", skills: ["网络安全", "渗透测试", "Linux", "Python", "等保合规", "应急响应"], salary: [10, 28], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "产品经理", skills: ["需求分析", "用户调研", "原型设计 Axure/Figma", "数据分析", "项目管理", "PPT 汇报"], salary: [10, 28], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "鸿蒙 / 移动端开发工程师", skills: ["鸿蒙 HarmonyOS 开发", "ArkTS", "TypeScript", "Android", "iOS", "Git"], salary: [12, 28], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "人工智能 / 大模型", icon: "🤖", hot: true,
+      majors: ["人工智能", "计算机", "软件", "数据", "数学", "自动化", "电子", "统计学", "智能科学"],
+      jobs: [
+        { title: "大模型算法工程师", skills: ["Python", "深度学习", "PyTorch", "Transformer", "模型微调", "分布式训练"], salary: [25, 60], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "Prompt / AIGC 应用工程师", skills: ["Prompt 工程", "AI 大模型应用开发", "RAG 检索增强", "Python", "API 调用", "产品思维"], salary: [12, 30], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "AI 产品经理", skills: ["产品设计", "需求分析", "AI 大模型应用开发", "数据分析", "用户调研", "项目管理"], salary: [15, 35], edu: "本科", types: ["社招", "全职", "管培生"] },
+        { title: "机器学习工程师", skills: ["Python", "机器学习", "特征工程", "Spark", "SQL", "模型部署"], salary: [18, 40], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "计算机视觉工程师", skills: ["Python", "OpenCV", "深度学习", "PyTorch", "目标检测", "模型压缩"], salary: [18, 40], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "数据标注 / 数据运营", skills: ["数据标注", "Excel 数据处理", "质量审核", "沟通表达", "业务理解"], salary: [6, 12], edu: "专科", types: ["实习", "全职", "兼职"] }
+      ]
+    },
+    {
+      name: "电子 / 半导体 / 集成电路", icon: "🔌", hot: true,
+      majors: ["电子", "微电子", "集成电路", "通信", "光电", "材料", "物理", "自动化", "电气"],
+      jobs: [
+        { title: "数字 IC 设计工程师", skills: ["Verilog", "数字电路", "FPGA", "芯片验证", "Linux", "脚本语言"], salary: [20, 45], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "模拟 IC 设计工程师", skills: ["模拟电路", "Cadence", "版图设计", "电路原理", "半导体物理"], salary: [20, 45], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "芯片验证工程师", skills: ["SystemVerilog", "UVM", "芯片验证", "Python", "数字电路"], salary: [18, 40], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "硬件工程师", skills: ["电路原理", "PCB 设计", "模拟电路", "数字电路", "示波器", "EMC"], salary: [10, 25], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "嵌入式开发工程师", skills: ["C/C++", "单片机/STM32", "嵌入式 Linux", "RTOS", "电路原理", "调试"], salary: [10, 26], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "半导体工艺工程师", skills: ["半导体工艺", "材料表征（SEM/XRD）", "良率分析", "洁净室规范", "数据分析"], salary: [12, 30], edu: "硕士", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "通信 / 运营商", icon: "📡", hot: false,
+      majors: ["通信", "电子", "信息", "计算机", "光电"],
+      jobs: [
+        { title: "通信研发工程师", skills: ["通信原理", "C/C++", "Python", "信号处理", "5G 协议", "Linux"], salary: [12, 28], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "网络优化工程师", skills: ["通信原理", "无线网络优化", "路测分析", "Excel 数据处理", "报告写作"], salary: [7, 15], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "射频工程师", skills: ["射频测试", "电磁场与微波", "ADS/HFSS", "电路原理", "微波技术"], salary: [14, 32], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "运营商客户经理", skills: ["沟通表达", "销售技巧", "通信业务", "客户关系维护", "数据分析"], salary: [6, 15], edu: "本科", types: ["校招秋招", "国企央企", "全职"] }
+      ]
+    },
+    {
+      name: "金融 / 银行 / 证券 / 保险", icon: "🏦", hot: true,
+      majors: ["金融", "经济", "财政", "会计", "统计", "数学", "管理", "法学", "计算机"],
+      jobs: [
+        { title: "银行管理培训生", skills: ["金融知识", "沟通表达", "数据分析", "英语", "抗压能力", "PPT 汇报"], salary: [8, 20], edu: "本科", types: ["校招秋招", "国企央企", "管培生", "全职"] },
+        { title: "证券分析师助理", skills: ["财务报表分析", "行业研究", "Wind/Choice", "Excel 财务建模", "报告写作", "CFA/FRM 知识"], salary: [10, 30], edu: "硕士", types: ["校招秋招", "实习", "全职"] },
+        { title: "风控 / 合规专员", skills: ["风险管理", "金融法规", "数据分析", "SQL", "合规管理", "报告写作"], salary: [9, 22], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "量化研究员", skills: ["Python", "数学建模", "统计建模", "机器学习", "金融工程", "C++"], salary: [25, 60], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "保险精算师", skills: ["精算学", "统计建模", "Excel", "R 语言", "风险管理", "保险产品"], salary: [12, 35], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "金融科技开发工程师", skills: ["Java", "SQL", "分布式系统", "微服务", "金融业务", "Docker"], salary: [15, 35], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "咨询 / 会计 / 审计 / 税务", icon: "📊", hot: false,
+      majors: ["会计", "审计", "财务", "财政", "税收", "工商管理", "经济", "法学"],
+      jobs: [
+        { title: "审计专员（四大/本土所）", skills: ["审计学", "财务报表分析", "Excel 财务建模", "CPA 知识", "沟通表达", "抗压能力"], salary: [9, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "管理咨询顾问", skills: ["行业研究", "数据分析", "PPT 商务汇报", "访谈技巧", "项目管理", "逻辑思维"], salary: [12, 30], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "税务顾问", skills: ["税法", "税收筹划", "财务知识", "Excel", "政策研究", "报告写作"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "财务会计", skills: ["会计基础", "财务报表分析", "用友/金蝶", "Excel", "税务申报", "细致严谨"], salary: [5, 12], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "智能制造 / 机械 / 汽车", icon: "⚙️", hot: true,
+      majors: ["机械", "车辆", "自动化", "材料", "电气", "能源", "工业工程", "智能制造"],
+      jobs: [
+        { title: "机械设计工程师", skills: ["SolidWorks", "AutoCAD", "机械设计", "工程制图", "有限元分析 ANSYS", "GD&T 公差分析"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "汽车电子工程师", skills: ["C/C++", "CAN 总线", "嵌入式系统", "汽车电子", "AUTOSAR", "调试"], salary: [12, 28], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "新能源汽车三电工程师", skills: ["电池管理系统 BMS", "电机控制", "电力电子", "MATLAB/Simulink", "CAN 总线"], salary: [15, 35], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "自动化设备工程师", skills: ["PLC", "工业控制", "机器人技术", "传感器技术", "电气图纸", "现场调试"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "工艺工程师", skills: ["工艺设计", "精益生产", "SPC 统计过程控制", "AutoCAD", "质量管理", "现场改善"], salary: [7, 16], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "能源 / 电力 / 化工", icon: "🔋", hot: true,
+      majors: ["电气", "能源", "动力", "化工", "材料", "环境", "核工程", "石油"],
+      jobs: [
+        { title: "电网 / 发电企业技术岗", skills: ["电力系统分析", "继电保护", "电机学", "高电压技术", "安全生产", "电气图纸"], salary: [8, 20], edu: "本科", types: ["校招秋招", "国企央企", "全职"] },
+        { title: "新能源电站工程师", skills: ["新能源发电", "光伏/风电", "储能系统", "电力电子", "运维管理"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "储能系统工程师", skills: ["BMS", "储能系统", "电池材料", "电力电子", "热管理", "系统集成"], salary: [12, 30], edu: "硕士", types: ["校招秋招", "社招", "全职"] },
+        { title: "化工工艺工程师", skills: ["化工原理", "Aspen 模拟", "化工设计", "HSE 安全管理", "工艺优化", "DCS 操作"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "双碳 / ESG 咨询顾问", skills: ["碳排放核算", "ESG 报告", "环境法规", "数据分析", "政策研究", "报告写作"], salary: [10, 25], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "建筑 / 房地产 / 工程", icon: "🏗️", hot: false,
+      majors: ["土木", "建筑", "城乡规划", "风景园林", "工程管理", "测绘", "给排水"],
+      jobs: [
+        { title: "结构设计工程师", skills: ["结构力学", "PKPM", "AutoCAD", "混凝土设计", "钢结构", "规范应用"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "施工 / 土建工程师", skills: ["施工组织设计", "工程测量", "项目管理", "质量验收", "安全规范", "沟通协调"], salary: [7, 16], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "造价工程师", skills: ["广联达算量", "工程造价", "招投标", "合同管理", "Excel", "定额计价"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "BIM 工程师", skills: ["Revit/BIM", "AutoCAD", "机电建模", "碰撞检测", "施工模拟", "项目管理"], salary: [9, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "建筑方案设计师", skills: ["AutoCAD", "SketchUp", "Rhino", "Lumion", "方案设计", "施工图设计"], salary: [8, 22], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "医药 / 生物 / 医疗器械", icon: "🧬", hot: true,
+      majors: ["医学", "药学", "生物", "化学", "制药", "护理", "临床", "检验"],
+      jobs: [
+        { title: "临床研究 CRA / CRC", skills: ["GCP 规范", "临床试验", "医学统计", "沟通协调", "英语", "文档管理"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "药品注册专员", skills: ["药品注册法规", "药学知识", "英语", "文档写作", "GMP", "沟通协调"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "医药代表", skills: ["医药知识", "沟通表达", "销售技巧", "客户关系维护", "合规意识", "抗压能力"], salary: [6, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "医疗器械研发工程师", skills: ["生物医学工程", "机械设计", "电路设计", "医疗器械法规", "ISO 13485", "实验设计"], salary: [10, 25], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "医院临床医师", skills: ["临床诊疗思维", "病历书写", "急救技能", "执业医师考试", "医患沟通", "科研论文写作"], salary: [8, 25], edu: "硕士", types: ["事业单位", "全职"] },
+        { title: "护士 / 护理师", skills: ["基础护理操作", "临床护理", "急救护理", "护患沟通", "院感防控", "护理文书"], salary: [5, 15], edu: "专科", types: ["事业单位", "全职"] }
+      ]
+    },
+    {
+      name: "教育 / 培训", icon: "🎓", hot: false,
+      majors: ["教育", "师范", "汉语言", "数学", "英语", "物理", "化学", "历史", "体育", "音乐", "美术", "心理"],
+      jobs: [
+        { title: "中小学教师", skills: ["教学设计", "课堂管理", "教育心理学", "普通话", "教师资格证", "课件制作"], salary: [6, 15], edu: "本科", types: ["事业单位", "全职"] },
+        { title: "高校辅导员", skills: ["思政教育", "学生管理", "公文写作", "组织协调", "心理辅导", "中共党员"], salary: [6, 13], edu: "硕士", types: ["事业单位", "全职"] },
+        { title: "课程研发 / 教研员", skills: ["课程开发", "教育研究", "PPT 制作", "文案写作", "数据分析", "学科知识"], salary: [8, 18], edu: "本科", types: ["社招", "全职"] },
+        { title: "教育培训讲师", skills: ["授课能力", "课程设计", "沟通表达", "学科知识", "直播授课", "学员管理"], salary: [7, 20], edu: "本科", types: ["社招", "兼职", "全职"] }
+      ]
+    },
+    {
+      name: "传媒 / 文化 / 广告", icon: "🎬", hot: true,
+      majors: ["新闻", "传播", "广告", "中文", "汉语言", "艺术", "设计", "数字媒体"],
+      jobs: [
+        { title: "新媒体运营", skills: ["新媒体运营", "文案写作", "短视频运营", "数据分析", "AIGC 内容创作", "热点敏感度"], salary: [6, 16], edu: "本科", types: ["校招秋招", "社招", "实习", "全职"] },
+        { title: "短视频编导 / 剪辑", skills: ["短视频制作", "剪辑 Premiere", "脚本创作", "摄影摄像", "AIGC 内容创作", "节奏把控"], salary: [7, 18], edu: "本科", types: ["社招", "实习", "全职", "兼职"] },
+        { title: "品牌策划", skills: ["品牌策划", "文案写作", "活动策划", "市场调研", "PPT 商务汇报", "数据分析"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "记者 / 编辑", skills: ["新闻采写", "采访写作", "编辑校对", "选题策划", "摄影摄像", "舆情分析"], salary: [6, 15], edu: "本科", types: ["事业单位", "社招", "全职"] },
+        { title: "UI / 视觉设计师", skills: ["Figma", "Photoshop", "Illustrator", "UI/UX 设计", "视觉设计", "AIGC 设计工具"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "电商 / 零售 / 快消", icon: "🛒", hot: true,
+      majors: ["电子商务", "市场营销", "工商管理", "国际贸易", "物流", "经济", "设计", "新闻"],
+      jobs: [
+        { title: "电商运营", skills: ["电商运营", "数据分析", "店铺推广", "活动策划", "SEO/SEM", "Excel"], salary: [7, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "直播运营 / 主播", skills: ["直播运营", "场控能力", "话术表达", "选品", "数据分析", "抗压能力"], salary: [7, 25], edu: "专科", types: ["社招", "兼职", "全职"] },
+        { title: "跨境电商运营", skills: ["跨境电商", "英语", "Amazon/独立站", "数据分析", "供应链管理", "选品"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "快消品牌管培生", skills: ["市场营销", "数据分析", "PPT 商务汇报", "沟通表达", "项目管理", "英语"], salary: [9, 18], edu: "本科", types: ["校招秋招", "管培生", "全职"] },
+        { title: "用户增长运营", skills: ["用户增长", "数据分析", "SQL", "活动策划", "A/B 测试", "转化优化"], salary: [10, 25], edu: "本科", types: ["社招", "全职"] }
+      ]
+    },
+    {
+      name: "物流 / 供应链", icon: "🚚", hot: false,
+      majors: ["物流", "供应链", "工商管理", "交通运输", "工业工程", "国际贸易"],
+      jobs: [
+        { title: "供应链专员", skills: ["供应链管理", "采购管理", "数据分析", "ERP 系统", "成本控制", "沟通协调"], salary: [7, 16], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "物流规划工程师", skills: ["物流规划", "仓储管理", "WMS/TMS", "数据分析", "精益物流", "项目管理"], salary: [8, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "采购工程师", skills: ["采购谈判", "供应商管理", "成本分析", "合同法", "Excel", "沟通协调"], salary: [7, 18], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "法律 / 公共服务", icon: "⚖️", hot: false,
+      majors: ["法学", "政治学", "行政管理", "社会学", "公安", "知识产权"],
+      jobs: [
+        { title: "律师助理 / 实习律师", skills: ["法律检索", "合同审查", "法律文书写作", "诉讼法", "沟通表达", "法考知识"], salary: [5, 15], edu: "本科", types: ["实习", "社招", "全职"] },
+        { title: "企业法务专员", skills: ["合同审查", "公司法", "合规管理", "法律检索", "风险管理", "沟通谈判"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "知识产权专员", skills: ["知识产权", "专利检索", "法律文书写作", "英语", "技术理解", "沟通协调"], salary: [8, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "行政管理 / 综合文秘", skills: ["公文写作", "行政管理", "会议组织", "沟通协调", "Office 办公软件", "抗压能力"], salary: [5, 12], edu: "本科", types: ["国企央企", "事业单位", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "农业 / 食品 / 环保", icon: "🌾", hot: true,
+      majors: ["农学", "植物", "动物", "林学", "水产", "食品", "环境", "生态", "农业工程"],
+      jobs: [
+        { title: "农业技术推广员", skills: ["作物栽培", "植物保护", "农业技术推广", "田间试验设计", "沟通表达", "数据分析"], salary: [5, 12], edu: "本科", types: ["事业单位", "三支一扶", "全职"] },
+        { title: "食品研发工程师", skills: ["食品化学", "食品工艺学", "研发实验设计", "感官评价", "HACCP", "配方设计"], salary: [7, 16], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "食品安全质量管理", skills: ["HACCP", "食品检测", "质量管理", "食品安全法规", "ISO 22000", "数据分析"], salary: [6, 14], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "环保工程师", skills: ["水处理工艺", "环境影响评价", "环境监测", "环境法规", "CAD 制图", "报告写作"], salary: [7, 16], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "宠物医生 / 宠物护理", skills: ["动物诊疗", "宠物护理", "疫病防控", "兽药使用", "客户沟通", "动手能力"], salary: [6, 16], edu: "专科", types: ["社招", "全职"] }
+      ]
+    },
+    {
+      name: "旅游 / 酒店 / 航空服务", icon: "✈️", hot: false,
+      majors: ["旅游", "酒店", "会展", "外国语言", "航空", "交通运输", "体育"],
+      jobs: [
+        { title: "酒店运营管培生", skills: ["酒店运营", "客户服务", "英语口语", "团队协作", "成本核算", "危机处理"], salary: [5, 12], edu: "本科", types: ["校招秋招", "管培生", "全职"] },
+        { title: "OTA 平台运营", skills: ["OTA 平台运营", "数据分析", "活动策划", "文案写作", "客户服务", "Excel"], salary: [6, 14], edu: "本科", types: ["社招", "全职"] },
+        { title: "空中乘务 / 地勤", skills: ["英语口语", "服务礼仪", "应急处置", "沟通表达", "形象气质", "抗压能力"], salary: [6, 15], edu: "专科", types: ["校招秋招", "全职"] },
+        { title: "旅游产品策划", skills: ["旅游产品策划", "文案写作", "市场调研", "活动策划", "成本核算", "沟通协调"], salary: [6, 14], edu: "本科", types: ["社招", "全职"] }
+      ]
+    },
+    {
+      name: "游戏 / 动漫 / 数字娱乐", icon: "🎮", hot: true,
+      majors: ["数字媒体", "动画", "设计", "计算机", "软件", "美术", "戏剧影视"],
+      jobs: [
+        { title: "游戏策划", skills: ["游戏设计", "数值策划", "文案写作", "用户研究", "项目管理", "数据分析"], salary: [9, 25], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "游戏客户端开发", skills: ["C++", "Unity", "Unreal Engine", "数据结构与算法", "图形学", "Git"], salary: [12, 30], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "游戏美术 / 3D 建模", skills: ["Maya", "3ds Max", "ZBrush", "Substance Painter", "美术基础", "AIGC 设计工具"], salary: [8, 22], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "动画 / 特效师", skills: ["After Effects", "C4D", "Maya", "Premiere", "美术基础", "节奏感"], salary: [7, 20], edu: "本科", types: ["社招", "全职"] }
+      ]
+    },
+    {
+      name: "人力资源 / 行政", icon: "🧑‍💼", hot: false,
+      majors: ["人力资源", "工商管理", "心理学", "行政管理", "社会学", "法学"],
+      jobs: [
+        { title: "人力资源专员", skills: ["招聘面试", "员工关系", "薪酬绩效", "劳动法", "Excel", "沟通表达"], salary: [5, 13], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "招聘顾问（猎头）", skills: ["人才寻访", "沟通谈判", "行业研究", "客户关系维护", "抗压能力", "英语"], salary: [6, 20], edu: "本科", types: ["社招", "全职"] },
+        { title: "行政前台 / 综合岗", skills: ["Office 办公软件", "沟通表达", "会议组织", "公文写作", "服务意识", "细致严谨"], salary: [4, 9], edu: "专科", types: ["社招", "全职"] }
+      ]
+    },
+    {
+      name: "翻译 / 外贸 / 国际业务", icon: "🌍", hot: false,
+      majors: ["英语", "翻译", "商务英语", "国际贸易", "外国语言", "国际商务"],
+      jobs: [
+        { title: "外贸业务员", skills: ["英语商务沟通", "外贸函电", "国际贸易实务", "报关报检", "客户开发", "谈判技巧"], salary: [6, 20], edu: "本科", types: ["校招秋招", "社招", "全职"] },
+        { title: "英语翻译 / 本地化", skills: ["笔译", "口译", "英语专八", "CATTI 翻译", "跨文化沟通", "本地化工具"], salary: [7, 18], edu: "本科", types: ["社招", "兼职", "全职"] },
+        { title: "海外市场运营", skills: ["英语", "数字营销", "社交媒体运营", "数据分析", "跨文化沟通", "跨境电商"], salary: [9, 22], edu: "本科", types: ["校招秋招", "社招", "全职"] }
+      ]
+    },
+    {
+      name: "公务员 / 事业单位 / 国企", icon: "🏛️", hot: true,
+      majors: ["法学", "行政管理", "政治学", "中文", "汉语言", "会计", "财政", "经济", "计算机", "统计", "教育", "医学", "农学"],
+      jobs: [
+        { title: "综合管理类公务员", skills: ["申论写作", "行测", "公文写作", "政策分析", "沟通协调", "政治素养"], salary: [6, 15], edu: "本科", types: ["公务员", "全职"] },
+        { title: "事业单位综合岗", skills: ["公文写作", "行政管理", "综合应用能力", "沟通协调", "Office 办公软件", "政策理解"], salary: [5, 12], edu: "本科", types: ["事业单位", "全职"] },
+        { title: "国企综合管理岗", skills: ["公文写作", "项目管理", "沟通协调", "数据分析", "党建知识", "Office 办公软件"], salary: [6, 15], edu: "本科", types: ["国企央企", "校招秋招", "全职"] },
+        { title: "选调生", skills: ["申论写作", "行测", "政治素养", "基层治理", "组织协调", "中共党员"], salary: [6, 14], edu: "本科", types: ["公务员", "全职"] }
+      ]
+    }
+  ],
+  civil: [
+    { name: "国家公务员考试（国考）", time: "每年 10 月报名，11-12 月笔试", fit: ["法学", "行政管理", "政治学", "中文", "汉语言", "会计", "财政", "经济", "计算机", "统计"], desc: "中央机关及其直属机构招录，岗位覆盖税务、海关、铁路公安、统计、气象等系统。", url: "https://www.scs.gov.cn/" },
+    { name: "各省公务员考试（省考）", time: "多数省份 1-3 月报名，2-4 月笔试", fit: ["法学", "行政管理", "中文", "会计", "计算机", "经济", "农学", "医学"], desc: "省、市、县、乡四级机关招录，部分省份参加联考，应届生岗位比例高。", url: "https://www.baidu.com/s?wd=%E7%9C%81%E8%80%83%20%E4%BA%BA%E4%BA%8B%E8%80%83%E8%AF%95%E7%BD%91" },
+    { name: "选调生", time: "每年 9-12 月，定向选调与普通选调", fit: ["法学", "政治学", "行政管理", "中文", "经济", "农学"], desc: "面向优秀应届毕业生，定向选调多面向双一流高校，需党员/学生干部等条件。", url: "https://www.baidu.com/s?wd=%E9%80%89%E8%B0%83%E7%94%9F%20%E6%8A%A5%E5%90%8D" },
+    { name: "事业单位招聘（综合类）", time: "全年滚动，分上半年/下半年联考", fit: ["行政管理", "中文", "会计", "计算机", "法学", "统计"], desc: "含综合管理、专业技术岗，考试科目为职测 + 综合应用能力。", url: "http://www.cpta.com.cn/" },
+    { name: "教师招聘（教育类事业单位）", time: "全年滚动，3-8 月集中", fit: ["教育学", "汉语", "数学", "英语", "物理", "化学", "历史", "体育", "音乐", "美术"], desc: "中小学、幼儿园教师岗位，需教师资格证，部分岗位限师范专业。", url: "https://www.baidu.com/s?wd=%E6%95%99%E5%B8%88%E6%8B%9B%E8%81%98%20%E7%99%BB%E8%AE%B0" },
+    { name: "医疗卫生事业单位招聘", time: "全年滚动，春招/秋招为主", fit: ["临床医学", "护理", "药学", "医学技术", "预防医学", "中医学"], desc: "公立医院、疾控中心、社区卫生服务中心等编制岗位。", url: "https://www.baidu.com/s?wd=%E5%8C%BB%E7%96%97%E5%8D%AB%E7%94%9F%E4%BA%8B%E4%B8%9A%E5%8D%95%E4%BD%8D%E6%8B%9B%E8%81%98" },
+    { name: "三支一扶", time: "每年 4-7 月各省发布", fit: ["教育学", "农学", "医学", "护理", "法学", "计算机"], desc: "支教、支农、支医、帮扶乡村振兴，服务期满享考公考研加分政策。", url: "https://www.baidu.com/s?wd=%E4%B8%89%E6%94%AF%E4%B8%80%E6%89%B6%20%E6%8A%A5%E5%90%8D" },
+    { name: "大学生志愿服务西部计划", time: "每年 3-5 月报名", fit: ["教育学", "农学", "医学", "法学", "中文", "计算机"], desc: "赴西部基层服务 1-3 年，考研加分、公务员定向招录等优惠政策。", url: "https://xibu.youth.cn/" },
+    { name: "军队文职", time: "每年 12 月-次年 1 月报名", fit: ["医学", "护理", "计算机", "通信", "会计", "法学", "教育学", "外语"], desc: "军队编制岗位，待遇参照现役军官，含教学、科研、医疗、工程等序列。", url: "http://81rc.81.cn/" },
+    { name: "国企 / 央企校园招聘", time: "秋招 9-11 月，春招 3-4 月", fit: ["电气", "能源", "机械", "计算机", "通信", "金融", "会计", "土木", "化工"], desc: "国家电网、南方电网、中石油、中石化、中国移动、中国建筑等央企国企。", url: "https://www.iguopin.com/" }
+  ],
+  platforms: [
+    { name: "BOSS 直聘", search: "https://www.zhipin.com/web/geek/job?query={kw}", desc: "互联网/技术岗覆盖最全" },
+    { name: "智联招聘", search: "https://sou.zhaopin.com/?kw={kw}", desc: "综合类岗位量大" },
+    { name: "前程无忧 51job", search: "https://we.51job.com/pc/search?keyword={kw}", desc: "外企/传统行业岗位多" },
+    { name: "猎聘", search: "https://www.liepin.com/zhaopin/?key={kw}", desc: "中高端岗位与猎头" },
+    { name: "国聘", search: "https://www.iguopin.com/", desc: "央企国企官方招聘平台", fixed: true },
+    { name: "应届生求职网", search: "https://www.yingjiesheng.com/", desc: "校招/实习信息聚合", fixed: true },
+    { name: "实习僧", search: "https://www.shixiseng.com/", desc: "大学生实习平台", fixed: true },
+    { name: "国家公务员局", search: "https://www.scs.gov.cn/", desc: "国考官方公告与职位表", fixed: true },
+    { name: "中国人事考试网", search: "http://www.cpta.com.cn/", desc: "事业单位/职称考试官方入口", fixed: true },
+    { name: "全国招聘信息全网搜索", search: "https://www.baidu.com/s?wd={kw}", desc: "百度全网检索最新招聘公告", fixed: false }
+  ]
+};
+</script>
+<script>
+(function () {
+  'use strict';
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var STORAGE = 'careerfit_state_v2';
+  var DATA_SNAPSHOT = '2026-11';
+
+  var EDU_LIST = ['高中及以下', '专科', '本科', '硕士研究生', '博士研究生'];
+  var EDU_LEVEL = { '高中及以下': 1, '专科': 2, '本科': 3, '硕士研究生': 4, '博士研究生': 5 };
+  var JOB_EDU = { '高中': 1, '专科': 2, '本科': 3, '硕士': 4, '博士': 5 };
+  var EDU_FACTOR = { '高中及以下': 0.6, '专科': 0.78, '本科': 1, '硕士研究生': 1.24, '博士研究生': 1.55 };
+  var HEAVY_INDUSTRIES = ['互联网 / 软件', '人工智能 / 大模型', '电子 / 半导体 / 集成电路', '金融 / 银行 / 证券 / 保险', '游戏 / 动漫 / 数字娱乐', '咨询 / 会计 / 审计 / 税务'];
+
+  var state = {
+    edu: '本科', gradYear: 2026, school: '', schoolCustom: false,
+    uniProvince: '北京', uniQuery: '',
+    major: '', majorCategory: '', majorClass: '',
+    rank: '', total: '', gpa: '',
+    skills: [], customSkills: [],
+    province: '北京', city: '北京市', district: '', workQuery: '',
+    industries: [], salary: '',
+    jobTypes: ['校招秋招'], arrival: '', workMode: '',
+    api: '', dataUpdatedAt: '', realtimeJobs: [], step: 1
+  };
+  var results = { jobs: [], civil: [], avg: 0 };
+  var wheels = {};
+
+  /* ---------- 基础工具 ---------- */
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+    });
+  }
+  function num(v) { var n = Number(v); return isFinite(n) ? n : 0; }
+  function kfmt(v) { return (Math.round(v / 100) / 10) + 'K'; }
+  function uniq(arr) { return arr.filter(function (v, i) { return arr.indexOf(v) === i; }); }
+  function debounce(fn, wait) {
+    var t; return function () { var a = arguments, self = this; clearTimeout(t); t = setTimeout(function () { fn.apply(self, a); }, wait); };
+  }
+  function toast(msg) {
+    var el = $('#toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 2200);
+  }
+  function saveState() {
+    try {
+      var copy = JSON.parse(JSON.stringify(state));
+      delete copy.realtimeJobs;
+      localStorage.setItem(STORAGE, JSON.stringify(copy));
+    } catch (e) { /* ignore */ }
+  }
+  function loadState() {
+    try {
+      var raw = localStorage.getItem(STORAGE);
+      if (raw) {
+        var saved = JSON.parse(raw);
+        Object.keys(saved).forEach(function (k) {
+          if (saved[k] !== undefined && saved[k] !== null) state[k] = saved[k];
+        });
+      }
+    } catch (e) { /* ignore */ }
+    if (EDU_LIST.indexOf(state.edu) < 0) state.edu = '本科';
+    if (!state.jobTypes || !state.jobTypes.length) state.jobTypes = ['校招秋招'];
+    if (state.realtimeJobs && state.realtimeJobs.length) { /* legacy */ }
+  }
+
+  /* ---------- 滚轮选择器 ---------- */
+  function WheelPicker(el, options, value, onChange) {
+    this.el = el;
+    this.itemH = 36;
+    this.onChange = onChange || function () { };
+    this.lastWheel = 0;
+    this._dragged = false;
+    var list = document.createElement('div');
+    list.className = 'wheel-list';
+    el.appendChild(list);
+    var band = document.createElement('div');
+    band.className = 'wheel-band';
+    el.appendChild(band);
+    this.list = list;
+    el.setAttribute('tabindex', '0');
+    this._bind();
+    this.setOptions(options, value);
+  }
+  WheelPicker.prototype.setOptions = function (options, value) {
+    this.options = (options || []).slice();
+    this.list.innerHTML = this.options.map(function (o, i) {
+      return '<div class="wheel-item" data-index="' + i + '">' + esc(o) + '</div>';
+    }).join('');
+    var idx = this.options.indexOf(value);
+    this.index = idx < 0 ? 0 : idx;
+    this.render(false);
+  };
+  WheelPicker.prototype.setValue = function (value) {
+    var idx = this.options.indexOf(value);
+    if (idx < 0 || idx === this.index) return;
+    this.index = idx;
+    this.render(true);
+    this._emit();
+  };
+  WheelPicker.prototype.render = function (animate) {
+    if (!animate) this.list.style.transition = 'none';
+    this.list.style.transform = 'translateY(' + (-this.index * this.itemH - this.itemH / 2) + 'px)';
+    if (!animate) {
+      void this.list.offsetHeight;
+      this.list.style.transition = '';
+    }
+    var self = this;
+    Array.prototype.forEach.call(this.list.children, function (c, i) {
+      var d = i - self.index;
+      var abs = Math.min(Math.abs(d), 3);
+      c.classList.toggle('active', d === 0);
+      c.style.opacity = d === 0 ? '1' : String(Math.max(0.22, 1 - abs * 0.24));
+      c.style.transform = 'perspective(600px) rotateX(' + (d * -10) + 'deg) scale(' + (d === 0 ? 1 : 1 - abs * 0.035) + ')';
+    });
+  };
+  WheelPicker.prototype._emit = function () {
+    if (this.options && this.options.length) this.onChange(this.options[this.index], this.index);
+  };
+  WheelPicker.prototype.step = function (dir) {
+    var next = Math.max(0, Math.min(this.options.length - 1, this.index + dir));
+    if (next === this.index) return;
+    this.index = next;
+    this.render(true);
+    this._emit();
+  };
+  WheelPicker.prototype._bind = function () {
+    var self = this;
+    var el = this.el;
+    var startY = 0, startIndex = 0, dragging = false, moved = false;
+
+    el.addEventListener('pointerdown', function (e) {
+      dragging = true; moved = false; self._dragged = false;
+      startY = e.clientY; startIndex = self.index;
+      el.classList.add('dragging');
+      try { el.setPointerCapture(e.pointerId); } catch (err) { }
+    });
+    el.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var dy = e.clientY - startY;
+      if (Math.abs(dy) > 4) moved = true;
+      self.list.style.transform = 'translateY(' + (-startIndex * self.itemH - self.itemH / 2 + dy) + 'px)';
+    });
+    function finish(e) {
+      if (!dragging) return;
+      dragging = false;
+      el.classList.remove('dragging');
+      var dy = (e && e.clientY != null ? e.clientY : startY) - startY;
+      var idx = startIndex - Math.round(dy / self.itemH);
+      idx = Math.max(0, Math.min(self.options.length - 1, idx));
+      self.index = idx;
+      self.render(true);
+      if (moved) {
+        self._dragged = true;
+        self._emit();
+      }
+    }
+    el.addEventListener('pointerup', finish);
+    el.addEventListener('pointercancel', function () { dragging = false; el.classList.remove('dragging'); self.render(true); });
+    el.addEventListener('click', function (e) {
+      if (self._dragged) { self._dragged = false; return; }
+      var item = e.target.closest('.wheel-item');
+      if (!item) return;
+      var i = Number(item.dataset.index);
+      if (i === self.index) return;
+      self.index = i; self.render(true); self._emit();
+    });
+    el.addEventListener('wheel', function (e) {
+      e.preventDefault();
+      var now = Date.now();
+      if (now - self.lastWheel < 55) return;
+      self.lastWheel = now;
+      self.step(e.deltaY > 0 ? 1 : -1);
+    }, { passive: false });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); self.step(1); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); self.step(-1); }
+    });
+  };
+
+  /* ---------- 院校 / 专业 ---------- */
+  function renderUniList() {
+    var box = $('#uniList');
+    var q = state.uniQuery.trim();
+    var list = [];
+    if (q) {
+      Object.keys(UNI_DATA).forEach(function (p) {
+        UNI_DATA[p].forEach(function (n) {
+          if (n.indexOf(q) >= 0 || p.indexOf(q) >= 0) list.push({ n: n, p: p });
+        });
+      });
+      list = list.slice(0, 150);
+      $('#uniCount').textContent = '全库搜索「' + q + '」命中 ' + list.length + ' 所' + (list.length >= 150 ? '（仅显示前 150）' : '');
+    } else {
+      var prov = state.uniProvince;
+      list = (UNI_DATA[prov] || []).map(function (n) { return { n: n, p: prov }; });
+      $('#uniCount').textContent = prov + ' · 共 ' + list.length + ' 所院校';
+    }
+    if (!list.length) {
+      box.innerHTML = '<span class="empty">未找到匹配院校，可在下方手动输入全称</span>';
+      return;
+    }
+    box.innerHTML = list.map(function (x) {
+      var on = state.school === x.n ? ' on' : '';
+      return '<button type="button" class="chip' + on + '" data-uni="' + esc(x.n) + '">' + esc(x.n) +
+        '<span style="opacity:.55;font-size:11px;margin-left:5px">' + esc(x.p) + '</span></button>';
+    }).join('');
+  }
+  function updateUniPicked() {
+    $('#uniPicked').textContent = state.school ? state.school : '未选择';
+  }
+  function renderMajorClassSelect() {
+    var cls = state.majorCategory && MAJOR_DATA[state.majorCategory];
+    var sel = $('#majorClass');
+    var opts = ['<option value="">选择专业类</option>'];
+    if (cls) Object.keys(cls).forEach(function (c) { opts.push('<option value="' + esc(c) + '">' + esc(c) + '</option>'); });
+    sel.innerHTML = opts.join('');
+    if (state.majorClass && cls && cls[state.majorClass]) sel.value = state.majorClass;
+  }
+  function renderMajorList() {
+    var box = $('#majorList');
+    var q = state.majorQuery ? state.majorQuery.trim() : '';
+    var list = [];
+    if (q) {
+      list = MAJOR_FLAT.filter(function (x) {
+        return x.name.indexOf(q) >= 0 || x["class"].indexOf(q) >= 0 || x.category.indexOf(q) >= 0;
+      }).slice(0, 180);
+      $('#majorCount').textContent = '全库搜索「' + q + '」命中 ' + list.length + ' 个专业';
+    } else if (state.majorCategory && MAJOR_DATA[state.majorCategory] && state.majorClass && MAJOR_DATA[state.majorCategory][state.majorClass]) {
+      list = MAJOR_DATA[state.majorCategory][state.majorClass].map(function (m) {
+        return { name: m, category: state.majorCategory, "class": state.majorClass };
+      });
+      $('#majorCount').textContent = state.majorCategory + ' · ' + state.majorClass + ' · ' + list.length + ' 个专业';
+    } else {
+      $('#majorCount').textContent = state.majorCategory ? '请选择专业类，或直接搜索全库' : '请选择学科门类';
+      box.innerHTML = '<span class="empty">选择门类与专业类后显示专业列表</span>';
+      return;
+    }
+    if (!list.length) {
+      box.innerHTML = '<span class="empty">未找到专业，可在下方手动输入</span>';
+      return;
+    }
+    box.innerHTML = list.map(function (x) {
+      var on = state.major === x.name ? ' on' : '';
+      return '<button type="button" class="chip' + on + '" data-major="' + esc(x.name) + '" data-cat="' + esc(x.category) + '" data-cls="' + esc(x["class"]) + '">' +
+        esc(x.name) + '<span style="opacity:.5;font-size:11px;margin-left:5px">' + esc(x["class"]) + '</span></button>';
+    }).join('');
+  }
+  function updateMajorPicked() {
+    var txt = state.major || '未选择';
+    if (state.major && state.majorClass) txt += '（' + state.majorCategory + ' · ' + state.majorClass + '）';
+    $('#majorPicked').textContent = txt;
+  }
+  function selectMajor(name, cat, cls) {
+    state.major = name;
+    state.majorCategory = cat;
+    state.majorClass = cls;
+    $('#majorOther').value = '';
+    if (state.majorCategory) $('#majorCategory').value = state.majorCategory;
+    renderMajorClassSelect();
+    if (state.majorClass) $('#majorClass').value = state.majorClass;
+    renderMajorList();
+    updateMajorPicked();
+    renderSkillSources();
+    renderIndustryRecommend();
+    saveState();
+  }
+
+  /* ---------- 技能 ---------- */
+  function inferMajorClass() {
+    if (!state.major) return '';
+    var exact = MAJOR_FLAT.filter(function (x) { return x.name === state.major; })[0];
+    if (exact) return exact["class"];
+    for (var i = 0; i < SKILL_DATA.rules.length; i++) {
+      var r = SKILL_DATA.rules[i];
+      for (var j = 0; j < r.keys.length; j++) {
+        if (state.major.indexOf(r.keys[j]) >= 0) return r["class"];
+      }
+    }
+    return state.majorClass || '';
+  }
+  function recommendedSkills() {
+    var out = [];
+    function push(arr) { (arr || []).forEach(function (s) { if (out.indexOf(s) < 0) out.push(s); }); }
+    if (!state.major) { push(SKILL_DATA.hot.slice(0, 18)); return out; }
+    var cls = inferMajorClass();
+    if (SKILL_DATA.byClass[state.major]) push(SKILL_DATA.byClass[state.major]);
+    if (cls && SKILL_DATA.byClass[cls]) push(SKILL_DATA.byClass[cls]);
+    for (var i = 0; i < SKILL_DATA.rules.length; i++) {
+      var r = SKILL_DATA.rules[i];
+      for (var j = 0; j < r.keys.length; j++) {
+        if (state.major.indexOf(r.keys[j]) >= 0) { push(SKILL_DATA.byClass[r["class"]]); break; }
+      }
+    }
+    if (!out.length) push(SKILL_DATA.hot.slice(0, 18));
+    return out.slice(0, 54);
+  }
+  function renderSkillSources() {
+    var list = recommendedSkills();
+    $('#skillBasedOn').textContent = state.major ? '基于「' + state.major + '」' + (inferMajorClass() ? ' · ' + inferMajorClass() : '') : '尚未选择专业，展示热门技能';
+    $('#majorSkills').innerHTML = list.map(function (s) {
+      var on = state.skills.indexOf(s) >= 0 ? ' on' : '';
+      return '<button type="button" class="chip' + on + '" data-skill="' + esc(s) + '">' + esc(s) + '</button>';
+    }).join('');
+    $('#hotSkills').innerHTML = SKILL_DATA.hot.map(function (s) {
+      var on = state.skills.indexOf(s) >= 0 ? ' on' : '';
+      return '<button type="button" class="chip' + on + '" data-skill="' + esc(s) + '">' + esc(s) + '</button>';
+    }).join('');
+    $('#commonSkills').innerHTML = SKILL_DATA.common.map(function (s) {
+      var on = state.skills.indexOf(s) >= 0 ? ' on' : '';
+      return '<button type="button" class="chip' + on + '" data-skill="' + esc(s) + '">' + esc(s) + '</button>';
+    }).join('');
+    renderSelectedSkills();
+    renderCustomSkills();
+  }
+  function renderSelectedSkills() {
+    var box = $('#selectedSkills');
+    $('#skillCount').textContent = state.skills.length + ' 项';
+    if (!state.skills.length) { box.innerHTML = ''; return; }
+    box.innerHTML = state.skills.map(function (s) {
+      return '<span class="tag">' + esc(s) + '<button type="button" data-del-skill="' + esc(s) + '" aria-label="移除">×</button></span>';
+    }).join('');
+  }
+  function renderCustomSkills() {
+    var box = $('#customSkills');
+    box.innerHTML = (state.customSkills || []).map(function (s) {
+      return '<button type="button" class="chip small ghost" data-skill="' + esc(s) + '">' + esc(s) + '</button>';
+    }).join('');
+  }
+  function toggleSkill(name) {
+    var i = state.skills.indexOf(name);
+    if (i >= 0) state.skills.splice(i, 1);
+    else state.skills.push(name);
+    renderSkillSources();
+    saveState();
+  }
+  function addCustomSkill() {
+    var input = $('#customSkillInput');
+    var v = input.value.trim();
+    if (!v) return;
+    if (state.skills.indexOf(v) < 0) state.skills.push(v);
+    if (state.customSkills.indexOf(v) < 0) state.customSkills.push(v);
+    input.value = '';
+    renderSkillSources();
+    saveState();
+  }
+
+  /* ---------- 期望工作地点 ---------- */
+  function updateGradYearHint() {
+    var el = $('#gradYearHint');
+    if (!el) return;
+    var y = Number(state.gradYear);
+    var now = new Date().getFullYear();
+    el.textContent = '当前：' + y + ' 年 · ' + (y > now ? '预计毕业' : (y === now ? '应届毕业生' : '往届毕业生'));
+  }
+  var HOT_CITIES = ['北京市', '上海市', '广州', '深圳', '杭州', '成都', '武汉', '南京', '西安', '苏州', '天津市', '重庆市'];
+  function findProvinceOfCity(city) {
+    for (var p in CITY_DATA) { if (CITY_DATA[p].indexOf(city) >= 0) return p; }
+    return '';
+  }
+  function renderHotCities() {
+    var box = $('#hotCities');
+    if (!box) return;
+    box.innerHTML = '<span class="hint">热门城市：</span>' + HOT_CITIES.map(function (c) {
+      return '<button type="button" class="chip small' + (state.city === c ? ' on' : '') + '" data-hot-city="' + esc(c) + '">' + esc(c) + '</button>';
+    }).join('');
+  }
+  function workDistricts(prov, city) {
+    return (DISTRICT_DATA[prov] && DISTRICT_DATA[prov][city]) || [];
+  }
+  function fillWorkCities() {
+    var cities = CITY_DATA[state.province] || [];
+    if (cities.indexOf(state.city) < 0) state.city = cities[0] || '';
+    $('#workCity').innerHTML = cities.map(function (c) {
+      return '<option value="' + esc(c) + '">' + esc(c) + '</option>';
+    }).join('');
+    $('#workCity').value = state.city;
+  }
+  function fillWorkDistricts() {
+    var list = workDistricts(state.province, state.city);
+    var opts = ['<option value="">不限（全市）</option>'];
+    list.forEach(function (d) {
+      opts.push('<option value="' + esc(d) + '">' + esc(d) + '</option>');
+    });
+    $('#workDistrict').innerHTML = opts.join('');
+    if (state.district && list.indexOf(state.district) < 0) state.district = '';
+    $('#workDistrict').value = state.district || '';
+  }
+  function renderWorkList() {
+    var box = $('#workList');
+    if (!box) return;
+    var q = (state.workQuery || '').trim();
+    var list = [];
+    var searched = false;
+    if (q) {
+      searched = true;
+      Object.keys(DISTRICT_DATA).forEach(function (p) {
+        Object.keys(DISTRICT_DATA[p]).forEach(function (c) {
+          if (c.indexOf(q) >= 0) list.push({ p: p, c: c, d: '' });
+          DISTRICT_DATA[p][c].forEach(function (d) {
+            if (d.indexOf(q) >= 0) list.push({ p: p, c: c, d: d });
+          });
+        });
+      });
+      Object.keys(CITY_DATA).forEach(function (p) {
+        CITY_DATA[p].forEach(function (c) {
+          if (c.indexOf(q) >= 0) {
+            var exists = list.some(function (x) { return x.p === p && x.c === c && !x.d; });
+            if (!exists) list.push({ p: p, c: c, d: '' });
+          }
+        });
+      });
+      list = list.slice(0, 120);
+      $('#workCount').textContent = '全库搜索「' + q + '」命中 ' + list.length + ' 个地点' + (list.length >= 120 ? '（仅显示前 120）' : '');
+    } else {
+      var ds = workDistricts(state.province, state.city);
+      list = ds.map(function (d) { return { p: state.province, c: state.city, d: d }; });
+      list.unshift({ p: state.province, c: state.city, d: '', all: true });
+      $('#workCount').textContent = state.city + ' · 共 ' + ds.length + ' 个区县' + (ds.length ? '，可直接点击选择' : '（暂未收录区县，可选全市或手动填写）');
+    }
+    if (!list.length) {
+      box.innerHTML = '<span class="empty">未找到地点，可在下方手动输入</span>';
+      return;
+    }
+    box.innerHTML = list.map(function (x) {
+      var on = (x.p === state.province && x.c === state.city && (x.d || '') === (state.district || '')) ? ' on' : '';
+      var label = x.all ? '不限（全市）' : (x.d ? x.d : x.c);
+      var sub = (x.p === x.c) ? x.p : (x.p + ' · ' + x.c);
+      return '<button type="button" class="chip' + on + '" data-work-p="' + esc(x.p) + '" data-work-c="' + esc(x.c) + '" data-work-d="' + esc(x.d) + '">' + esc(label) +
+        '<span style="opacity:.55;font-size:11px;margin-left:5px">' + esc(sub) + '</span></button>';
+    }).join('');
+    return searched;
+  }
+  function updateWorkHint() {
+    var t = CITY_TIER(state.city);
+    var parts = [];
+    if (state.city && state.city.indexOf(state.province) === 0) {
+      if (state.city) parts.push(state.city);
+    } else {
+      if (state.province) parts.push(state.province);
+      if (state.city) parts.push(state.city);
+    }
+    if (state.district) parts.push(state.district);
+    var place = parts.join(' · ');
+    $('#cityHint').textContent = '当前选择：' + place + '（' + t.label + '）';
+    $('#workPicked').textContent = place || '未选择';
+    renderHotCities();
+    updateSalaryNote();
+  }
+  function setWorkLocation(p, c, d) {
+    if (p) state.province = p;
+    if (p && CITY_DATA[p] && CITY_DATA[p].indexOf(c) < 0) c = CITY_DATA[p][0] || '';
+    if (c) state.city = c;
+    state.district = d || '';
+    $('#workProvince').value = state.province;
+    fillWorkCities();
+    fillWorkDistricts();
+    updateWorkHint();
+    renderWorkList();
+    saveState();
+  }
+  function selectHotCity(city) {
+    var prov = findProvinceOfCity(city);
+    if (prov) setWorkLocation(prov, city, '');
+  }
+  function initWorkLocation() {
+    var provinces = Object.keys(CITY_DATA);
+    if (provinces.indexOf(state.province) < 0) state.province = provinces[0];
+    $('#workProvince').innerHTML = provinces.map(function (p) {
+      return '<option value="' + esc(p) + '">' + esc(p) + '</option>';
+    }).join('');
+    $('#workProvince').value = state.province;
+    fillWorkCities();
+    fillWorkDistricts();
+    updateWorkHint();
+    renderWorkList();
+  }
+
+  /* ---------- 行业 / 求职类型 ---------- */
+  function renderIndustryChips() {
+    var box = $('#industryChips');
+    box.innerHTML = CAREER_DATA.industries.map(function (ind) {
+      var on = state.industries.indexOf(ind.name) >= 0 ? ' on' : '';
+      return '<button type="button" class="chip' + on + '" data-industry="' + esc(ind.name) + '">' +
+        (ind.icon ? '<span style="margin-right:4px">' + ind.icon + '</span>' : '') + esc(ind.name) + '</button>';
+    }).join('');
+  }
+  function recommendIndustries() {
+    var majorText = [state.major, state.majorClass, state.majorCategory, state.school].join(' ');
+    var skillText = state.skills.join(' ');
+    var scored = CAREER_DATA.industries.map(function (ind) {
+      var s = 0;
+      ind.majors.forEach(function (k) {
+        if (majorText && majorText.indexOf(k) >= 0) s += 3;
+        if (skillText && skillText.indexOf(k) >= 0) s += 1;
+      });
+      if (ind.hot) s += 0.6;
+      if (ind.icon && /互联网|人工智能|电子|金融/.test(ind.name) && /Python|SQL|Java|数据分析|机器学习|深度学习|大模型|算法/.test(skillText)) s += 1.5;
+      return { ind: ind, s: s };
+    }).filter(function (x) { return x.s > 0; }).sort(function (a, b) { return b.s - a.s; });
+    if (!scored.length) return CAREER_DATA.industries.filter(function (i) { return i.hot; }).slice(0, 4).map(function (i) { return i.ind; });
+    return scored.slice(0, 4).map(function (x) { return x.ind; });
+  }
+  function renderIndustryRecommend() {
+    var box = $('#recommendIndustries');
+    var list = recommendIndustries();
+    if (!list.length) { box.innerHTML = '<span class="hint">先在上一步选择专业，推荐会更准确</span>'; return; }
+    box.innerHTML = list.map(function (ind) {
+      var on = state.industries.indexOf(ind.name) >= 0;
+      return '<button type="button" class="chip' + (on ? ' on' : '') + '" data-industry="' + esc(ind.name) + '">' +
+        '<span style="font-weight:700;margin-right:5px">推荐</span>' + esc(ind.name) + '</button>';
+    }).join('');
+  }
+  function toggleIndustry(name) {
+    var i = state.industries.indexOf(name);
+    if (i >= 0) state.industries.splice(i, 1);
+    else state.industries.push(name);
+    renderIndustryChips();
+    renderIndustryRecommend();
+    updateSalaryNote();
+    saveState();
+  }
+  function renderJobTypeChips() {
+    $('#jobTypeChips').innerHTML = CAREER_DATA.jobTypes.map(function (t) {
+      var on = state.jobTypes.indexOf(t.value) >= 0 ? ' on' : '';
+      return '<button type="button" class="chip' + on + '" data-jobtype="' + esc(t.value) + '" title="' + esc(t.desc) + '">' + esc(t.label) + '</button>';
+    }).join('');
+  }
+  function toggleJobType(v) {
+    var i = state.jobTypes.indexOf(v);
+    if (i >= 0) state.jobTypes.splice(i, 1);
+    else state.jobTypes.push(v);
+    renderJobTypeChips();
+    saveState();
+  }
+
+  /* ---------- 薪资 ---------- */
+  function renderSalaryBands() {
+    $('#salaryBands').innerHTML = CAREER_DATA.salaryBands.map(function (b, i) {
+      return '<button type="button" class="band" data-band="' + i + '" title="' + esc(b.desc) + '">' + esc(b.label) + '</button>';
+    }).join('');
+    updateSalaryBands();
+  }
+  function currentBandIndex() {
+    var v = num(state.salary);
+    if (v <= 0) return -1;
+    for (var i = 0; i < CAREER_DATA.salaryBands.length; i++) {
+      var b = CAREER_DATA.salaryBands[i];
+      if (v >= b.min && v < b.max) return i;
+    }
+    return CAREER_DATA.salaryBands.length - 1;
+  }
+  function updateSalaryBands() {
+    var idx = currentBandIndex();
+    $$('#salaryBands .band').forEach(function (el, i) { el.classList.toggle('on', i === idx); });
+    return idx;
+  }
+  function industrySalaryBase() {
+    var names = state.industries;
+    var mins = [], maxs = [];
+    CAREER_DATA.industries.forEach(function (ind) {
+      if (names.length && names.indexOf(ind.name) < 0) return;
+      ind.jobs.forEach(function (j) {
+        var mid = (j.salary[0] + j.salary[1]) / 2;
+        mins.push(j.salary[0]);
+        maxs.push(j.salary[1]);
+      });
+    });
+    if (!mins.length) {
+      CAREER_DATA.industries.forEach(function (ind) {
+        ind.jobs.slice(0, 3).forEach(function (j) { mins.push(j.salary[0]); maxs.push(j.salary[1]); });
+      });
+    }
+    var avgMin = mins.reduce(function (a, b) { return a + b; }, 0) / Math.max(1, mins.length);
+    var avgMax = maxs.reduce(function (a, b) { return a + b; }, 0) / Math.max(1, maxs.length);
+    return [avgMin, avgMax];
+  }
+  function salaryReference() {
+    var tier = CITY_TIER(state.city);
+    var eduF = EDU_FACTOR[state.edu] || 1;
+    var base = industrySalaryBase();
+    var lo = base[0] * tier.factor * eduF * 1000;
+    var hi = base[1] * tier.factor * eduF * 1000;
+    return { lo: Math.round(lo / 500) * 500, hi: Math.round(hi / 500) * 500, tier: tier };
+  }
+  function updateSalaryNote() {
+    if (!$('#salaryNote')) return;
+    var ref = salaryReference();
+    var bandIdx = updateSalaryBands();
+    var txt = '参考区间 <b>' + kfmt(ref.lo) + ' – ' + kfmt(ref.hi) + '</b> · ' + ref.tier.label + ' · ' + state.edu;
+    var v = num(state.salary);
+    if (v > 0 && bandIdx >= 0) {
+      var band = CAREER_DATA.salaryBands[bandIdx];
+      var judge;
+      if (v < ref.lo * 0.8) judge = '<span style="color:var(--warn)">低于该城市同行业常见区间，投递时可关注成长空间</span>';
+      else if (v > ref.hi * 1.2) judge = '<span style="color:var(--danger)">高于常见区间，建议匹配更高职级或更强技能背景</span>';
+      else judge = '<span style="color:var(--success)">落在合理区间内</span>';
+      txt += '<br>你的期望：<b>' + esc(band.label) + '</b>（' + v.toLocaleString() + ' 元/月）· ' + judge;
+    }
+    $('#salaryNote').innerHTML = txt;
+  }
+
+  /* ---------- 排名 ---------- */
+  function updateRank() {
+    var r = num(state.rank), t = num(state.total);
+    var badge = $('#rankBadge');
+    if (!r || !t) { badge.textContent = '待填写'; badge.style.background = ''; badge.style.color = ''; return; }
+    var pct = Math.min(100, (r / t) * 100);
+    if (r > t) { badge.textContent = '名次超出总人数'; badge.style.background = 'rgba(240,68,56,.12)'; badge.style.color = 'var(--danger)'; return; }
+    var level = pct <= 5 ? '前 5% · 优秀' : pct <= 15 ? '前 15% · 良好' : pct <= 30 ? '前 30% · 中上' : pct <= 50 ? '前 50% · 中等' : '50% 之后';
+    badge.textContent = '前 ' + (pct < 1 ? pct.toFixed(1) : Math.round(pct)) + '% · ' + level.split('· ')[1];
+    badge.style.background = 'var(--primary-soft)';
+    badge.style.color = 'var(--primary)';
+  }
+
+  /* ---------- 步骤 ---------- */
+  function goStep(n, skipScroll) {
+    state.step = n;
+    saveState();
+    $$('.panel').forEach(function (p) { p.classList.remove('active'); });
+    var panel = $('#panel-' + n);
+    if (panel) panel.classList.add('active');
+    $$('.step-node').forEach(function (node) {
+      var s = Number(node.dataset.step);
+      node.classList.toggle('active', s === n);
+      node.classList.toggle('done', s < n);
+      node.querySelector('i').textContent = s < n ? '✓' : String(s);
+    });
+    $$('.step-node').forEach(function (node) {
+      node.querySelector('i').style.fontSize = Number(node.dataset.step) < n ? '13px' : '';
+    });
+    if (!skipScroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (n === 2) { renderSkillSources(); renderIndustryRecommend(); }
+    if (n === 3) { updateSalaryNote(); }
+    if (n === 4) { runMatch(); }
+  }
+  function validateStep1() {
+    if (!state.major) { toast('请先选择或填写你的专业'); return false; }
+    if (!state.school) { toast('建议先选择或填写毕业院校，便于匹配校招资源'); }
+    return true;
+  }
+  function validateStep2() {
+    if (!state.skills.length) { toast('还没有选择技能，匹配度会偏低，也可以继续'); }
+    return true;
+  }
+
+  /* ---------- 匹配算法 ---------- */
+  function normSkill(s) { return String(s).toLowerCase().replace(/[\s\-_\/（）()·]/g, ''); }
+  function skillHit(user, need) {
+    var a = normSkill(user), b = normSkill(need);
+    if (!a || !b) return false;
+    if (a === b) return true;
+    var s = a.length <= b.length ? a : b;
+    var l = a.length <= b.length ? b : a;
+    var idx = l.indexOf(s);
+    if (idx < 0) return false;
+    var before = l.charAt(idx - 1), after = l.charAt(idx + s.length);
+    var letter = function (c) { return c && /[a-z]/.test(c); };
+    return !letter(before) && !letter(after);
+  }
+  var INDUSTRY_COMPANIES = {
+    '互联网 / 软件': ['字节跳动', '腾讯', '阿里巴巴', '美团', '京东', '网易', '百度', '快手', '拼多多', '小红书'],
+    '人工智能 / 大模型': ['商汤科技', '科大讯飞', '智谱AI', '月之暗面', '阿里云', '百度智能云', '旷视科技', '云从科技'],
+    '电子 / 半导体 / 集成电路': ['华为海思', '中芯国际', '韦尔股份', '兆易创新', '北方华创', '长鑫存储', '紫光展锐', '长江存储'],
+    '通信 / 运营商': ['华为', '中兴通讯', '中国移动', '中国电信', '中国联通', '爱立信', '诺基亚'],
+    '金融 / 银行 / 证券 / 保险': ['中国工商银行', '中国建设银行', '招商银行', '中信证券', '中金公司', '中国人寿', '中国平安', '蚂蚁集团'],
+    '咨询 / 会计 / 审计 / 税务': ['普华永道', '德勤', '安永', '毕马威', '麦肯锡', '贝恩公司', '波士顿咨询', '天职国际'],
+    '智能制造 / 机械 / 汽车': ['比亚迪', '吉利汽车', '上汽集团', '三一重工', '徐工集团', '中国中车', '蔚来', '理想汽车'],
+    '能源 / 电力 / 化工': ['国家电网', '南方电网', '国家能源集团', '中国石化', '中国石油', '隆基绿能', '阳光电源', '宁德时代'],
+    '建筑 / 房地产 / 工程': ['中国建筑', '中国铁建', '中国交建', '万科', '保利发展', '华润置地', '中国电建', '金地集团'],
+    '医药 / 生物 / 医疗器械': ['恒瑞医药', '药明康德', '迈瑞医疗', '复星医药', '石药集团', '扬子江药业', '齐鲁制药', '联影医疗'],
+    '教育 / 培训': ['新东方', '好未来', '中公教育', '高途', '学而思', '猿辅导', '公办中小学', '高校'],
+    '传媒 / 文化 / 广告': ['字节跳动', '腾讯', '网易', '小红书', '芒果TV', '分众传媒', '奥美', '蓝色光标'],
+    '电商 / 零售 / 快消': ['阿里巴巴', '京东', '拼多多', '美团', '抖音电商', 'SHEIN', '安克创新', '宝洁'],
+    '物流 / 供应链': ['顺丰速运', '京东物流', '菜鸟网络', '中通快递', '圆通速递', '德邦物流', 'DHL', '中国外运'],
+    '法律 / 公共服务': ['金杜律师事务所', '中伦律师事务所', '君合律师事务所', '方达律师事务所', '大成律师事务所', '盈科律师事务所'],
+    '农业 / 食品 / 环保': ['中粮集团', '伊利集团', '蒙牛乳业', '海天味业', '双汇发展', '牧原股份', '新希望集团', '隆平高科'],
+    '旅游 / 酒店 / 航空服务': ['携程集团', '同程旅行', '华住集团', '锦江国际', '万豪国际', '洲际酒店', '中国国航', '东方航空'],
+    '游戏 / 动漫 / 数字娱乐': ['腾讯游戏', '网易游戏', '米哈游', '莉莉丝', '完美世界', '三七互娱', '叠纸游戏', '鹰角网络'],
+    '人力资源 / 行政': ['智联招聘', '前程无忧', 'BOSS直聘', '猎聘', '科锐国际', '万宝盛华'],
+    '翻译 / 外贸 / 国际业务': ['阿里巴巴国际站', 'SHEIN', '安克创新', '中国中化', '中国外运', '小米国际'],
+    '公务员 / 事业单位 / 国企': ['各级党政机关', '国家税务总局', '海关总署', '各地人社局', '国家电网', '中国石油']
+  };
+  function getAllJobs() {
+    var list = [];
+    CAREER_DATA.industries.forEach(function (ind) {
+      var comps = INDUSTRY_COMPANIES[ind.name] || [];
+      ind.jobs.forEach(function (j, idx) {
+        var company = j.company || (comps.length ? comps[idx % comps.length] : '知名企业');
+        list.push({
+          title: j.title, company: company, industry: ind.name, skills: j.skills || [], salary: j.salary || [6, 15],
+          edu: j.edu || '本科', types: j.types || ['社招'], desc: j.desc || '', hot: !!ind.hot
+        });
+      });
+    });
+    (state.realtimeJobs || []).forEach(function (j) {
+      if (!j || !j.title) return;
+      list.push({
+        title: j.title, company: j.company || j.employer || '实时同步企业', industry: j.industry || '实时同步岗位', skills: j.skills || [],
+        salary: Array.isArray(j.salary) && j.salary.length === 2 ? j.salary : [8, 20],
+        edu: j.edu || '本科', types: j.types || ['社招', '全职'], desc: j.desc || '来自你配置的数据源', hot: false, realtime: true
+      });
+    });
+    return list;
+  }
+  function scoreJob(job) {
+    var eduF = EDU_FACTOR[state.edu] || 1;
+    var tier = CITY_TIER(state.city);
+
+    var matched = [];
+    var jSkills = job.skills || [];
+    jSkills.forEach(function (need) {
+      var hit = state.skills.some(function (u) { return skillHit(u, need); });
+      if (hit) matched.push(need);
+    });
+    var skillScore = jSkills.length ? matched.length / jSkills.length : 0.45;
+
+    var majorText = [state.major, state.majorClass, state.majorCategory].join(' ');
+    var indDef = CAREER_DATA.industries.filter(function (i) { return i.name === job.industry; })[0];
+    var majorScore = 0.35;
+    if (indDef && indDef.majors.some(function (k) { return majorText.indexOf(k) >= 0; })) majorScore = 1;
+    else if (state.major && job.title.indexOf(state.major) >= 0) majorScore = 0.8;
+    else if (state.majorClass && job.title.indexOf(state.majorClass) >= 0) majorScore = 0.7;
+
+    var indScore = state.industries.length ? (state.industries.indexOf(job.industry) >= 0 ? 1 : 0.22) : 0.6;
+
+    var cityScore = 1;
+    if (tier.level === 2 && HEAVY_INDUSTRIES.indexOf(job.industry) >= 0) cityScore = 0.9;
+    if (tier.level === 3) cityScore = HEAVY_INDUSTRIES.indexOf(job.industry) >= 0 ? 0.55 : 0.9;
+    if (/公务员|事业单位/.test(job.industry)) cityScore = 1;
+
+    var refLo = job.salary[0] * tier.factor * eduF;
+    var refHi = job.salary[1] * tier.factor * eduF;
+    var want = num(state.salary) / 1000;
+    var salaryScore;
+    if (!want) salaryScore = 0.65;
+    else if (want >= refLo && want <= refHi) salaryScore = 1;
+    else if (want < refLo) salaryScore = Math.max(0.3, 1 - (refLo - want) / Math.max(1, refLo));
+    else salaryScore = Math.max(0.4, 1 - (want - refHi) / Math.max(1, refHi) * 0.5);
+
+    var need = JOB_EDU[job.edu] || 3;
+    var mine = EDU_LEVEL[state.edu] || 3;
+    var eduScore = mine >= need ? 1 : (mine === need - 1 ? 0.35 : 0.1);
+
+    var typeScore = 0.6;
+    if (state.jobTypes.length) {
+      typeScore = state.jobTypes.some(function (t) { return (job.types || []).indexOf(t) >= 0; }) ? 1 : 0.28;
+    }
+
+    var w = { skill: 0.32, major: 0.18, industry: 0.12, city: 0.10, salary: 0.10, edu: 0.10, type: 0.08 };
+    if (!state.skills.length) w.skill = 0;
+    var total = w.skill + w.major + w.industry + w.city + w.salary + w.edu + w.type;
+    var score = (skillScore * w.skill + majorScore * w.major + indScore * w.industry + cityScore * w.city +
+      salaryScore * w.salary + eduScore * w.edu + typeScore * w.type) / total;
+
+    var missing = jSkills.filter(function (s) { return matched.indexOf(s) < 0; }).slice(0, 4);
+    var reasons = [];
+    if (state.skills.length) reasons.push('技能命中 <b>' + matched.length + '/' + jSkills.length + '</b>');
+    if (majorScore >= 0.7) reasons.push('专业<b>对口</b>');
+    else reasons.push('专业<b>可迁移</b>');
+    if (state.industries.length && state.industries.indexOf(job.industry) >= 0) reasons.push('符合期望行业');
+    if (tier.level === 3 && HEAVY_INDUSTRIES.indexOf(job.industry) >= 0) reasons.push('本地岗位相对少，建议关注远程/周边城市');
+    if (want && salaryScore >= 0.95) reasons.push('薪资落在期望区间');
+    if (eduScore === 1) reasons.push('学历满足要求');
+
+    return {
+      job: job, score: Math.round(score * 100), matched: matched, missing: missing,
+      reasons: reasons, ref: [Math.round(refLo * 10) / 10, Math.round(refHi * 10) / 10]
+    };
+  }
+  function matchCivil() {
+    var majorText = [state.major, state.majorClass, state.majorCategory].join(' ');
+    var scoreList = CAREER_DATA.civil.map(function (c) {
+      var s = 0;
+      c.fit.forEach(function (k) { if (majorText.indexOf(k) >= 0) s += 2; });
+      if (/公务员/.test(state.jobTypes.join(' ')) && /公务员|选调/.test(c.name)) s += 2;
+      if (/事业单位/.test(state.jobTypes.join(' ')) && /事业单位|教师|医疗/.test(c.name)) s += 2;
+      return { c: c, s: s };
+    });
+    scoreList.sort(function (a, b) { return b.s - a.s; });
+    return scoreList.slice(0, 6).map(function (x) { return x.c; });
+  }
+  function runMatch() {
+    if (!state.major) { toast('请先完成基本信息中的专业选择'); goStep(1); return; }
+    var scored = getAllJobs().map(scoreJob).sort(function (a, b) { return b.score - a.score; });
+    var top = scored.slice(0, 12);
+    var avg = top.length ? Math.round(top.reduce(function (a, b) { return a + b.score; }, 0) / top.length) : 0;
+    results = { jobs: top, civil: matchCivil(), avg: avg };
+    renderResults();
+  }
+
+  /* ---------- 结果渲染 ---------- */
+  function searchKeyword(extra) {
+    return [extra, state.city, state.district, state.major].filter(Boolean).join(' ');
+  }
+  function renderResults() {
+    $('#kpiJobs').innerHTML = results.jobs.length + '<small> 个</small>';
+    $('#kpiAvg').innerHTML = results.avg + '<small> %</small>';
+    var ref = salaryReference();
+    $('#kpiSalary').innerHTML = '<span style="font-size:15px">' + kfmt(ref.lo) + '–' + kfmt(ref.hi) + '</span>';
+    var place = state.city.indexOf(state.province) === 0 ? state.city : (state.province + ' · ' + state.city);
+    if (state.district) place += ' · ' + state.district;
+    $('#matchSummary').textContent = '按综合匹配度排序 · ' + place + ' · ' + state.edu + ' · 期望 ' + (state.salary ? num(state.salary).toLocaleString() + ' 元/月' : '未填写薪资');
+
+    var box = $('#jobList');
+    if (!results.jobs.length) {
+      box.innerHTML = '<div class="empty-state">暂无匹配岗位，请补充技能或调整求职意向</div>';
+    } else {
+      box.innerHTML = results.jobs.map(function (r, idx) {
+        var j = r.job;
+        var tagHtml = r.matched.slice(0, 6).map(function (s) { return '<span class="mini-tag ok">✓ ' + esc(s) + '</span>'; }).join('');
+        var missHtml = r.missing.slice(0, 3).map(function (s) { return '<span class="mini-tag miss">补 ' + esc(s) + '</span>'; }).join('');
+        var q = [j.company, j.title, state.city, state.district].filter(Boolean).join(' ');
+        var links = [
+          { label: 'BOSS 直聘', url: 'https://www.zhipin.com/web/geek/job?query=' + encodeURIComponent(q) },
+          { label: '智联招聘', url: 'https://sou.zhaopin.com/?kw=' + encodeURIComponent(q) },
+          { label: '前程无忧', url: 'https://we.51job.com/pc/search?keyword=' + encodeURIComponent(q) },
+          { label: '猎聘', url: 'https://www.liepin.com/zhaopin/?key=' + encodeURIComponent(q) },
+          { label: '全网公告', url: 'https://www.baidu.com/s?wd=' + encodeURIComponent(q + ' 招聘 公告') }
+        ];
+        return '<article class="job-card">' +
+          '<div class="job-top"><div>' +
+          '<h4 class="job-title">' + (idx === 0 ? '<span style="font-size:11px;background:var(--primary);color:#fff;border-radius:5px;padding:2px 6px;vertical-align:middle;margin-right:6px">最佳</span>' : '') + esc(j.title) + '<span class="job-company">· ' + esc(j.company || '知名企业') + '</span></h4>' +
+          '<div class="job-sub"><span>' + esc(j.industry) + '</span><span class="dot">参考 ' + kfmt(r.ref[0] * 1000) + '–' + kfmt(r.ref[1] * 1000) + '</span><span class="dot">' + esc(j.edu) + '</span><span class="dot">' + (j.types || []).slice(0, 3).map(esc).join(' / ') + '</span></div>' +
+          '</div><div class="match-score"><b>' + r.score + '%</b><span>综合匹配</span></div></div>' +
+          '<div class="bar"><i style="width:' + Math.max(6, r.score) + '%"></i></div>' +
+          '<div class="job-tags">' + tagHtml + missHtml + '</div>' +
+          '<div class="reason">' + r.reasons.join(' · ') + '</div>' +
+          '<div class="job-actions">' +
+          links.map(function (l) { return '<a class="btn sm" href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' + esc(l.label) + '</a>'; }).join('') +
+          '</div></article>';
+      }).join('');
+    }
+
+    var cbox = $('#civilList');
+    cbox.innerHTML = results.civil.map(function (c) {
+      var fit = c.fit.slice(0, 5).map(function (k) { return '<span class="mini-tag">' + esc(k) + '</span>'; }).join(' ');
+      return '<div class="civil-card"><h4>' + esc(c.name) + '</h4>' +
+        '<div class="time">⏱ ' + esc(c.time) + '</div>' +
+        '<p>' + esc(c.desc) + '</p>' +
+        '<div class="fit">适配方向：' + fit + '</div>' +
+        '<a class="go" href="' + esc(c.url) + '" target="_blank" rel="noopener noreferrer">查看官方信息 →</a></div>';
+    }).join('');
+
+    var pbox = $('#platformList');
+    pbox.innerHTML = CAREER_DATA.platforms.map(function (p) {
+      var url = p.fixed ? p.search : p.search.replace('{kw}', encodeURIComponent(searchKeyword('招聘')));
+      return '<div class="platform-card"><h4>' + esc(p.name) + '</h4><p>' + esc(p.desc) + '</p>' +
+        '<a class="go" href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">立即检索 →</a></div>';
+    }).join('');
+
+    if (state.dataUpdatedAt) {
+      $('#dataNotice').innerHTML = '<b>数据已同步：</b>' + esc(state.dataUpdatedAt) + ' · 当前含实时岗位 ' + (state.realtimeJobs || []).length + ' 条。浏览器仍无法直接跨域抓取招聘站点，实时性由你配置的接口保障。';
+    }
+  }
+  function openJobSearch(title, platform) {
+    var q = [title, state.city, state.district].filter(Boolean).join(' ');
+    var url;
+    if (platform === '智联招聘') url = 'https://sou.zhaopin.com/?kw=' + encodeURIComponent(q);
+    else if (platform === '全网') url = 'https://www.baidu.com/s?wd=' + encodeURIComponent(q + ' 招聘 公告');
+    else url = 'https://www.zhipin.com/web/geek/job?query=' + encodeURIComponent(q);
+    window.open(url, '_blank', 'noopener');
+  }
+
+  /* ---------- 数据源 ---------- */
+  function syncData() {
+    var api = $('#apiInput').value.trim();
+    if (!api) { toast('请先填写接口地址'); return; }
+    var btn = $('#syncBtn');
+    btn.disabled = true;
+    btn.textContent = '同步中…';
+var isArr = function (v) { return Object.prototype.toString.call(v) === '[object Array]'; };
+    fetch(api, { headers: { 'Accept': 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) {
+        var jobs = isArr(data) ? data : (data.jobs || []);
+        state.realtimeJobs = jobs.map(function (j) {
+          var sk = j.skills;
+          if (!isArr(sk)) sk = String(sk || '').split(',');
+          return {
+            title: j.title || j.name || '未命名岗位',
+            industry: j.industry || '实时同步岗位',
+            skills: sk.filter(function (x) { return !!x; }),
+            salary: isArr(j.salary) ? j.salary.map(Number) : [8, 20],
+            edu: j.edu || '本科',
+            types: isArr(j.types) ? j.types : ['社招', '全职'],
+            desc: j.desc || ''
+          };
+        }).filter(function (j) { return j.title; });
+        state.dataUpdatedAt = data.updatedAt || new Date().toISOString().slice(0, 10);
+        $('#dataVersion').textContent = '接口同步：' + state.dataUpdatedAt + ' · ' + state.realtimeJobs.length + ' 条岗位';
+        saveState();
+        toast('同步成功，新增 ' + state.realtimeJobs.length + ' 条岗位');
+        if (state.step === 4) runMatch();
+      }, function (err) {
+        toast('同步失败：' + err.message + '（检查 CORS 或接口格式）');
+      })
+      .then(function () {
+        btn.disabled = false;
+        btn.textContent = '立即同步';
+      });
+  }
+  function openDataModal() {
+    $('#apiInput').value = state.api || '';
+    $('#dataVersion').textContent = state.dataUpdatedAt ? ('接口同步：' + state.dataUpdatedAt) : ('内置快照：' + DATA_SNAPSHOT);
+    $('#dataModal').classList.add('open');
+  }
+
+  /* ---------- 导出 ---------- */
+  function exportResult() {
+    if (!results.jobs.length) { toast('请先生成匹配结果'); return; }
+    var payload = {
+      generatedAt: new Date().toISOString(),
+      profile: {
+        education: state.edu, gradYear: state.gradYear, school: state.school, major: state.major,
+        majorCategory: state.majorCategory, majorClass: state.majorClass,
+        rank: state.rank && state.total ? (state.rank + '/' + state.total) : '', gpa: state.gpa,
+        skills: state.skills, expectedProvince: state.province, expectedCity: state.city, expectedDistrict: state.district,
+        industries: state.industries, salary: state.salary, jobTypes: state.jobTypes
+      },
+      summary: { jobCount: results.jobs.length, averageMatch: results.avg },
+      jobs: results.jobs.map(function (r) {
+        return { title: r.job.title, company: r.job.company, industry: r.job.industry, match: r.score, matchedSkills: r.matched, missingSkills: r.missing, salaryRef: r.ref };
+      }),
+      civilService: results.civil.map(function (c) { return { name: c.name, time: c.time, url: c.url }; })
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'careerfit-result-' + new Date().toISOString().slice(0, 10) + '.json';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 600);
+    toast('已导出匹配结果');
+  }
+
+  /* ---------- 初始化 ---------- */
+  function renderEduChips() {
+    $('#eduChips').innerHTML = EDU_LIST.map(function (e) {
+      return '<button type="button" class="chip' + (state.edu === e ? ' on' : '') + '" data-edu="' + esc(e) + '">' + esc(e) + '</button>';
+    }).join('');
+  }
+  function initSelects() {
+    $('#uniProvince').innerHTML = Object.keys(UNI_DATA).map(function (p) {
+      return '<option value="' + esc(p) + '">' + esc(p) + '</option>';
+    }).join('');
+    $('#uniProvince').value = state.uniProvince;
+
+    $('#majorCategory').innerHTML = '<option value="">选择学科门类</option>' + Object.keys(MAJOR_DATA).map(function (c) {
+      return '<option value="' + esc(c) + '">' + esc(c) + '</option>';
+    }).join('');
+    if (state.majorCategory) $('#majorCategory').value = state.majorCategory;
+    renderMajorClassSelect();
+  }
+  function bindEvents() {
+    $$('.wheel-mini button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var w = wheels[btn.getAttribute('data-wheel')];
+        if (w) w.step(Number(btn.getAttribute('data-dir')));
+      });
+    });
+    $$('[data-next]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var next = Number(btn.dataset.next);
+        if (next === 2 && !validateStep1()) return;
+        if (next === 3 && !validateStep2()) return;
+        goStep(next);
+      });
+    });
+    $$('[data-prev]').forEach(function (btn) {
+      btn.addEventListener('click', function () { goStep(Number(btn.dataset.prev)); });
+    });
+
+    $('#eduChips').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-edu]');
+      if (!b) return;
+      state.edu = b.dataset.edu;
+      renderEduChips();
+      updateSalaryNote();
+      saveState();
+    });
+
+    $('#uniProvince').addEventListener('change', function () {
+      state.uniProvince = this.value;
+      renderUniList();
+      saveState();
+    });
+    $('#uniSearch').addEventListener('input', debounce(function () {
+      state.uniQuery = this.value;
+      renderUniList();
+    }, 200));
+    $('#uniList').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-uni]');
+      if (!b) return;
+      state.school = b.dataset.uni;
+      state.schoolCustom = false;
+      $('#uniOther').value = '';
+      renderUniList();
+      updateUniPicked();
+      saveState();
+    });
+    $('#uniOther').addEventListener('input', function () {
+      var v = this.value.trim();
+      if (v) { state.school = v; state.schoolCustom = true; }
+      else if (state.schoolCustom) { state.school = ''; state.schoolCustom = false; }
+      updateUniPicked();
+      saveState();
+    });
+
+    $('#majorCategory').addEventListener('change', function () {
+      state.majorCategory = this.value;
+      state.majorClass = '';
+      state.majorQuery = '';
+      $('#majorSearch').value = '';
+      renderMajorClassSelect();
+      renderMajorList();
+      saveState();
+    });
+    $('#majorClass').addEventListener('change', function () {
+      state.majorClass = this.value;
+      renderMajorList();
+      saveState();
+    });
+    $('#majorSearch').addEventListener('input', debounce(function () {
+      state.majorQuery = this.value;
+      renderMajorList();
+    }, 200));
+    $('#majorList').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-major]');
+      if (!b) return;
+      selectMajor(b.dataset.major, b.dataset.cat, b.dataset.cls);
+    });
+    $('#majorOther').addEventListener('input', debounce(function () {
+      var v = this.value.trim();
+      if (!v) return;
+      state.major = v;
+      state.majorCategory = state.majorCategory || '其他';
+      state.majorClass = state.majorClass || '自定义';
+      updateMajorPicked();
+      renderSkillSources();
+      renderIndustryRecommend();
+      saveState();
+    }, 320));
+
+    ['#rankInput', '#rankTotal', '#gpaInput'].forEach(function (sel) {
+      $(sel).addEventListener('input', function () {
+        if (sel === '#rankInput') state.rank = this.value;
+        if (sel === '#rankTotal') state.total = this.value;
+        if (sel === '#gpaInput') state.gpa = this.value;
+        updateRank();
+        saveState();
+      });
+    });
+
+    $('#majorSkills').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-skill]'); if (b) toggleSkill(b.dataset.skill);
+    });
+    $('#hotSkills').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-skill]'); if (b) toggleSkill(b.dataset.skill);
+    });
+    $('#commonSkills').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-skill]'); if (b) toggleSkill(b.dataset.skill);
+    });
+    $('#customSkills').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-skill]'); if (b) toggleSkill(b.dataset.skill);
+    });
+    $('#selectedSkills').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-del-skill]'); if (b) toggleSkill(b.dataset.delSkill);
+    });
+    $('#addSkillBtn').addEventListener('click', addCustomSkill);
+    $('#customSkillInput').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') { e.preventDefault(); addCustomSkill(); }
+    });
+
+    $('#industryChips').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-industry]'); if (b) toggleIndustry(b.dataset.industry);
+    });
+    $('#recommendIndustries').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-industry]'); if (b) toggleIndustry(b.dataset.industry);
+    });
+    $('#jobTypeChips').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-jobtype]'); if (b) toggleJobType(b.dataset.jobtype);
+    });
+    $('#workProvince').addEventListener('change', function () {
+      state.province = this.value;
+      state.city = '';
+      state.district = '';
+      state.workQuery = '';
+      $('#workSearch').value = '';
+      $('#workOther').value = '';
+      fillWorkCities();
+      fillWorkDistricts();
+      updateWorkHint();
+      renderWorkList();
+      saveState();
+    });
+    $('#workCity').addEventListener('change', function () {
+      state.city = this.value;
+      state.district = '';
+      state.workQuery = '';
+      $('#workSearch').value = '';
+      $('#workOther').value = '';
+      fillWorkDistricts();
+      updateWorkHint();
+      renderWorkList();
+      saveState();
+    });
+    $('#workDistrict').addEventListener('change', function () {
+      state.district = this.value;
+      $('#workOther').value = '';
+      updateWorkHint();
+      renderWorkList();
+      saveState();
+    });
+    $('#workSearch').addEventListener('input', debounce(function () {
+      state.workQuery = this.value;
+      renderWorkList();
+    }, 200));
+    $('#workList').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-work-p]');
+      if (!b) return;
+      setWorkLocation(b.getAttribute('data-work-p'), b.getAttribute('data-work-c'), b.getAttribute('data-work-d'));
+      state.workQuery = '';
+      $('#workSearch').value = '';
+      renderWorkList();
+    });
+    $('#workOther').addEventListener('input', function () {
+      var v = this.value.trim();
+      if (v) {
+        state.district = v;
+        updateWorkHint();
+        saveState();
+      }
+    });
+    $('#hotCities').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-hot-city]'); if (b) selectHotCity(b.getAttribute('data-hot-city'));
+    });
+
+    $('#salaryInput').addEventListener('input', function () {
+      state.salary = this.value;
+      updateSalaryNote();
+      saveState();
+    });
+    $('#salaryBands').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-band]'); if (!b) return;
+      var band = CAREER_DATA.salaryBands[Number(b.dataset.band)];
+      var v = band.max > 900000 ? 60000 : Math.round((band.min + band.max) / 2);
+      state.salary = String(v);
+      $('#salaryInput').value = v;
+      updateSalaryNote();
+      saveState();
+    });
+
+    $('#arrivalSelect').addEventListener('change', function () { state.arrival = this.value; saveState(); });
+    $('#workModeSelect').addEventListener('change', function () { state.workMode = this.value; saveState(); });
+
+    $('#matchBtn').addEventListener('click', function () { goStep(4); });
+    $('#restartBtn').addEventListener('click', function () { goStep(1); });
+    $('#exportBtn').addEventListener('click', exportResult);
+
+    $('#jobList').addEventListener('click', function (e) {
+      var b = e.target.closest('[data-search-job]');
+      if (!b) return;
+      openJobSearch(b.dataset.searchJob, b.dataset.platform || '');
+    });
+
+    $('#themeBtn').addEventListener('click', function () {
+      var cur = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = cur;
+      localStorage.setItem('careerfit_theme', cur);
+    });
+    $('#dataBtn').addEventListener('click', openDataModal);
+    $('#closeModalBtn').addEventListener('click', function () { $('#dataModal').classList.remove('open'); });
+    $('#dataModal').addEventListener('click', function (e) {
+      if (e.target === this) this.classList.remove('open');
+    });
+    $('#saveApiBtn').addEventListener('click', function () {
+      state.api = $('#apiInput').value.trim();
+      saveState();
+      $('#dataModal').classList.remove('open');
+      toast(state.api ? '接口地址已保存' : '已清空接口，使用内置数据');
+    });
+    $('#syncBtn').addEventListener('click', syncData);
+  }
+
+  function init() {
+    loadState();
+    var theme = localStorage.getItem('careerfit_theme');
+    if (theme) document.documentElement.dataset.theme = theme;
+
+    renderEduChips();
+    initSelects();
+    renderUniList();
+    updateUniPicked();
+    renderMajorList();
+    updateMajorPicked();
+    renderSkillSources();
+    renderIndustryChips();
+    renderIndustryRecommend();
+    renderJobTypeChips();
+    renderSalaryBands();
+    updateRank();
+
+    wheels.gradYear = new WheelPicker($('#gradYearWheel'), (function () {
+      var a = []; for (var y = 2000; y <= 2035; y++) a.push(String(y)); return a;
+    })(), String(state.gradYear), function (v) { state.gradYear = Number(v); updateGradYearHint(); saveState(); });
+    updateGradYearHint();
+
+    initWorkLocation();
+    bindEvents();
+
+    if (state.salary) $('#salaryInput').value = state.salary;
+    if (state.rank) $('#rankInput').value = state.rank;
+    if (state.total) $('#rankTotal').value = state.total;
+    if (state.gpa) $('#gpaInput').value = state.gpa;
+    if (state.arrival) $('#arrivalSelect').value = state.arrival;
+    if (state.workMode) $('#workModeSelect').value = state.workMode;
+    updateSalaryNote();
+
+    $('#statUni').textContent = Object.keys(UNI_DATA).reduce(function (a, p) { return a + UNI_DATA[p].length; }, 0);
+    $('#statMajor').textContent = MAJOR_FLAT.length;
+    $('#statJob').textContent = getAllJobs().length;
+
+    if (state.step > 1 && state.major) goStep(Math.min(3, state.step), true);
+    else goStep(1, true);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>
